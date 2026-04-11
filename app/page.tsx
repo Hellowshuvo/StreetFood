@@ -100,9 +100,9 @@ export default function HomePage() {
       try {
         if (userLocation) {
           const { data, error } = await supabase.rpc('nearby_stalls', {
-            lat: userLocation.lat,
-            long: userLocation.lng,
-            max_results: 100,
+            p_lat: userLocation.lat,
+            p_long: userLocation.lng,
+            p_max_results: 100,
           });
 
           if (data && !error) {
@@ -123,10 +123,10 @@ export default function HomePage() {
           }
         } else if (bounds) {
           const { data, error } = await supabase.rpc('stalls_in_view', {
-            min_lat: bounds.minLat,
-            min_long: bounds.minLng,
-            max_lat: bounds.maxLat,
-            max_long: bounds.maxLng,
+            p_min_lat: bounds.minLat,
+            p_min_long: bounds.minLng,
+            p_max_lat: bounds.maxLat,
+            p_max_long: bounds.maxLng,
           });
 
           if (data && !error) {

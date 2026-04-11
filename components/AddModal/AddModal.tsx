@@ -172,7 +172,8 @@ export default function AddModal({
         .insert({
           name: name.trim(),
           category,
-          location: `POINT(${location.lng} ${location.lat})`,
+          lat: location.lat,
+          long: location.lng,
           created_by: userId,
           photo_url: photoUrl,
         })
