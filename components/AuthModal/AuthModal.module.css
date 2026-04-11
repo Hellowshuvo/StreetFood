@@ -1,0 +1,161 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--surface-overlay);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  animation: fadeIn var(--duration-fast) var(--ease-out);
+}
+
+.modal {
+  width: 100%;
+  max-width: 400px;
+  background: var(--surface-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  position: relative;
+  animation: scaleIn var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-xl);
+}
+
+/* — Close — */
+.close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.close:hover {
+  background: var(--glass-border);
+}
+
+.close svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* — Header — */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+/* — Google Button — */
+.googleBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--text-primary);
+  color: var(--surface-primary);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  min-height: 44px;
+}
+
+.googleBtn:hover {
+  filter: brightness(0.9);
+}
+
+.googleBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* — Divider — */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
+  color: var(--text-tertiary);
+  font-size: var(--text-xs);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--glass-border);
+}
+
+/* — Form — */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* — Error / Message — */
+.error {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--error);
+  text-align: center;
+}
+
+.message {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--success);
+  text-align: center;
+}
+
+/* — Toggle — */
+.toggle {
+  margin-top: var(--space-5);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.toggle button {
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* — Mobile — */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal {
+    max-width: 100%;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+}

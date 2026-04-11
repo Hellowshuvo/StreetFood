@@ -1,0 +1,243 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-map);
+}
+
+/* — Custom Rating Pin Markers — */
+.markerWrapper {
+  overflow: visible !important;
+}
+
+.markerPin {
+  position: absolute;
+  bottom: 0;
+  left: -22px; /* Anchor horizontally (half of 44px width) */
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.markerContent {
+  background: var(--gray-900);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(var(--glass-rgb), 0.12);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(var(--glass-rgb), 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.markerPointer {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--gray-900);
+  margin-top: -1px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.4));
+  z-index: 1;
+  transition: border-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.markerPin:hover {
+  transform: scale(1.05) translateY(-4px);
+  z-index: 100 !important;
+}
+
+.markerPin:hover .markerContent {
+  border-color: rgba(var(--glass-rgb), 0.3);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.8),
+    0 0 12px rgba(var(--glass-rgb), 0.1),
+    inset 0 1px 0 rgba(var(--glass-rgb), 0.2);
+}
+
+.marker-selected {
+  transform: scale(1.05) translateY(-4px);
+  z-index: 100 !important;
+}
+
+.marker-selected .markerContent {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 0 4px rgba(var(--glass-rgb), 0.15);
+}
+
+.marker-selected .markerPointer {
+  border-top-color: var(--white);
+}
+
+.marker-dim {
+  opacity: 0.35;
+  transform: scale(0.9);
+}
+
+@keyframes markerRipple {
+  0% { box-shadow: 0 0 0 0 rgba(var(--glass-rgb), 0.4); }
+  100% { box-shadow: 0 0 0 16px rgba(var(--glass-rgb), 0); }
+}
+
+.markerPin:active .markerContent {
+  transform: scale(0.92);
+}
+
+.markerPin:active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: markerRipple 0.5s ease-out forwards;
+}
+
+/* — User Location Dot — */
+.user-dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background: #4A90FF;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  box-shadow: 0 0 8px rgba(74, 144, 255, 0.5);
+}
+
+.user-dot-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(74, 144, 255, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* — Map Controls — */
+.controls {
+  position: absolute;
+  /* Space for FAB: 24px offset + 56px FAB height + 16px gap = 96px */
+  bottom: 96px;
+  /* Centered over FAB: FAB center is 24 + 28 = 52. 52 - 22 (half of 44) = 30 */
+  right: 30px;
+  z-index: var(--z-controls);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.control-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.control-btn:hover {
+  background: rgba(var(--glass-rgb), 0.12);
+}
+
+.control-btn svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+}
+
+/* — Hover Preview Card — */
+.preview {
+  position: absolute;
+  z-index: var(--z-controls);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  animation: fadeIn var(--duration-fast) var(--ease-out);
+  min-width: 120px;
+}
+
+.preview-name {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.preview-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: 2px;
+}
+
+.preview-rating {
+  font-size: var(--text-xs);
+  color: var(--rating-gold);
+  font-weight: 600;
+}
+
+.preview-category {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: capitalize;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .preview {
+    display: none;
+  }
+
+  .controls {
+    /* Dodge the new BottomNav */
+    bottom: calc(88px + env(safe-area-inset-bottom));
+    right: 16px;
+  }
+
+  .markerPin {
+    width: 52px;
+    height: 52px;
+    left: -26px;
+  }
+
+  .markerContent {
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 14px;
+  }
+
+  .markerPointer {
+    border-top-width: 10px;
+    border-left-width: 7px;
+    border-right-width: 7px;
+  }
+}

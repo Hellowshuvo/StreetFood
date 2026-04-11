@@ -1,0 +1,311 @@
+.panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--panel-width);
+  background: var(--surface-primary);
+  border-left: 1px solid var(--glass-border);
+  z-index: var(--z-panel);
+  overflow-y: auto;
+  overflow-x: hidden;
+  animation: slideInRight var(--duration-normal) var(--ease-out);
+}
+
+/* — Close Button — */
+.close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-glass);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  cursor: pointer;
+  border: 1px solid var(--glass-border);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.close:hover {
+  background: var(--surface-card);
+}
+
+.close svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-primary);
+}
+
+/* — Hero Image — */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: var(--gray-900);
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  color: var(--text-tertiary);
+}
+
+.hero-placeholder svg {
+  width: 40px;
+  height: 40px;
+}
+
+.hero-placeholder span {
+  font-size: var(--text-sm);
+}
+
+/* — Content — */
+.content {
+  padding: var(--space-5);
+}
+
+/* — Header — */
+.header {
+  margin-bottom: var(--space-4);
+}
+
+.name {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ratingText {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--rating-gold);
+}
+
+.totalRatings {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+/* — Tags — */
+.tags {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: rgba(var(--glass-rgb), 0.05);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+/* — Actions — */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.actions .btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* — Rating Form — */
+.ratingForm {
+  padding: var(--space-4);
+  background: rgba(var(--glass-rgb), 0.03);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(var(--glass-rgb), 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  animation: fadeInUp var(--duration-normal) var(--ease-out);
+}
+
+.ratingLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.ratingInput {
+  resize: none;
+  min-height: 60px;
+}
+
+/* — Divider — */
+.divider {
+  height: 1px;
+  background: rgba(var(--glass-rgb), 0.06);
+  margin: var(--space-4) 0;
+}
+
+/* — Posts Section — */
+.postsSection {
+  margin-bottom: var(--space-4);
+}
+
+.postsTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-3);
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.postItem {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: rgba(var(--glass-rgb), 0.03);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(var(--glass-rgb), 0.04);
+}
+
+.postImage {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.postContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.postUser {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.postCaption {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postTime {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+}
+
+.noPosts {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: var(--space-4);
+}
+
+/* — Mobile Drag Handle — */
+.dragHandleContainer {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  cursor: grab;
+}
+
+.dragHandleContainer:active {
+  cursor: grabbing;
+}
+
+.dragHandle {
+  width: 40px;
+  height: 5px;
+  border-radius: 4px;
+  background: var(--glass-border);
+}
+
+/* — Mobile: becomes bottom sheet — */
+@media (max-width: 768px) {
+  .panel {
+    width: 100%;
+    top: 0;
+    bottom: unset;
+    height: 100dvh;
+    border-left: none;
+    border-top: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    animation: none; /* framer-motion handles this now */
+    box-shadow: 0 -8px 32px rgba(var(--shadow-rgb), 0.2);
+    /* Safe Area Dodge */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .panelFull {
+    border-radius: 0;
+  }
+
+  .hero {
+    height: 180px;
+    padding-top: 32px; /* make room for drag handle visually */
+  }
+}
+
+/* — Tablet — */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .panel {
+    width: 360px;
+  }
+}

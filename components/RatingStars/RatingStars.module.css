@@ -1,0 +1,28 @@
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.stars-sm .star svg { width: 14px; height: 14px; }
+.stars-md .star svg { width: 18px; height: 18px; }
+.stars-lg .star svg { width: 24px; height: 24px; }
+
+.star {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.interactive .star {
+  cursor: pointer;
+}
+
+.interactive .star:hover {
+  transform: scale(1.2);
+}
