@@ -99,17 +99,17 @@
   --duration-normal: 220ms;
   --duration-slow: 350ms;
 
-  /* Z-index layers */
+  /* Z-index layers — significantly separated to avoid any stacking context issues */
   --z-map: 0;
   --z-markers: 10;
-  --z-search: 50;
-  --z-sidebar: 60;
-  --z-controls: 70;
-  --z-bottom-nav: 80;
-  --z-panel: 100;
-  --z-overlay: 150;
-  --z-modal: 200;
-  --z-toast: 400;
+  --z-search: 100;
+  --z-controls: 200;
+  --z-bottom-nav: 300;
+  --z-sidebar: 500;
+  --z-panel: 600;
+  --z-overlay: 700;
+  --z-modal: 800;
+  --z-toast: 1000;
 
   /* Layout */
   --sidebar-width: 280px;

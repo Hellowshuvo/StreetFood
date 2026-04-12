@@ -228,23 +228,6 @@ export default function HomePage() {
 
   return (
     <div className={styles.layout}>
-      {/* Sidebar */}
-      <Sidebar
-        activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
-        sortMode={sortMode}
-        onSortChange={setSortMode}
-        activePage={activePage}
-        onPageChange={handlePageChange}
-        stallCount={filteredStalls.length}
-        userId={userId}
-        userAvatar={userAvatar}
-        onSignIn={() => setShowAuth(true)}
-        onSignOut={handleSignOut}
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
-
       {/* Map area */}
       <main className={styles.mapArea}>
         {/* Mobile Header */}
@@ -372,6 +355,23 @@ export default function HomePage() {
             setIsSidebarOpen(true);
           }
         }} 
+      />
+
+      {/* Sidebar moved to bottom for better z-index stacking */}
+      <Sidebar
+        activeCategory={activeCategory}
+        onCategoryChange={setActiveCategory}
+        sortMode={sortMode}
+        onSortChange={setSortMode}
+        activePage={activePage}
+        onPageChange={handlePageChange}
+        stallCount={filteredStalls.length}
+        userId={userId}
+        userAvatar={userAvatar}
+        onSignIn={() => setShowAuth(true)}
+        onSignOut={handleSignOut}
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
     </div>
   );
