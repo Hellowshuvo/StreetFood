@@ -25,6 +25,7 @@ interface MapProps {
     center: [number, number];
     zoom: number;
   } | null;
+  hideControls?: boolean;
 }
 
 // CartoDB Dark Matter — dark mode tiles
@@ -40,6 +41,7 @@ export default function MapView({
   userLocation,
   onUserLocationFound,
   focusView,
+  hideControls
 }: MapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -253,26 +255,26 @@ export default function MapView({
       <div className="map-overlay-gradient" />
 
       {/* Map controls */}
-      <div className={styles.controls}>
-        <ThemeToggle />
-        <button
-          className={`${styles['control-btn']} glass`}
-          onClick={handleLocate}
-          aria-label="Center on my location"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+      {!hideControls && (
+        <div className={styles.controls}>
+          <button
+            className={`${styles['control-btn']} glass`}
+            onClick={handleLocate}
+            aria-label="Center on my location"
           >
-            <circle cx="12" cy="12" r="3" />
-            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
-          </svg>
-        </button>
-      </div>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 2L19 21L12 17L5 21L12 2Z" />
+            </svg>
+          </button>
+        </div>
+      )}
 
       {/* Hover preview card (desktop only) */}
       {hoveredStall && (

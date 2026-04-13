@@ -155,7 +155,7 @@
 .control-btn {
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-lg);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,8 +168,8 @@
 }
 
 .control-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
   color: var(--text-primary);
 }
 
@@ -218,10 +218,11 @@
   }
 
   .controls {
-    /* Dodge the new BottomNav */
-    bottom: calc(88px + env(safe-area-inset-bottom));
+    /* Sit above the FAB: FAB is at 64 + inset + 24 = ~88. FAB height is 48. 88 + 48 + 16 = 152 */
+    bottom: calc(64px + env(safe-area-inset-bottom) + var(--space-6) + 48px + 16px);
     right: 16px;
   }
+
 
   .markerPin {
     width: 52px;

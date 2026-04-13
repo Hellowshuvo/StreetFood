@@ -10,8 +10,7 @@ const ZOOM_LEVELS: Record<string, number> = {
   division: 8,
   district: 10,
   upazila: 12,
-  union: 14,
-  area: 16
+  union: 14
 };
 
 /**
@@ -25,23 +24,17 @@ export async function resolveLocationCoordinates(params: {
   district?: string;
   upazilaName?: string;
   unionName?: string;
-  areaName?: string;
   upazilaId?: string;
   unionId?: string;
-  areaId?: string;
 }): Promise<GeoLocation | null> {
-  const { division, district, upazilaName, unionName, areaName, upazilaId, unionId, areaId } = params;
+  const { division, district, upazilaName, unionName, upazilaId, unionId } = params;
 
   // 1. Determine the deepest level specified
   let level = '';
   let localId = '';
   let localTable = '';
 
-  if (areaId) {
-    level = 'area';
-    localId = areaId;
-    localTable = 'areas';
-  } else if (unionId) {
+  if (unionId) {
     level = 'union';
     localId = unionId;
     localTable = 'unions';

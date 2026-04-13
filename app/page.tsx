@@ -7,6 +7,8 @@ import Sidebar from '@/components/Sidebar/Sidebar';
 import StallPanel from '@/components/StallPanel/StallPanel';
 import AuthModal from '@/components/AuthModal/AuthModal';
 import BottomNav from '@/components/BottomNav/BottomNav';
+import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
+import UnifiedSearchBar from '@/components/UnifiedSearchBar/UnifiedSearchBar';
 import type { Stall, Category } from '@/lib/types';
 import type { Coordinates } from '@/lib/geo';
 import { supabase } from '@/lib/supabase';
@@ -57,6 +59,7 @@ export default function HomePage() {
   // Add flow
   const [showAddModal, setShowAddModal] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLocationActive, setIsLocationActive] = useState(false);
 
   // Search
   // Search
@@ -68,7 +71,6 @@ export default function HomePage() {
     district?: string;
     upazilaId?: string;
     unionId?: string;
-    areaId?: string;
   }>({});
 
   const [mapView, setMapView] = useState<{
@@ -233,10 +235,8 @@ export default function HomePage() {
       district: location.district,
       upazilaId: location.upazilaId,
       unionId: location.unionId,
-      areaId: location.areaId,
       upazilaName: location.upazilaName,
-      unionName: location.unionName,
-      areaName: location.areaName
+      unionName: location.unionName
     });
 
     if (geo) {
@@ -265,8 +265,7 @@ export default function HomePage() {
       const matchLocation = !locationFilter.district || (
         s.district_name === locationFilter.district &&
         (!locationFilter.upazilaId || s.upazila_id === locationFilter.upazilaId) &&
-        (!locationFilter.unionId || s.union_id === locationFilter.unionId) &&
-        (!locationFilter.areaId || s.area_id === locationFilter.areaId)
+        (!locationFilter.unionId || s.union_id === locationFilter.unionId)
       );
 
       return matchCategory && matchSearch && matchLocation;
@@ -309,46 +308,34 @@ export default function HomePage() {
                 <span className={styles.mobileBrandText}>Street Food</span>
               </div>
             </div>
+
+            <div className={styles.mobileHeaderRight}>
+              <ThemeToggle />
+            </div>
           </div>
 
-          <div className={`${styles.searchBar} glass`}>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="M21 21l-4.35-4.35" />
-            </svg>
-            <input
-              placeholder="Search stalls..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+          <UnifiedSearchBar 
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            locationFilter={locationFilter}
+            onLocationChange={handleLocationChange}
+            onModalToggle={setIsLocationActive}
+          />
         </div>
 
         {/* Desktop search */}
         <div className={styles.desktopSearch}>
-          <div className={`${styles.searchBar} glass`}>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="M21 21l-4.35-4.35" />
-            </svg>
-            <input
-              placeholder="Search stalls..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+          <UnifiedSearchBar 
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            locationFilter={locationFilter}
+            onLocationChange={handleLocationChange}
+            onModalToggle={setIsLocationActive}
+          />
+        </div>
+
+        <div className={styles.desktopThemeToggle}>
+          <ThemeToggle />
         </div>
 
         <MapView
@@ -359,25 +346,28 @@ export default function HomePage() {
           userLocation={userLocation}
           onUserLocationFound={handleUserLocationFound}
           focusView={mapView}
+          hideControls={isLocationActive}
         />
 
         {/* FAB — Add stall */}
-        <button
-          className={styles.fab}
-          onClick={handleAddClick}
-          aria-label="Add stall"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
+        {!isLocationActive && (
+          <button
+            className={styles.fab}
+            onClick={handleAddClick}
+            aria-label="Add stall"
           >
-            <line x1="12" y1="5" x2="12" y2="19" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
-        </button>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+          </button>
+        )}
       </main>
 
       {/* Stall Panel — conditionally rendered */}
@@ -402,16 +392,18 @@ export default function HomePage() {
 
       {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
 
-      <BottomNav 
-        onAddClick={handleAddClick} 
-        onProfileClick={() => {
-          if (!userId) {
-            setShowAuth(true);
-          } else {
-            setIsSidebarOpen(true);
-          }
-        }} 
-      />
+      {!isLocationActive && (
+        <BottomNav 
+          onAddClick={handleAddClick} 
+          onProfileClick={() => {
+            if (!userId) {
+              setShowAuth(true);
+            } else {
+              setIsSidebarOpen(true);
+            }
+          }} 
+        />
+      )}
 
       {/* Sidebar moved to bottom for better z-index stacking */}
       <Sidebar

@@ -2,7 +2,6 @@
 
 import styles from './Sidebar.module.css';
 import CategoryFilter from '@/components/CategoryFilter/CategoryFilter';
-import LocationSearch from '@/components/LocationSearch/LocationSearch';
 import type { Category } from '@/lib/types';
 
 interface SidebarProps {
@@ -86,11 +85,6 @@ export default function Sidebar({
       </nav>
 
       <div className={styles.divider} />
-
-      {/* Location Search */}
-      <div className={styles.section}>
-        <LocationSearch onLocationChange={onLocationChange} />
-      </div>
 
       <div className={styles.divider} />
 

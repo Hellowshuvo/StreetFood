@@ -1,0 +1,255 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  border-radius: var(--radius-full);
+  padding: 0 var(--space-2);
+  background: var(--surface-glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.container:focus-within {
+  border-color: rgba(var(--glass-rgb), 0.3);
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6);
+}
+
+.searchZone {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  padding-left: var(--space-3);
+}
+
+.locationZone {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  padding: 0 var(--space-4);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--duration-fast);
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+}
+
+.locationZone:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.divider {
+  width: 1px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.iconWrapper svg {
+  width: 18px;
+  height: 18px;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  padding: 0 var(--space-2);
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.locationContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.locationText {
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.microLabel {
+  position: absolute;
+  top: -18px;
+  left: var(--space-4);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  opacity: 0;
+  transition: all var(--duration-fast);
+  pointer-events: none;
+}
+
+.searchZone:hover .microLabel,
+.locationZone:hover .microLabel {
+  opacity: 0.6;
+  transform: translateY(-2px);
+}
+
+/* Modal Styling */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.modal {
+  width: 100%;
+  max-width: 440px;
+  background: var(--surface-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.modalHeader h3 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: var(--surface-glass);
+  color: var(--text-primary);
+}
+
+.closeBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.modalBody {
+  padding: var(--space-4);
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* Scrollbar */
+.modalBody::-webkit-scrollbar {
+  width: 6px;
+}
+.modalBody::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modalOverlay {
+    align-items: flex-end;
+    padding-top: 0;
+  }
+  
+  .modal {
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-width: none;
+    max-height: 85vh;
+  }
+
+  .container {
+    height: 48px;
+    padding: 0 var(--space-1);
+  }
+
+  .searchZone {
+    padding-left: var(--space-2);
+  }
+
+  .locationZone {
+    padding: 0 var(--space-2);
+    flex: 0 0 auto;
+    min-width: 100px;
+    justify-content: center;
+  }
+
+  .locationText {
+    font-size: 11px;
+  }
+
+  .input {
+    font-size: 13px;
+    padding: 0 var(--space-1);
+  }
+
+  .iconWrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .iconWrapper svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .locationZone {
+    min-width: 40px;
+  }
+  
+  .locationText {
+    display: none;
+  }
+  
+  .searchZone {
+    flex: 1;
+  }
+}

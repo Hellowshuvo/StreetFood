@@ -39,11 +39,9 @@ export default function LocationSearch({ onLocationChange }: LocationSearchProps
   
   const [upazilaId, setUpazilaId] = useState('');
   const [unionId, setUnionId] = useState('');
-  const [areaId, setAreaId] = useState('');
 
   const [upazilas, setUpazilas] = useState<any[]>([]);
   const [unions, setUnions] = useState<any[]>([]);
-  const [areas, setAreas] = useState<any[]>([]);
 
   const [loading, setLoading] = useState(false);
 
@@ -93,59 +91,54 @@ export default function LocationSearch({ onLocationChange }: LocationSearchProps
     fetchUnions();
   }, [upazilaId]);
 
-  // Fetch Areas when Union changes
-  useEffect(() => {
-    if (!unionId) {
-      setAreas([]);
-      setAreaId('');
-      return;
-    }
-
-    const fetchAreas = async () => {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from('areas')
-        .select('id, name')
-        .eq('union_id', unionId)
-        .order('name');
-      
-      if (!error && data) setAreas(data);
-      setLoading(false);
-    };
-
-    fetchAreas();
-  }, [unionId]);
-
-  // Notify parent
-  useEffect(() => {
+  const handleConfirm = () => {
     const selectedUpazila = upazilas.find(u => u.id === upazilaId)?.name;
     const selectedUnion = unions.find(u => u.id === unionId)?.name;
-    const selectedArea = areas.find(a => a.id === areaId)?.name;
 
     onLocationChange({
       division: division || undefined,
       district: district || undefined,
       upazilaId: upazilaId || undefined,
       unionId: unionId || undefined,
-      areaId: areaId || undefined,
       upazilaName: selectedUpazila,
       unionName: selectedUnion,
-      areaName: selectedArea
     });
-  }, [division, district, upazilaId, unionId, areaId, upazilas, unions, areas]);
+  };
 
   const handleClear = () => {
     setDivision('');
     setDistrict('');
     setUpazilaId('');
     setUnionId('');
-    setAreaId('');
+  };
+
+  const currentSelectionSummary = () => {
+    if (!division) return null;
+    const parts = [division];
+    if (district) parts.push(district.replace(' District', ''));
+    if (upazilaId) {
+      const u = upazilas.find(u => u.id === upazilaId)?.name;
+      if (u) parts.push(u);
+    }
+    if (unionId) {
+      const un = unions.find(u => u.id === unionId)?.name;
+      if (un) parts.push(un);
+    }
+    return parts.join(' > ');
   };
 
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>Filter by Location</h3>
-      
+    <div className={styles.modalContent}>
+      {division && (
+        <div className={styles.summary}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span className={styles.summaryText}>{currentSelectionSummary()}</span>
+        </div>
+      )}
+
       {/* Division */}
       <div className={styles.group}>
         <label className={styles.label}>Division</label>
@@ -206,20 +199,6 @@ export default function LocationSearch({ onLocationChange }: LocationSearchProps
         </select>
       </div>
 
-      {/* Area */}
-      <div className={styles.group}>
-        <label className={styles.label}>Village / Mahalla</label>
-        <select 
-          className={styles.select}
-          value={areaId}
-          onChange={(e) => setAreaId(e.target.value)}
-          disabled={!unionId || loading}
-        >
-          <option value="">Select Area</option>
-          {areas.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}
-        </select>
-      </div>
-
       {loading && (
         <div className={styles.loading}>
           <div className={styles.loadingIcon} />
@@ -227,11 +206,23 @@ export default function LocationSearch({ onLocationChange }: LocationSearchProps
         </div>
       )}
 
-      {(division || district || upazilaId || unionId || areaId) && (
-        <button className={styles.clearBtn} onClick={handleClear}>
-          Clear Location Filter
+      <div className={styles.actions}>
+        {(division || district || upazilaId || unionId) && (
+          <button className={styles.clearBtn} onClick={handleClear}>
+            Reset
+          </button>
+        )}
+        <button 
+          className={`${styles.confirmBtn} ${!division ? styles.disabled : ''}`} 
+          onClick={handleConfirm}
+          disabled={!division}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" width="20" height="20">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          Confirm
         </button>
-      )}
+      </div>
     </div>
   );
 }
