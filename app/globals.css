@@ -443,16 +443,9 @@ img {
   filter: contrast(1.05) brightness(0.95);
 }
 
+/* Remove the gradient that was causing dark corners */
 .map-overlay-gradient {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at center,
-    transparent 40%,
-    rgba(0,0,0,0.4) 100%
-  );
-  pointer-events: none;
-  z-index: 5;
+  display: none;
 }
 
 .leaflet-control-zoom {

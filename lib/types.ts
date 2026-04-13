@@ -17,6 +17,10 @@ export interface Stall {
   lat: number;
   lng: number;
   distance_meters?: number;
+  district_name?: string;
+  upazila_id?: string;
+  union_id?: string;
+  area_id?: string;
 }
 
 export interface Post {

@@ -10,6 +10,7 @@ import BottomNav from '@/components/BottomNav/BottomNav';
 import type { Stall, Category } from '@/lib/types';
 import type { Coordinates } from '@/lib/geo';
 import { supabase } from '@/lib/supabase';
+import { resolveLocationCoordinates } from '@/lib/geocoding';
 
 // Dynamic imports (SSR-incompatible)
 const MapView = dynamic(() => import('@/components/Map/Map'), {
@@ -58,7 +59,22 @@ export default function HomePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Search
+  // Search
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Location filter
+  const [locationFilter, setLocationFilter] = useState<{
+    division?: string;
+    district?: string;
+    upazilaId?: string;
+    unionId?: string;
+    areaId?: string;
+  }>({});
+
+  const [mapView, setMapView] = useState<{
+    center: [number, number];
+    zoom: number;
+  } | null>(null);
 
   // Bounds ref
   const boundsRef = useRef<{
@@ -118,6 +134,10 @@ export default function HomePage() {
               created_by: s.created_by,
               created_at: s.created_at,
               distance_meters: s.dist_meters,
+              district_name: s.district_name,
+              upazila_id: s.upazila_id,
+              union_id: s.union_id,
+              area_id: s.area_id,
             }));
             setStalls(mapped);
           }
@@ -141,6 +161,10 @@ export default function HomePage() {
               total_ratings: s.total_ratings,
               created_by: s.created_by,
               created_at: s.created_at,
+              district_name: s.district_name,
+              upazila_id: s.upazila_id,
+              union_id: s.union_id,
+              area_id: s.area_id,
             }));
             setStalls(mapped);
           }
@@ -200,6 +224,29 @@ export default function HomePage() {
     await supabase.auth.signOut();
   };
 
+  const handleLocationChange = useCallback(async (location: any) => {
+    setLocationFilter(location);
+
+    // Resolve coordinates and update map view
+    const geo = await resolveLocationCoordinates({
+      division: location.division,
+      district: location.district,
+      upazilaId: location.upazilaId,
+      unionId: location.unionId,
+      areaId: location.areaId,
+      upazilaName: location.upazilaName,
+      unionName: location.unionName,
+      areaName: location.areaName
+    });
+
+    if (geo) {
+      setMapView({
+        center: [geo.lat, geo.lng],
+        zoom: geo.zoom
+      });
+    }
+  }, []);
+
   const handlePageChange = useCallback((page: 'map' | 'feed') => {
     setActivePage(page);
     if (page === 'feed') {
@@ -214,7 +261,15 @@ export default function HomePage() {
       const matchSearch =
         !searchQuery ||
         s.name.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCategory && matchSearch;
+      
+      const matchLocation = !locationFilter.district || (
+        s.district_name === locationFilter.district &&
+        (!locationFilter.upazilaId || s.upazila_id === locationFilter.upazilaId) &&
+        (!locationFilter.unionId || s.union_id === locationFilter.unionId) &&
+        (!locationFilter.areaId || s.area_id === locationFilter.areaId)
+      );
+
+      return matchCategory && matchSearch && matchLocation;
     })
     .sort((a, b) => {
       if (sortMode === 'top-rated') {
@@ -303,6 +358,7 @@ export default function HomePage() {
           onMapMove={handleMapMove}
           userLocation={userLocation}
           onUserLocationFound={handleUserLocationFound}
+          focusView={mapView}
         />
 
         {/* FAB — Add stall */}
@@ -372,6 +428,7 @@ export default function HomePage() {
         onSignOut={handleSignOut}
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
+        onLocationChange={handleLocationChange}
       />
     </div>
   );

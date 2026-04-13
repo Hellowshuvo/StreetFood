@@ -1,0 +1,2752 @@
+[
+  {
+    "district_name": "Dhaka District",
+    "upazilas": [
+      {
+        "name": "Dhanmondi",
+        "unions": [
+          {
+            "name": "Ward 15",
+            "areas": ["Dhanmondi Road 15", "Shankar", "West Dhanmondi"]
+          },
+          {
+            "name": "Ward 32",
+            "areas": ["Dhanmondi Road 32", "Sobhanbagh"]
+          }
+        ]
+      },
+      {
+        "name": "Gulshan",
+        "unions": [
+          {
+            "name": "Gulshan 1",
+            "areas": ["Gulshan Circle 1", "Niketan"]
+          },
+          {
+            "name": "Gulshan 2",
+            "areas": ["Gulshan Circle 2", "Baridhara"]
+          }
+        ]
+      },
+      { "name": "Dhamrai", "unions": [] },
+      { "name": "Dohar", "unions": [] },
+      { "name": "Keraniganj", "unions": [] },
+      { "name": "Nawabganj", "unions": [] },
+      { "name": "Savar", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Narayanganj District",
+    "upazilas": [
+      {
+        "name": "Narayanganj Sadar",
+        "unions": [
+          {
+            "name": "Fatullah",
+            "areas": ["Panchabati", "Bisic", "Shibu Market"]
+          },
+          {
+            "name": "Siddhirganj",
+            "areas": ["Chittagong Road", "Shimrail"]
+          }
+        ]
+      },
+      { "name": "Araihazar", "unions": [] },
+      { "name": "Bandar", "unions": [] },
+      { "name": "Rupganj", "unions": [] },
+      { "name": "Sonargaon", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Barguna District",
+    "upazilas": [
+      { "name": "Amtali", "unions": [] },
+      { "name": "Bamna", "unions": [] },
+      { "name": "Barguna Sadar", "unions": [] },
+      { "name": "Betagi", "unions": [] },
+      { "name": "Patharghata", "unions": [] },
+      { "name": "Taltoli", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Barisal District",
+    "upazilas": [
+      { "name": "Agailjhara", "unions": [] },
+      { "name": "Babuganj", "unions": [] },
+      { "name": "Bakerganj", "unions": [] },
+      { 
+        "name": "Banaripara", 
+        "unions": [
+          { "name": "Chakhar", "areas": [] },
+          { "name": "Iluhar", "areas": [] },
+          { "name": "Salieabakpur", "areas": [] },
+          { "name": "Syedkati", "areas": [] },
+          { "name": "Udaykati", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Gaurnadi", 
+        "unions": [
+          { "name": "Batajore", "areas": [] },
+          { "name": "Chandshi", "areas": [] },
+          { "name": "Khanazapur", "areas": [] },
+          { "name": "Mahilara", "areas": [] },
+          { "name": "Nalchira", "areas": [] },
+          { "name": "Sharikal", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Hizla", 
+        "unions": [
+          { "name": "Barjalia", "areas": [] },
+          { "name": "Dulkhola", "areas": [] },
+          { "name": "Gualbaria", "areas": [] },
+          { "name": "Hizla-Gowrabdi", "areas": [] },
+          { "name": "Horinathpur", "areas": [] },
+          { "name": "Kuchaipatty", "areas": [] },
+          { "name": "Mamania", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Barisal Sadar", 
+        "unions": [
+          { "name": "Roypasha Karapur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Mehendiganj", 
+        "unions": [
+          { "name": "Alimabad", "areas": [] },
+          { "name": "Andher Manik", "areas": [] },
+          { "name": "Bhashanchar", "areas": [] },
+          { "name": "Biddanandapur", "areas": [] },
+          { "name": "Chandpur", "areas": [] },
+          { "name": "Char Ekkoria", "areas": [] },
+          { "name": "Char Gopalpur", "areas": [] },
+          { "name": "Darirchar Khajuria", "areas": [] },
+          { "name": "Gobindpur", "areas": [] },
+          { "name": "Jangalia", "areas": [] },
+          { "name": "Lata", "areas": [] },
+          { "name": "Mehendiganj", "areas": [] },
+          { "name": "Ulania", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Muladi", 
+        "unions": [
+          { "name": "Batamara", "areas": [] },
+          { "name": "Char Khalekhan", "areas": [] },
+          { "name": "Gasua", "areas": [] },
+          { "name": "Kazirchar", "areas": [] },
+          { "name": "Muladi", "areas": [] },
+          { "name": "Nazirpur", "areas": [] },
+          { "name": "Safipur", "areas": [] }
+        ]
+      },
+      { "name": "Wazirpur", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Bhola District",
+    "upazilas": [
+      { 
+        "name": "Bhola Sadar", 
+        "unions": [
+          { "name": "Alinagar", "areas": [] },
+          { "name": "Bapta", "areas": [] },
+          { "name": "Beduria", "areas": [] },
+          { "name": "Bhelumia", "areas": [] },
+          { "name": "Chairsomia", "areas": [] },
+          { "name": "Dhania", "areas": [] },
+          { "name": "Illisha", "areas": [] },
+          { "name": "Kachia", "areas": [] },
+          { "name": "North Digholdi", "areas": [] },
+          { "name": "Pachim Ilisha", "areas": [] },
+          { "name": "Rajapoor", "areas": [] },
+          { "name": "Shibpur", "areas": [] },
+          { "name": "South Digholdi", "areas": [] }
+        ]
+      },
+      { "name": "Burhanuddin", "unions": [] },
+      { 
+        "name": "Char Fasson", 
+        "unions": [
+          { "name": "Abina Bad", "areas": [] },
+          { "name": "Aslampur", "areas": [] },
+          { "name": "Char Kalmi", "areas": [] },
+          { "name": "Char Madraj", "areas": [] },
+          { "name": "Charmanika", "areas": [] },
+          { "name": "Ewajpur", "areas": [] },
+          { "name": "Hazarigonj", "areas": [] },
+          { "name": "Jahanpur", "areas": [] },
+          { "name": "Jinnagar", "areas": [] },
+          { "name": "Kukri Mukri", "areas": [] },
+          { "name": "Nilkamal", "areas": [] },
+          { "name": "Nurabad", "areas": [] },
+          { "name": "Rasulpur", "areas": [] }
+        ]
+      },
+      { "name": "Daulatkhan", "unions": [] },
+      { "name": "Lalmohan", "unions": [] },
+      { "name": "Manpura", "unions": [] },
+      { "name": "Tazumuddin", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Jhalokati District",
+    "upazilas": [
+      { 
+        "name": "Jhalokati Sadar", 
+        "unions": [
+          { "name": "Basanda", "areas": [] },
+          { "name": "Binoykati", "areas": [] },
+          { "name": "Gab Khan Dhanshiri", "areas": [] },
+          { "name": "Gabaramchandrapur", "areas": [] },
+          { "name": "Keora", "areas": [] },
+          { "name": "Kirtipasa", "areas": [] },
+          { "name": "Nabagramme", "areas": [] },
+          { "name": "Nathullabad", "areas": [] },
+          { "name": "Ponabalia", "areas": [] },
+          { "name": "Shekerhat", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kathalia", 
+        "unions": [
+          { "name": "Amua", "areas": [] },
+          { "name": "Aourabnia", "areas": [] },
+          { "name": "Chenchri Rampur", "areas": [] },
+          { "name": "Kathalia", "areas": [] },
+          { "name": "Patikalghata", "areas": [] },
+          { "name": "Showljalia", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Nalchity", 
+        "unions": [
+          { "name": "Bhairabpasha", "areas": [] },
+          { "name": "Dapdapia", "areas": [] },
+          { "name": "Kulkathi", "areas": [] },
+          { "name": "Kusangal", "areas": [] },
+          { "name": "Magar", "areas": [] },
+          { "name": "Mollarhat", "areas": [] },
+          { "name": "Nachanmahal", "areas": [] },
+          { "name": "Ranapasha", "areas": [] },
+          { "name": "Siddakathi", "areas": [] },
+          { "name": "Subidpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Rajapur", 
+        "unions": [
+          { "name": "Baraia", "areas": [] },
+          { "name": "Galua", "areas": [] },
+          { "name": "Motbari", "areas": [] },
+          { "name": "Rajapur", "areas": [] },
+          { "name": "Santuria", "areas": [] },
+          { "name": "Suktagar", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Patuakhali District",
+    "upazilas": [
+      { 
+        "name": "Bauphal", 
+        "unions": [
+          { "name": "Adabaria", "areas": [] },
+          { "name": "Baga", "areas": [] },
+          { "name": "Bauphal", "areas": [] },
+          { "name": "Daspara", "areas": [] },
+          { "name": "Kalaya", "areas": [] },
+          { "name": "Kalizuri", "areas": [] },
+          { "name": "Kanakdia", "areas": [] },
+          { "name": "Kesobpur", "areas": [] },
+          { "name": "Madonpura", "areas": [] },
+          { "name": "Nazirpur Taterkati", "areas": [] },
+          { "name": "Nordhulia", "areas": [] },
+          { "name": "Nowmala", "areas": [] },
+          { "name": "Surjamoni", "areas": [] },
+          { "name": "Kachipara", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Dashmina", 
+        "unions": [
+          { "name": "Alipura", "areas": [] },
+          { "name": "Baharumpur", "areas": [] },
+          { "name": "Basbariya", "areas": [] },
+          { "name": "Betagi Sankipur", "areas": [] },
+          { "name": "Dasmina", "areas": [] },
+          { "name": "Ronogophaldai", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Galachipa", 
+        "unions": [
+          { "name": "Amkhola", "areas": [] },
+          { "name": "Bakulbaria", "areas": [] },
+          { "name": "Barabaishdia", "areas": [] },
+          { "name": "Chakajal", "areas": [] },
+          { "name": "Chalitabunia", "areas": [] },
+          { "name": "Char Biswas", "areas": [] },
+          { "name": "Charmontaz", "areas": [] },
+          { "name": "Chiknikandi", "areas": [] },
+          { "name": "Chottobaisdia", "areas": [] },
+          { "name": "Dakua", "areas": [] },
+          { "name": "Galachipa", "areas": [] },
+          { "name": "Galkhali", "areas": [] },
+          { "name": "Gazalia", "areas": [] },
+          { "name": "Kallayan Kalas", "areas": [] },
+          { "name": "Panpatty", "areas": [] },
+          { "name": "Rangabali", "areas": [] },
+          { "name": "Ratandi Taltoli", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kalapara", 
+        "unions": [
+          { "name": "Chakamaiya", "areas": [] },
+          { "name": "Dankhali", "areas": [] },
+          { "name": "Dhulashar", "areas": [] },
+          { "name": "Khopravanga", "areas": [] },
+          { "name": "Lalua", "areas": [] },
+          { "name": "Latachapli", "areas": [] },
+          { "name": "Mithagong", "areas": [] },
+          { "name": "Nilgonj", "areas": [] },
+          { "name": "Tiakhali", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Mirzaganj", 
+        "unions": [
+          { "name": "Amsagacia", "areas": [] },
+          { "name": "Deuli Subid Khali", "areas": [] },
+          { "name": "Kakrabunia", "areas": [] }
+        ]
+      },
+      { "name": "Patuakhali Sadar", "unions": [] },
+      { "name": "Rangabali", "unions": [] },
+      { 
+        "name": "Dumki", 
+        "unions": [
+          { "name": "Angaria", "areas": [] },
+          { "name": "Gangatia", "areas": [] },
+          { "name": "Lebukhali", "areas": [] },
+          { "name": "Muradia", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Pirojpur District",
+    "upazilas": [
+      { "name": "Bhandaria", "unions": [] },
+      { "name": "Kawkhali", "unions": [] },
+      { 
+        "name": "Mathbaria", 
+        "unions": [
+          { "name": "Daudkhali", "areas": [] },
+          { "name": "Halta Golisha Khali", "areas": [] },
+          { "name": "Miru Khali", "areas": [] },
+          { "name": "Mothbaria", "areas": [] },
+          { "name": "Shapleza", "areas": [] },
+          { "name": "Tikikata", "areas": [] },
+          { "name": "Tushkhali", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Nazirpur", 
+        "unions": [
+          { "name": "Deul Bari Dobra", "areas": [] },
+          { "name": "Dirgha", "areas": [] },
+          { "name": "Malikhali", "areas": [] },
+          { "name": "Matibanga", "areas": [] },
+          { "name": "Nazirpur", "areas": [] },
+          { "name": "Sankarikathi", "areas": [] },
+          { "name": "Shekhamadia", "areas": [] },
+          { "name": "Sreeankati", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Pirojpur Sadar", 
+        "unions": [
+          { "name": "Durgapur", "areas": [] },
+          { "name": "Kadamtala", "areas": [] },
+          { "name": "Kalakhali", "areas": [] },
+          { "name": "Shariktala Dumaritala", "areas": [] },
+          { "name": "Shikder Mallik", "areas": [] },
+          { "name": "Tona", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Nesarabad (Swarupkati)", 
+        "unions": [
+          { "name": "Atghar-Kuriana", "areas": [] },
+          { "name": "Boldia", "areas": [] },
+          { "name": "Daihary", "areas": [] },
+          { "name": "Guarakha", "areas": [] },
+          { "name": "Jalabari", "areas": [] },
+          { "name": "Samadakati", "areas": [] },
+          { "name": "Sarengokati", "areas": [] },
+          { "name": "Shohagdal", "areas": [] },
+          { "name": "Sutiarati", "areas": [] },
+          { "name": "Swarupkati", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Zianagor", 
+        "unions": [
+          { "name": "Balipara", "areas": [] },
+          { "name": "Parerhat", "areas": [] },
+          { "name": "Pattashi", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Bogura District",
+    "upazilas": [
+      { "name": "Adamdighi", "unions": [] },
+      { "name": "Bogra Sadar", "unions": ["Erulia", "Fapore", "Gokul", "Namuja", "Nisindara", "Noongola", "Rajapur", "Sabgram", "Shakharia", "Shekhercola"] },
+      { "name": "Dhunat", "unions": ["Bhander bari", "Chikachi", "Chowkibari", "Dhunat", "Elangi", "Gopalpur", "Gossaibari", "Mothurapur", "Nimgachi"] },
+      { "name": "Dhupchanchia", "unions": [] },
+      { "name": "Gabtali", "unions": ["Baliadighi", "Dakhinpara", "Durgahatta", "Gabtali", "Kagoil", "Kashipur", "Mohishaban", "Naruamala", "Nepalteli", "Rameswarpur", "Sonarai"] },
+      { "name": "Kahaloo", "unions": ["Birkedar", "Durgapur", "Jamgram", "Kahaloo", "Kalai", "Molloncha", "Muril", "Narhatta", "Paikar"] },
+      { "name": "Nandigram", "unions": ["Burail", "Nandigram", "Thalta Mazgram", "Vatgram", "Vatra"] },
+      { "name": "Sariakandi", "unions": ["Bhelabari", "Bohail", "Chandanbisha", "Choluabari", "Fulbari", "Hat Sherpur", "Kamalpur", "Karnibari", "Kazla", "Narchi", "Shariakandi"] },
+      { "name": "Shajahanpur", "unions": ["Amrul", "Aria", "Ashekpur", "Choupinagar", "Kharna", "Khattapara", "Madla", "Majhira", "Sultanganj"] },
+      { "name": "Sherpur", "unions": [] },
+      { "name": "Shibganj", "unions": [] },
+      { "name": "Sonatola", "unions": ["Balua", "Dighair", "Madhupur", "Pakulla", "Sonatola", "Tekani Chukai Nagar", "Zorgacha"] }
+    ]
+  },
+  {
+    "district_name": "Joypurhat District",
+    "upazilas": [
+      { "name": "Akkelpur", "unions": ["Gopinathpur", "Raikali", "Rukidipur", "Sonamuki", "Tilakpur"] },
+      { "name": "Joypurhat Sadar", "unions": ["Amdai", "Bhadsha", "Bombu", "Chakborkat", "Dhalahar", "Dogachi", "Jamalpur", "Mohammadabad", "Puranapail"] },
+      { "name": "Kalai", "unions": ["Ahmedabad", "Jindarpur", "Matrai", "Ponut", "Udoypur"] },
+      { "name": "Khetlal", "unions": ["Barail", "Khetlal", "Mamudpur", "Naratara"] },
+      { "name": "Panchbibi", "unions": ["Aoulai", "Atapur", "Ayma Rasulpur", "Bagjana", "Balighata", "Dharanjee", "Kushumba", "Mohammadpur"] }
+    ]
+  },
+  {
+    "district_name": "Naogaon District",
+    "upazilas": [
+      { "name": "Atrai", "unions": ["Ahshanganj", "Bhonpara", "Bisha", "Hat Kalu Para", "Kalikapur", "Moniary", "Panchupur", "Sahagola"] },
+      { "name": "Badalgachhi", "unions": ["Adhaipur", "Badalgachi", "Balubhora", "Bilasbari", "Kola", "Methapur", "Mothurapur", "Paharpur"] },
+      { "name": "Manda", "unions": ["Bhalain", "Bharsow", "Bishnupur", "Goneshpur", "Kalikapur", "Kanshopara", "Kashab", "Kusumba", "Mainam", "Manda", "Nurullabad", "Poranpur", "Prasadpur", "Tantulia"] },
+      { "name": "Dhamoirhat", "unions": ["Agardigun", "Alampur", "Aranagor", "Dhamoirhat", "Isabpur", "Jahanpur", "Khelna", "Umar"] },
+      { "name": "Mohadevpur", "unions": ["Bhimpur", "Chandash", "Cheragpur", "Enayetpur", "Hatur", "Khazor", "Mohadevpur Sadar", "Raigaon", "Safapur", "Uttargram"] },
+      { "name": "Naogaon Sadar", "unions": ["Bactarpur", "Balihar", "Barshail", "Boalia", "Chundipur", "Dobullhati", "Hapania", "Hasaigari", "Kirtipur", "Shailagachi", "Shikarpur", "Titalkpur"] },
+      { "name": "Niamatpur", "unions": ["Bahadurpur", "Bhabicha", "Chandannagar", "Hazinagar", "Niamotpur", "Parail", "Rosulpur", "Sreemantapur"] },
+      { "name": "Patnitala", "unions": ["Akborpur", "Amair", "Dibor", "Goshnagar", "Krishnapur", "Matindhor", "Nazipur", "Nirmoil", "Patnitala", "Pattchra", "Shehara"] },
+      { "name": "Porsha", "unions": ["Chhair", "Ganguria", "Ghatnagar", "Mashidpur", "Nithpur", "Tetulia"] },
+      { "name": "Raninagar", "unions": ["Akdala", "Bargacha", "Gona", "Kaligram", "Kashimpur", "Mirat", "Paroil", "Raninagar"] },
+      { "name": "Sapahar", "unions": ["Aihai", "Goala", "patari", "Sapahar", "Sueronty", "Tilna"] }
+    ]
+  },
+  {
+    "district_name": "Natore District",
+    "upazilas": [
+      { "name": "Bagatipara", "unions": ["Bagatipara", "Dayarampur", "Fawardiar", "Jamnagor", "Panka"] },
+      { "name": "Baraigram", "unions": ["Baraigram", "Chandai", "Goari", "Gopalpur", "Jonail", "Majgaon", "Nagare"] },
+      { "name": "Gurudaspur", "unions": ["Beaghat", "Chapila", "Dharabarisha", "Khubjipur", "Mashinda", "Nagirpur"] },
+      { "name": "Lalpur", "unions": ["Arbab", "Arjunpur", "Bilmaria", "Chongdhupoil", "Duaria", "Durduria", "Ishurdi", "Kadimchilan", "Lalpur", "Walia"] },
+      { "name": "Natore Sadar", "unions": ["Baraharishpur", "Bipra Belgharia", "Brahmapur", "Chatui", "Dighapatia", "Halsha", "Kafuria", "Khajura", "Laxmipur Kholabaria", "Madhnagar", "Piprul", "Tabaria"] },
+      { "name": "Singra", "unions": ["Camary", "Chaugram", "Dahia", "Hatian Dah", "Italy", "Kalam", "Lalore", "Ramananda Khajura", "Saterdighi", "Sherkole", "Shukash", "Tajpur"] },
+      { "name": "Naldanga", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Chapainawabganj District",
+    "upazilas": [
+      { "name": "Bholahat", "unions": ["Bholahat", "Daldali", "Gohalbari", "Jambaria"] },
+      { "name": "Gomastapur", "unions": ["Alinagar", "Bangabari", "Boalia", "Chowdala", "Gomastapur", "Parbotipur", "Radhanagar", "Rohanpur"] },
+      { "name": "Nachole", "unions": ["Fatepur", "Kasba", "Nachole", "Najampur"] },
+      { "name": "Nawabganj Sadar", "unions": ["Alatuli", "Baliadanga", "Barogaria", "Char Anupnagar", "Charbagdanga", "Debinagar", "Gobratala", "Islampur", "Jhilim", "Maharajpur", "Narayonpur", "Rani Hati", "Shahjahanpur", "Sundarpur"] },
+      { "name": "Shibganj", "unions": ["Benodepur", "Chakketti", "Daipukuria", "Dhainagar", "Durlovpur", "Ghorapakhia", "Kanshat", "Mobarakpur", "Monakasha", "Nayalavanga", "Panka", "Satrujitpur", "Shahabajpur", "Shyampur", "Uzirpur"] }
+    ]
+  },
+  {
+    "district_name": "Pabna District",
+    "upazilas": [
+      { "name": "Ataikula", "unions": [] },
+      { "name": "Atgharia", "unions": ["Akdauta", "Chaudva", "Debattar", "Lakshmipur", "Mazpara"] },
+      { "name": "Bera", "unions": ["Chakla", "Dhalarchar", "Haturia Nakalia", "Jatsakhini", "Kaitola", "Masumdia", "Nutun Bharenga", "Puran Bharenga", "Ruppur"] },
+      { "name": "Bhangura", "unions": ["Austamanisha", "Bhangura", "Dillpashar", "Khan Marich", "Par Bhangura"] },
+      { "name": "Chatmohar", "unions": ["Bilchalon", "Chhaikola", "DB Gram", "Foiljana", "Gunaigachha", "Handiyal", "Horipur", "Mothurapur", "Mulgram", "Nemaichara", "Parswadanga"] },
+      { "name": "Faridpur", "unions": ["Banwari Nagar", "Brilahiri Bari", "Demra", "Faridpur", "Hadal", "Pungali"] },
+      { "name": "Ishwardi", "unions": ["Dashuria", "Laxmikunda", "Muladuli", "Paksey", "Sara", "Shahapur", "Solimpur"] },
+      { "name": "Pabna Sadar", "unions": ["Barara", "Chartarapur", "Dapunia", "Dogachi", "Gangarampur", "Goyeshpur", "Himaitpur", "Malanchi", "Maligacha", "Sadullahpur"] },
+      { "name": "Santhia", "unions": ["Ataikula", "Bhulbaria", "Dhulauri", "Dropadha", "Gourigram", "Karamja", "Kashinathpur", "Khatupara", "Nagdemra", "Nandanpur"] },
+      { "name": "Sujanagar", "unions": ["Ahmedpur", "Dulai", "Hatkhali", "Manikhat", "Najirgonj", "Raninagar", "Sagar Kandi", "Satbaria", "Tantiband", "Vayana"] }
+    ]
+  },
+  {
+    "district_name": "Sirajganj District",
+    "upazilas": [
+      { "name": "Belkuchi", "unions": ["Belkuchi Sadar", "Bhangabari", "Bordhul", "Daulatpur", "Dhukuria Bera", "Rajapur"] },
+      { "name": "Chauhali", "unions": ["Bagutia", "Ghorjan", "Khas Kawlia", "Khaspukuria", "Sodia Chandpur", "Sthal", "Umarpur"] },
+      { "name": "Kamarkhanda", "unions": ["Bhodroghat", "Jamtoil", "Jhawail", "Raydaulatpur"] },
+      { "name": "Kazipur", "unions": ["Chalitadanga", "Chargirish", "Gandail", "Kazipur", "Khasrazbari", "Maizbary", "Monsurnagor", "Natura Para", "Nishchintapur", "Shuvgacha", "Sonamukhi", "Takany"] },
+      { "name": "Raiganj", "unions": ["Brahmagacha", "Chandaikona", "Dhamai Nogor", "Dhangora", "Dhubil", "Ghurka", "Nalka", "Pangashi", "Sonakhara"] },
+      { "name": "Shahjadpur", "unions": ["Beltail", "Gala", "Garadha", "Habibullahnagor", "Jalapur", "Kaizuri", "Kayampur", "Khukni", "Norina", "Porjana", "Potazia", "Rupbati", "Sonatonee"] },
+      { "name": "Sirajganj Sadar", "unions": ["Bagbati", "Bohuli", "Kalia Horipur", "Kawakola", "Khokshabari", "Mesra", "Ratan Kandi", "Sayedabad", "Shialkole", "Songacha"] },
+      { "name": "Tarash", "unions": ["Baruhash", "Deshigram Gurpipul", "Madhainagar", "Magura Binod", "Naogaon", "Saona", "Talom", "Tarash"] },
+      { "name": "Ullahpara", "unions": ["Bangala", "Barahar", "Baro Pangashi", "Durganagar", "Hati Kumrul", "Mohanpur", "Panchacrushi", "Purnimaganti", "Ramkrishnapur", "Salonga", "Salop", "Udhunia", "Ullapara"] }
+    ]
+  },
+  {
+    "district_name": "Rajshahi District",
+    "upazilas": [
+      { "name": "Bagha", "unions": [] },
+      { "name": "Bagmara", "unions": [] },
+      { "name": "Charghat", "unions": ["Sardah", "Solua", "Yusufpur"] },
+      { "name": "Durgapur", "unions": ["Deluabari", "Gainagar", "Jaluka", "Kismotgonkoir", "Maria", "Nowpara", "Pananagar"] },
+      { "name": "Godagari", "unions": ["Bashudebpur", "Chap Asharia Dah", "Deopara", "Godagari", "Gogram", "Matikata", "Mohanpur", "Pakri", "Rishikul"] },
+      { "name": "Mohanpur", "unions": ["Bakshimoil", "Dhurail", "Ghasigram", "Jahanabad", "Royghati"] },
+      { "name": "Paba", "unions": ["Bara Gachi", "Damkura", "Darshan Para", "Haragram", "Harian", "Haripur", "Huzripara", "Parila"] },
+      { "name": "Puthia", "unions": ["Baneswar", "Bhalukgachi", "Jewpara", "Pukuria", "Puthia", "Shilmaria"] },
+      { "name": "Tanore", "unions": ["Badhair", "Chanduria", "Kalma", "Kamargaon", "Pachander", "Soarogi", "Talonda"] },
+      { "name": "Boalia Thana", "unions": [] },
+      { "name": "Matihar Thana", "unions": [] },
+      { "name": "Rajpara Thana", "unions": [] },
+      { "name": "Shah Mokdum Thana", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Bandarban District",
+    "upazilas": [
+      { 
+        "name": "Ali Kadam", 
+        "unions": [
+          { "name": "Alikadam", "areas": [] },
+          { "name": "Chewkang", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Bandarban Sadar", 
+        "unions": [
+          { "name": "Bandarban", "areas": [] },
+          { "name": "Kuhalong", "areas": [] },
+          { "name": "Rajiba", "areas": [] },
+          { "name": "Sowalong", "areas": [] },
+          { "name": "Tankabati", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Lama", 
+        "unions": [
+          { "name": "Azziz Nagar", "areas": [] },
+          { "name": "Fashiakhali", "areas": [] },
+          { "name": "Gajalia", "areas": [] },
+          { "name": "Lama", "areas": [] },
+          { "name": "Rupsi para", "areas": [] },
+          { "name": "surie", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Naikhongchhari", 
+        "unions": [
+          { "name": "Baishari", "areas": [] },
+          { "name": "Dochari", "areas": [] },
+          { "name": "Gumdum", "areas": [] },
+          { "name": "Naikhong Chari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Rowangchhari", 
+        "unions": [
+          { "name": "Rowanchari", "areas": [] },
+          { "name": "Alekhong", "areas": [] },
+          { "name": "Noapatog", "areas": [] },
+          { "name": "Taracha", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Ruma", 
+        "unions": [
+          { "name": "Galanga", "areas": [] },
+          { "name": "Paindu", "areas": [] },
+          { "name": "Remakri Ransha", "areas": [] },
+          { "name": "Ruma", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Thanchi", 
+        "unions": [
+          { "name": "Balipara", "areas": [] },
+          { "name": "Remacri", "areas": [] },
+          { "name": "Thanchi", "areas": [] },
+          { "name": "Tindu", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Brahmanbaria District",
+    "upazilas": [
+      { 
+        "name": "Akhaura", 
+        "unions": [
+          { "name": "Akhaura North", "areas": [] },
+          { "name": "Akhaura South", "areas": [] },
+          { "name": "Dharkhar", "areas": [] },
+          { "name": "Mogra", "areas": [] },
+          { "name": "Moniondha", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Bancharampur", 
+        "unions": [
+          { "name": "Bancharampur (N)", "areas": [] },
+          { "name": "Bancharampur (S)", "areas": [] },
+          { "name": "Daria Daulat", "areas": [] },
+          { "name": "Pahariakandi", "areas": [] },
+          { "name": "Rupashdi (E)", "areas": [] },
+          { "name": "Rupashdi (W)", "areas": [] },
+          { "name": "Saifulla Kandi (E)", "areas": [] },
+          { "name": "Saifulla Kandi (W)", "areas": [] },
+          { "name": "Salimabad", "areas": [] },
+          { "name": "Sonarampur", "areas": [] },
+          { "name": "Tezkhali", "areas": [] },
+          { "name": "Ujanchar (E)", "areas": [] },
+          { "name": "Ujanchar (W)", "areas": [] }
+        ]
+      },
+      { "name": "Brahmanbaria Sadar", "unions": [] },
+      { 
+        "name": "Kasba", 
+        "unions": [
+          { "name": "Baduir", "areas": [] },
+          { "name": "Bayek", "areas": [] },
+          { "name": "Binauti", "areas": [] },
+          { "name": "Gupinathpur", "areas": [] },
+          { "name": "Kaimpur", "areas": [] },
+          { "name": "Kasba (W)", "areas": [] },
+          { "name": "Kharara", "areas": [] },
+          { "name": "Kuti", "areas": [] },
+          { "name": "Mehary", "areas": [] },
+          { "name": "Mulgram", "areas": [] }
+        ]
+      },
+      { "name": "Nabinagar", "unions": [] },
+      { "name": "Nasirnagar", "unions": [] },
+      { "name": "Sarail", "unions": [] },
+      { "name": "Ashuganj", "unions": [] },
+      { "name": "Bijoynagar", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Chandpur District",
+    "upazilas": [
+      { 
+        "name": "Chandpur Sadar", 
+        "unions": [
+          { "name": "Ashikati", "areas": [] },
+          { "name": "Bagadi", "areas": [] },
+          { "name": "Balia", "areas": [] },
+          { "name": "Bishnopur", "areas": [] },
+          { "name": "Chandra", "areas": [] },
+          { "name": "Hanarchar", "areas": [] },
+          { "name": "Ibrahimpur", "areas": [] },
+          { "name": "Kallanpur", "areas": [] },
+          { "name": "Maishadi", "areas": [] },
+          { "name": "Rajrajesshar", "areas": [] },
+          { "name": "Rampur", "areas": [] },
+          { "name": "Sakhua", "areas": [] },
+          { "name": "Shamahmudpur", "areas": [] },
+          { "name": "Tarpurchandi", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Faridganj", 
+        "unions": [
+          { "name": "Rupsha(North)", "areas": [] },
+          { "name": "Rupsha(South)", "areas": [] },
+          { "name": "Balithuba(West)", "areas": [] },
+          { "name": "Bilithuba East", "areas": [] },
+          { "name": "Chandhukia(East)", "areas": [] },
+          { "name": "Chardukhia", "areas": [] },
+          { "name": "Faridgonj(North)", "areas": [] },
+          { "name": "Faridgonj(South)", "areas": [] },
+          { "name": "Gobindapur(South)", "areas": [] },
+          { "name": "Gobindopur(North)", "areas": [] },
+          { "name": "Gupti(East)", "areas": [] },
+          { "name": "Gupti(West)", "areas": [] },
+          { "name": "Paikpara North", "areas": [] },
+          { "name": "Paikpara South", "areas": [] },
+          { "name": "Subdpur(West)", "areas": [] },
+          { "name": "Subidpur(East)", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Haimchar", 
+        "unions": [
+          { "name": "Algi North", "areas": [] },
+          { "name": "Algi South", "areas": [] },
+          { "name": "Charbhairabi", "areas": [] },
+          { "name": "Gazipur", "areas": [] },
+          { "name": "Haimchar", "areas": [] },
+          { "name": "Nilkamal", "areas": [] }
+        ]
+      },
+      { "name": "Haziganj", "unions": [] },
+      { 
+        "name": "Kachua", 
+        "unions": [
+          { "name": "Asrafpur", "areas": [] },
+          { "name": "Bitara", "areas": [] },
+          { "name": "Gohat North", "areas": [] },
+          { "name": "Gohat South", "areas": [] },
+          { "name": "Kachua North", "areas": [] },
+          { "name": "Kachua South", "areas": [] },
+          { "name": "Kadla", "areas": [] },
+          { "name": "Karaiya", "areas": [] },
+          { "name": "Pathair", "areas": [] },
+          { "name": "Sachar", "areas": [] },
+          { "name": "Shahadebpur East", "areas": [] },
+          { "name": "Shahadebpur West", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Matlab Dakshin", 
+        "unions": [
+          { "name": "Khader Goaw", "areas": [] },
+          { "name": "Narayanpur", "areas": [] },
+          { "name": "Nayar Gaown (South)", "areas": [] },
+          { "name": "Nayergaown (North)", "areas": [] },
+          { "name": "Upadi North", "areas": [] },
+          { "name": "Upadi South", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Matlab Uttar", 
+        "unions": [
+          { "name": "Durgapur", "areas": [] },
+          { "name": "Eklaspur", "areas": [] },
+          { "name": "Farazikandi", "areas": [] },
+          { "name": "Fatepur (east)", "areas": [] },
+          { "name": "Fatepur(West)", "areas": [] },
+          { "name": "Islamabad", "areas": [] },
+          { "name": "Kala Khanda", "areas": [] },
+          { "name": "Mohanpur", "areas": [] },
+          { "name": "Shadullapur", "areas": [] },
+          { "name": "Shatnol", "areas": [] },
+          { "name": "Sultanabad", "areas": [] },
+          { "name": "Zahirabad", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Shahrasti", 
+        "unions": [
+          { "name": "Chitoshi West", "areas": [] },
+          { "name": "Meher (South)", "areas": [] },
+          { "name": "Meher (Uttar)", "areas": [] },
+          { "name": "Raysree (South)", "areas": [] },
+          { "name": "Raysree North", "areas": [] },
+          { "name": "Shuchipara Uttar", "areas": [] },
+          { "name": "Suchipara Suth", "areas": [] },
+          { "name": "Tamta", "areas": [] },
+          { "name": "Tosnibazar East", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Chattogram District",
+    "upazilas": [
+      { 
+        "name": "Anwara", 
+        "unions": [
+          { "name": "Anowara Sadar", "areas": [] },
+          { "name": "Bairag", "areas": [] },
+          { "name": "Barakhain", "areas": [] },
+          { "name": "Barashat", "areas": [] },
+          { "name": "Battali", "areas": [] },
+          { "name": "Burumchara", "areas": [] },
+          { "name": "Chatasy", "areas": [] },
+          { "name": "Haildhar", "areas": [] },
+          { "name": "Juidondi", "areas": [] },
+          { "name": "Paraikora", "areas": [] },
+          { "name": "Raipur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Banshkhali", 
+        "unions": [
+          { "name": "Bahar Chara", "areas": [] },
+          { "name": "Bailchari", "areas": [] },
+          { "name": "Chambal", "areas": [] },
+          { "name": "Chanua", "areas": [] },
+          { "name": "Gandamara", "areas": [] },
+          { "name": "Kalipur", "areas": [] },
+          { "name": "Khankhanabad", "areas": [] },
+          { "name": "Khatharia", "areas": [] },
+          { "name": "Puichari", "areas": [] },
+          { "name": "Pukuria", "areas": [] },
+          { "name": "Sadhanpur", "areas": [] },
+          { "name": "Saral", "areas": [] },
+          { "name": "Shakir Khil", "areas": [] },
+          { "name": "Shilkup", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Boalkhali", 
+        "unions": [
+          { "name": "Ahallakeraldenga", "areas": [] },
+          { "name": "Amuchia", "areas": [] },
+          { "name": "Charandwip", "areas": [] },
+          { "name": "East Gomdandi", "areas": [] },
+          { "name": "Kadurkhil", "areas": [] },
+          { "name": "Popadia", "areas": [] },
+          { "name": "Saroatali", "areas": [] },
+          { "name": "Shakpura", "areas": [] },
+          { "name": "Sreepur-Kharandwip", "areas": [] },
+          { "name": "West Gomdandi", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Chandanaish", 
+        "unions": [
+          { "name": "Barama", "areas": [] },
+          { "name": "Barkal", "areas": [] },
+          { "name": "Bhailtali", "areas": [] },
+          { "name": "Dhopachari", "areas": [] },
+          { "name": "Dohazari", "areas": [] },
+          { "name": "Hashimpur", "areas": [] },
+          { "name": "Joara", "areas": [] },
+          { "name": "Kanchanabad", "areas": [] },
+          { "name": "Satbaria", "areas": [] }
+        ]
+      },
+      { "name": "Fatikchhari", "unions": [] },
+      { 
+        "name": "Hathazari", 
+        "unions": [
+          { "name": "Burischar", "areas": [] },
+          { "name": "Chikandandi", "areas": [] },
+          { "name": "Chipatali", "areas": [] },
+          { "name": "Dhalai", "areas": [] },
+          { "name": "Fatehpur", "areas": [] },
+          { "name": "Forhadabad", "areas": [] },
+          { "name": "Garduara", "areas": [] },
+          { "name": "Gumanmordon", "areas": [] },
+          { "name": "Hathazari", "areas": [] },
+          { "name": "Mekhal", "areas": [] },
+          { "name": "Mirzapur", "areas": [] },
+          { "name": "Nanglemora", "areas": [] },
+          { "name": "North Madarsha", "areas": [] },
+          { "name": "Shikarpur", "areas": [] },
+          { "name": "South Madrasha", "areas": [] }
+        ]
+      },
+      { "name": "Lohagara", "unions": [] },
+      { 
+        "name": "Mirsharai", 
+        "unions": [
+          { "name": "Dhoom", "areas": [] },
+          { "name": "Durgapur", "areas": [] },
+          { "name": "HaitKandi", "areas": [] },
+          { "name": "Hingali", "areas": [] },
+          { "name": "Ichakhali", "areas": [] },
+          { "name": "Katachara", "areas": [] },
+          { "name": "Khaiyachara", "areas": [] },
+          { "name": "Korerhat", "areas": [] },
+          { "name": "Mayani", "areas": [] },
+          { "name": "Mirsarai", "areas": [] },
+          { "name": "Mithanala", "areas": [] },
+          { "name": "Moghadia", "areas": [] },
+          { "name": "Osmanpur", "areas": [] },
+          { "name": "Saherkhali", "areas": [] },
+          { "name": "Wahadpur", "areas": [] },
+          { "name": "Zorabganj", "areas": [] }
+        ]
+      },
+      { "name": "Patiya", "unions": [] },
+      { 
+        "name": "Rangunia", 
+        "unions": [
+          { "name": "Betagi", "areas": [] },
+          { "name": "Chandraghona", "areas": [] },
+          { "name": "Hosnabad", "areas": [] },
+          { "name": "Islampur", "areas": [] },
+          { "name": "Kodala", "areas": [] },
+          { "name": "Lalanagar", "areas": [] },
+          { "name": "Mariam Nagar", "areas": [] },
+          { "name": "Padua", "areas": [] },
+          { "name": "Parua", "areas": [] },
+          { "name": "Pomara", "areas": [] },
+          { "name": "Rajanagar", "areas": [] },
+          { "name": "Sharakbhatta", "areas": [] },
+          { "name": "Shilak", "areas": [] },
+          { "name": "South Rajanagar", "areas": [] },
+          { "name": "Swanirvar Rangunia", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Raozan", 
+        "unions": [
+          { "name": "Bagoan", "areas": [] },
+          { "name": "Binajuri", "areas": [] },
+          { "name": "Chickdair", "areas": [] },
+          { "name": "Dabua", "areas": [] },
+          { "name": "East Guzara", "areas": [] },
+          { "name": "Gahira", "areas": [] },
+          { "name": "Haladia", "areas": [] },
+          { "name": "Kadalpur", "areas": [] },
+          { "name": "Noapara", "areas": [] },
+          { "name": "Noazishpur", "areas": [] },
+          { "name": "Pahartali", "areas": [] },
+          { "name": "Raozan", "areas": [] },
+          { "name": "West Guzara", "areas": [] },
+          { "name": "Wikirchar", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Sandwip", 
+        "unions": [
+          { "name": "Amanullah", "areas": [] },
+          { "name": "Azimpur", "areas": [] },
+          { "name": "Bauria", "areas": [] },
+          { "name": "Gachua", "areas": [] },
+          { "name": "Haramia", "areas": [] },
+          { "name": "Horishpur", "areas": [] },
+          { "name": "Kalapania", "areas": [] },
+          { "name": "Maitvanga", "areas": [] },
+          { "name": "Mogdhara", "areas": [] },
+          { "name": "Musapur", "areas": [] },
+          { "name": "Rahmatpur", "areas": [] },
+          { "name": "Sarikait", "areas": [] },
+          { "name": "Sontoshpur", "areas": [] },
+          { "name": "Urirchar", "areas": [] }
+        ]
+      },
+      { "name": "Satkania", "unions": [] },
+      { 
+        "name": "Sitakunda", 
+        "unions": [
+          { "name": "Banshbaria", "areas": [] },
+          { "name": "Barabkund", "areas": [] },
+          { "name": "Baraiyadhala", "areas": [] },
+          { "name": "Bhatiary", "areas": [] },
+          { "name": "Kumira", "areas": [] },
+          { "name": "Muradpur", "areas": [] },
+          { "name": "Salimpur", "areas": [] },
+          { "name": "Sonaichairi", "areas": [] },
+          { "name": "Syedpur", "areas": [] }
+        ]
+      },
+      { "name": "Bandor (Chittagong Port) Thana", "unions": [] },
+      { "name": "Chandgaon Thana", "unions": [] },
+      { "name": "Double Mooring Thana", "unions": [] },
+      { "name": "Kotwali Thana", "unions": [] },
+      { "name": "Pahartali Thana", "unions": [] },
+      { "name": "Panchlaish Thana", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Cumilla District",
+    "upazilas": [
+      { 
+        "name": "Barura", 
+        "unions": [
+          { "name": "Adda", "areas": [] },
+          { "name": "Adra", "areas": [] },
+          { "name": "Aganagar", "areas": [] },
+          { "name": "Bhubanipur", "areas": [] },
+          { "name": "Chitadda", "areas": [] },
+          { "name": "Deora", "areas": [] },
+          { "name": "Galimpur", "areas": [] },
+          { "name": "Jhalam", "areas": [] },
+          { "name": "Khoshbash", "areas": [] },
+          { "name": "Khoshbash-S", "areas": [] },
+          { "name": "Lakshmipur", "areas": [] },
+          { "name": "Payalgacha", "areas": [] },
+          { "name": "Shilmury-N", "areas": [] },
+          { "name": "South", "areas": [] }
+        ]
+      },
+      { "name": "Brahmanpara", "unions": [] },
+      { 
+        "name": "Burichang", 
+        "unions": [
+          { "name": "Bakshimul", "areas": [] },
+          { "name": "Baralla", "areas": [] },
+          { "name": "Burichnong", "areas": [] },
+          { "name": "Mainamati", "areas": [] },
+          { "name": "Mokam", "areas": [] },
+          { "name": "Pirjatrapur", "areas": [] },
+          { "name": "Rajapur", "areas": [] },
+          { "name": "Sholanal", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Chandina", 
+        "unions": [
+          { "name": "Atbarpur", "areas": [] },
+          { "name": "Barakarai", "areas": [] },
+          { "name": "Barera", "areas": [] },
+          { "name": "Barkait", "areas": [] },
+          { "name": "Bate Kashi", "areas": [] },
+          { "name": "Dollai Nowabpur", "areas": [] },
+          { "name": "Gallai", "areas": [] },
+          { "name": "Joyag", "areas": [] },
+          { "name": "Kerankhal", "areas": [] },
+          { "name": "Madhaia", "areas": [] },
+          { "name": "Maijkhar", "areas": [] },
+          { "name": "Mohichail", "areas": [] },
+          { "name": "Suhilpur", "areas": [] }
+        ]
+      },
+      { "name": "Chauddagram", "unions": [] },
+      { 
+        "name": "Daudkandi", 
+        "unions": [
+          { "name": "Barpara", "areas": [] },
+          { "name": "Bitessar", "areas": [] },
+          { "name": "Eliotgonj North", "areas": [] },
+          { "name": "Eliotgonj South", "areas": [] },
+          { "name": "Gouripur", "areas": [] },
+          { "name": "Mohammadpur", "areas": [] },
+          { "name": "Mohammadpur West", "areas": [] },
+          { "name": "Panchgachia", "areas": [] },
+          { "name": "Pasgasia West", "areas": [] },
+          { "name": "Sundalpur", "areas": [] },
+          { "name": "Zinglatoly", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Debidwar", 
+        "unions": [
+          { "name": "Alahabad", "areas": [] },
+          { "name": "Bara Shalghar", "areas": [] },
+          { "name": "Barkamta", "areas": [] },
+          { "name": "Dhampti (North)", "areas": [] },
+          { "name": "Dhampti (South)", "areas": [] },
+          { "name": "Fatehabad", "areas": [] },
+          { "name": "Gunaighar (North)", "areas": [] },
+          { "name": "Gunaighar (South)", "areas": [] },
+          { "name": "Mohan Pur", "areas": [] },
+          { "name": "Rajamehar", "areas": [] },
+          { "name": "Rasulpur", "areas": [] },
+          { "name": "Subil", "areas": [] },
+          { "name": "Van", "areas": [] },
+          { "name": "Yousufpur", "areas": [] },
+          { "name": "Zaffargonj", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Homna", 
+        "unions": [
+          { "name": "Asadpur", "areas": [] },
+          { "name": "Bhasamia", "areas": [] },
+          { "name": "Chanderchar", "areas": [] },
+          { "name": "Dulalpur", "areas": [] },
+          { "name": "Ghagotia", "areas": [] },
+          { "name": "Gharmora", "areas": [] },
+          { "name": "Joypur", "areas": [] },
+          { "name": "Mathabanga", "areas": [] },
+          { "name": "Nilakhi", "areas": [] }
+        ]
+      },
+      { "name": "Laksam", "unions": [] },
+      { 
+        "name": "Muradnagar", 
+        "unions": [
+          { "name": "Akubpur", "areas": [] },
+          { "name": "Andikot", "areas": [] },
+          { "name": "Babutipara", "areas": [] },
+          { "name": "Bangora(East)", "areas": [] },
+          { "name": "Bangora(West)", "areas": [] },
+          { "name": "Chapitala", "areas": [] },
+          { "name": "Darora", "areas": [] },
+          { "name": "Dhamagoar", "areas": [] },
+          { "name": "Jahapur", "areas": [] },
+          { "name": "Jatrapur", "areas": [] },
+          { "name": "Kamalla", "areas": [] },
+          { "name": "Muradnagar", "areas": [] },
+          { "name": "Nabipur(West)", "areas": [] },
+          { "name": "Nobipur(East)", "areas": [] },
+          { "name": "Paharpur", "areas": [] },
+          { "name": "Purbadhair(East)", "areas": [] },
+          { "name": "Purbadhair(West)", "areas": [] },
+          { "name": "Ramchandra(North)", "areas": [] },
+          { "name": "Ramchandrapur", "areas": [] },
+          { "name": "Salikandi", "areas": [] },
+          { "name": "Sreekail", "areas": [] },
+          { "name": "Tanki", "areas": [] }
+        ]
+      },
+      { "name": "Nangalkot", "unions": [] },
+      { 
+        "name": "Comilla Adarsha Sadar", 
+        "unions": [
+          { "name": "Amratuly", "areas": [] },
+          { "name": "Barapara", "areas": [] },
+          { "name": "Bijoypur", "areas": [] },
+          { "name": "Chowara", "areas": [] },
+          { "name": "Durgapur North", "areas": [] },
+          { "name": "Durgapur South", "areas": [] },
+          { "name": "East Jorkanon", "areas": [] },
+          { "name": "Galiara", "areas": [] },
+          { "name": "Jagannathpur", "areas": [] },
+          { "name": "Kalir Bazar", "areas": [] },
+          { "name": "Pachthubi", "areas": [] },
+          { "name": "West Jorkanon", "areas": [] }
+        ]
+      },
+      { "name": "Meghna", "unions": [] },
+      { "name": "Titas", "unions": [] },
+      { "name": "Monohargonj", "unions": [] },
+      { "name": "Comilla Sadar Dakshin", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Cox's Bazar District",
+    "upazilas": [
+      { 
+        "name": "Chakaria", 
+        "unions": [
+          { "name": "Bamu Bilchari", "areas": [] },
+          { "name": "Barithaly", "areas": [] },
+          { "name": "Bheola Manik Char", "areas": [] },
+          { "name": "Cheringa", "areas": [] },
+          { "name": "Dhemosia", "areas": [] },
+          { "name": "Dulahazara", "areas": [] },
+          { "name": "East Bara Bheola", "areas": [] },
+          { "name": "Fashiakhali", "areas": [] },
+          { "name": "Harbang", "areas": [] },
+          { "name": "Kaiyerbil", "areas": [] },
+          { "name": "Kakara", "areas": [] },
+          { "name": "Khutakhali", "areas": [] },
+          { "name": "Kunakhali", "areas": [] },
+          { "name": "Lakshyerchar", "areas": [] },
+          { "name": "Shaharbil", "areas": [] },
+          { "name": "Surajpur Manikpur", "areas": [] },
+          { "name": "West Bara Bheola", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Cox's Bazar Sadar", 
+        "unions": [
+          { "name": "Bharua Khali", "areas": [] },
+          { "name": "Chowfal Dandi", "areas": [] },
+          { "name": "Eadgong", "areas": [] },
+          { "name": "Islamabad", "areas": [] },
+          { "name": "Islampur", "areas": [] },
+          { "name": "Jalalabad", "areas": [] },
+          { "name": "Jhilongza", "areas": [] },
+          { "name": "Khurus Kul", "areas": [] },
+          { "name": "P.M. Khali", "areas": [] },
+          { "name": "Pok Khali", "areas": [] }
+        ]
+      },
+      { "name": "Kutubdia", "unions": [] },
+      { "name": "Maheshkhali", "unions": [] },
+      { "name": "Ramu", "unions": [] },
+      { "name": "Teknaf", "unions": [] },
+      { "name": "Ukhia", "unions": [] },
+      { 
+        "name": "Pekua", 
+        "unions": [
+          { "name": "Barbakia", "areas": [] },
+          { "name": "Magnama", "areas": [] },
+          { "name": "Pekua", "areas": [] },
+          { "name": "Rajakhali", "areas": [] },
+          { "name": "Shil Khali", "areas": [] },
+          { "name": "Taitong", "areas": [] },
+          { "name": "Uzantia", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Feni District",
+    "upazilas": [
+      { "name": "Chhagalnaiya", "unions": [] },
+      { "name": "Daganbhuiyan", "unions": [] },
+      { 
+        "name": "Feni Sadar", 
+        "unions": [
+          { "name": "Baligaon", "areas": [] },
+          { "name": "Chonua", "areas": [] },
+          { "name": "Dharmapur", "areas": [] },
+          { "name": "Fazilpur", "areas": [] },
+          { "name": "Farhad Nagar", "areas": [] },
+          { "name": "Kalidah", "areas": [] },
+          { "name": "Kazirbag", "areas": [] },
+          { "name": "Lemua", "areas": [] },
+          { "name": "Motobi", "areas": [] },
+          { "name": "Panchgachia", "areas": [] },
+          { "name": "Sarishadi", "areas": [] },
+          { "name": "Sharshadi", "areas": [] }
+        ]
+      },
+      { "name": "Parshuram", "unions": [] },
+      { "name": "Sonagazi", "unions": [] },
+      { "name": "Fulgazi", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Khagrachhari District",
+    "upazilas": [
+      { "name": "Dighinala", "unions": [] },
+      { 
+        "name": "Khagrachhari", 
+        "unions": [
+          { "name": "Bhibonchari", "areas": [] },
+          { "name": "Golabari", "areas": [] },
+          { "name": "Kamal Chari", "areas": [] },
+          { "name": "Khagrachari", "areas": [] },
+          { "name": "Perachari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Lakshmichhari", 
+        "unions": [
+          { "name": "Barmachari", "areas": [] },
+          { "name": "Dulyatali", "areas": [] },
+          { "name": "Laxmichari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Mahalchhari", 
+        "unions": [
+          { "name": "Kayang Ghut", "areas": [] },
+          { "name": "Mahalchari", "areas": [] },
+          { "name": "Mischari", "areas": [] },
+          { "name": "Mubachari", "areas": [] },
+          { "name": "Sindukchari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Manikchhari", 
+        "unions": [
+          { "name": "Batnatali", "areas": [] },
+          { "name": "Manikchari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Matiranga", 
+        "unions": [
+          { "name": "Baranal", "areas": [] },
+          { "name": "Belchari", "areas": [] },
+          { "name": "Guimara", "areas": [] },
+          { "name": "Gumati", "areas": [] },
+          { "name": "Matiranga", "areas": [] },
+          { "name": "Tabulchari", "areas": [] },
+          { "name": "Taindong", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Panchhari", 
+        "unions": [
+          { "name": "Chengi", "areas": [] },
+          { "name": "Latiban", "areas": [] },
+          { "name": "Logang", "areas": [] },
+          { "name": "Panchari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Ramgarh", 
+        "unions": [
+          { "name": "Hapchary", "areas": [] },
+          { "name": "Patachara", "areas": [] },
+          { "name": "Ramgarh", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Lakshmipur District",
+    "upazilas": [
+      { 
+        "name": "Lakshmipur Sadar", 
+        "unions": [
+          { "name": "Bangakha", "areas": [] },
+          { "name": "Basikpur", "areas": [] },
+          { "name": "Bohwanigonj", "areas": [] },
+          { "name": "Chandagonj", "areas": [] },
+          { "name": "Chorsahi", "areas": [] },
+          { "name": "Dalal Bazar", "areas": [] },
+          { "name": "Dattapara", "areas": [] },
+          { "name": "Deghali", "areas": [] },
+          { "name": "Hagir Para", "areas": [] },
+          { "name": "Kushakhali", "areas": [] },
+          { "name": "Laharkandi", "areas": [] },
+          { "name": "Mandari", "areas": [] },
+          { "name": "North Hamchadi", "areas": [] },
+          { "name": "Parbbatinagoar", "areas": [] },
+          { "name": "Shakchar", "areas": [] },
+          { "name": "South Hamchadi", "areas": [] },
+          { "name": "Uttar Joypur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Raipur", 
+        "unions": [
+          { "name": "Bamni", "areas": [] },
+          { "name": "Char Mohana", "areas": [] },
+          { "name": "Charpata", "areas": [] },
+          { "name": "Dahkinchar Bongshi", "areas": [] },
+          { "name": "Keroa", "areas": [] },
+          { "name": "North Charababil", "areas": [] },
+          { "name": "Raipur", "areas": [] },
+          { "name": "Sonapur", "areas": [] },
+          { "name": "Southchar Ababil", "areas": [] },
+          { "name": "Uttarchar Bongshi", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Ramganj", 
+        "unions": [
+          { "name": "Bhadur", "areas": [] },
+          { "name": "Bhatra", "areas": [] },
+          { "name": "Chandipur", "areas": [] },
+          { "name": "Corpara", "areas": [] },
+          { "name": "Darbeshpur", "areas": [] },
+          { "name": "Ichapur", "areas": [] },
+          { "name": "Kanchanpur", "areas": [] },
+          { "name": "Lamchar", "areas": [] },
+          { "name": "Noagaon", "areas": [] },
+          { "name": "Vholacut", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Ramgati", 
+        "unions": [
+          { "name": "Barakhri", "areas": [] },
+          { "name": "Char Abdulla", "areas": [] },
+          { "name": "Char Alexander", "areas": [] },
+          { "name": "Char Algi", "areas": [] },
+          { "name": "Char Badam", "areas": [] },
+          { "name": "Char Falcon", "areas": [] },
+          { "name": "Char Gazi", "areas": [] },
+          { "name": "Char Kadira", "areas": [] },
+          { "name": "Char Kalkini", "areas": [] },
+          { "name": "Char Lawrence", "areas": [] },
+          { "name": "Char Ramij", "areas": [] },
+          { "name": "Hazir Haat", "areas": [] }
+        ]
+      },
+      { "name": "Kamalnagar", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Noakhali District",
+    "upazilas": [
+      { 
+        "name": "Begumganj", 
+        "unions": [
+          { "name": "Alaiarpur", "areas": [] },
+          { "name": "Amanullapur", "areas": [] },
+          { "name": "Ambor Nogor", "areas": [] },
+          { "name": "Amishapara", "areas": [] },
+          { "name": "Barogon", "areas": [] },
+          { "name": "Bazra", "areas": [] },
+          { "name": "Chayani", "areas": [] },
+          { "name": "Deoti", "areas": [] },
+          { "name": "Durgapur", "areas": [] },
+          { "name": "Eklashpur", "areas": [] },
+          { "name": "Gopalpur", "areas": [] },
+          { "name": "Hazipur", "areas": [] },
+          { "name": "Jirtoli", "areas": [] },
+          { "name": "Joyag", "areas": [] },
+          { "name": "Kaderpur", "areas": [] },
+          { "name": "Kutubpur", "areas": [] },
+          { "name": "Mirwarishpur", "areas": [] },
+          { "name": "Nadana", "areas": [] },
+          { "name": "Nateswar", "areas": [] },
+          { "name": "Norottompur", "areas": [] },
+          { "name": "Rajgonj", "areas": [] },
+          { "name": "Rasulpur", "areas": [] },
+          { "name": "Sharifpur", "areas": [] },
+          { "name": "Sonaimur", "areas": [] },
+          { "name": "Sonapur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Noakhali Sadar", 
+        "unions": [
+          { "name": "Ashowdia", "areas": [] },
+          { "name": "Batiya", "areas": [] },
+          { "name": "Binodpur", "areas": [] },
+          { "name": "Chaprashirhat", "areas": [] },
+          { "name": "Char Amanullah", "areas": [] },
+          { "name": "Char Clark", "areas": [] },
+          { "name": "Char Jabbor", "areas": [] },
+          { "name": "Char Jublee", "areas": [] },
+          { "name": "Char Matua", "areas": [] },
+          { "name": "Char Wapda", "areas": [] },
+          { "name": "Charbata", "areas": [] },
+          { "name": "Dadpur", "areas": [] },
+          { "name": "Eojbalia", "areas": [] },
+          { "name": "Goshbag", "areas": [] },
+          { "name": "Kadir Hanif", "areas": [] },
+          { "name": "Kaladarpo", "areas": [] },
+          { "name": "Narattampur", "areas": [] },
+          { "name": "Neazpur", "areas": [] },
+          { "name": "Noakhali", "areas": [] },
+          { "name": "Noannai", "areas": [] },
+          { "name": "Sundalpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Chatkhil", 
+        "unions": [
+          { "name": "Bodalkot", "areas": [] },
+          { "name": "Hatpukuria", "areas": [] },
+          { "name": "Khilpara", "areas": [] },
+          { "name": "Mohammadpur", "areas": [] },
+          { "name": "Noakhola", "areas": [] },
+          { "name": "Pachgao", "areas": [] },
+          { "name": "Ramnarayanpur", "areas": [] },
+          { "name": "Shahapur", "areas": [] }
+        ]
+      },
+      { "name": "Companiganj", "unions": [] },
+      { 
+        "name": "Hatiya", 
+        "unions": [
+          { "name": "Burirchar", "areas": [] },
+          { "name": "Char Ishwar", "areas": [] },
+          { "name": "Charking", "areas": [] },
+          { "name": "Jahajmara", "areas": [] },
+          { "name": "Nalchira", "areas": [] },
+          { "name": "Sonadia", "areas": [] },
+          { "name": "Sukh char", "areas": [] },
+          { "name": "Tomaraddi", "areas": [] }
+        ]
+      },
+      { "name": "Senbagh", "unions": [] },
+      { "name": "Sonaimuri", "unions": [] },
+      { "name": "Subarnachar", "unions": [] },
+      { "name": "Kabirhat", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Rangamati District",
+    "upazilas": [
+      { "name": "Bagaichhari", "unions": [] },
+      { "name": "Barkal", "unions": [] },
+      { 
+        "name": "Kawkhali (Betbunia)", 
+        "unions": [
+          { "name": "Betbunia", "areas": [] },
+          { "name": "Faticchari", "areas": [] },
+          { "name": "Ghagra", "areas": [] },
+          { "name": "Kalampati", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Belaichhari", 
+        "unions": [
+          { "name": "Belaichari", "areas": [] },
+          { "name": "Farua", "areas": [] },
+          { "name": "Kangra Chari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kaptai", 
+        "unions": [
+          { "name": "Chandraghona", "areas": [] },
+          { "name": "Chitmaram", "areas": [] },
+          { "name": "Kaptai", "areas": [] },
+          { "name": "Rai Khali", "areas": [] },
+          { "name": "Wagga", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Juraichhari", 
+        "unions": [
+          { "name": "Banajugichara", "areas": [] },
+          { "name": "Dumdumya", "areas": [] },
+          { "name": "Jurachari", "areas": [] },
+          { "name": "Maidong", "areas": [] }
+        ]
+      },
+      { "name": "Langadu", "unions": [] },
+      { 
+        "name": "Naniyachar", 
+        "unions": [
+          { "name": "Burighat", "areas": [] },
+          { "name": "Gilachari", "areas": [] },
+          { "name": "Naniarchar", "areas": [] },
+          { "name": "Sabekhong", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Rajasthali", 
+        "unions": [
+          { "name": "Bangalhalia", "areas": [] },
+          { "name": "Gainda", "areas": [] },
+          { "name": "Ghillachari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Rangamati Sadar", 
+        "unions": [
+          { "name": "Balukhali", "areas": [] },
+          { "name": "Banduk Banga", "areas": [] },
+          { "name": "Jibtali", "areas": [] },
+          { "name": "Kutuk Chari", "areas": [] },
+          { "name": "Mogbar", "areas": [] },
+          { "name": "Supchori", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Faridpur District",
+    "upazilas": [
+      { "name": "Alfadanga", "unions": [] },
+      { "name": "Bhanga", "unions": [] },
+      { "name": "Boalmari", "unions": [] },
+      { "name": "Charbhadrasan", "unions": [] },
+      { "name": "Faridpur Sadar", "unions": [] },
+      { "name": "Madhukhali", "unions": [] },
+      { "name": "Nagarkanda", "unions": [] },
+      { "name": "Sadarpur", "unions": [] },
+      { "name": "Saltha", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Gazipur District",
+    "upazilas": [
+      { "name": "Gazipur Sadar", "unions": [] },
+      { "name": "Kaliakair", "unions": [] },
+      { "name": "Kaliganj", "unions": [] },
+      { "name": "Kapasia", "unions": [] },
+      { "name": "Sreepur", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Gopalganj District",
+    "upazilas": [
+      { "name": "Gopalganj Sadar", "unions": [] },
+      { "name": "Kashiani", "unions": [] },
+      { "name": "Kotalipara", "unions": [] },
+      { "name": "Muksudpur", "unions": [] },
+      { "name": "Tungipara", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Kishoreganj District",
+    "upazilas": [
+      { "name": "Astagram", "unions": [] },
+      { "name": "Bajitpur", "unions": [] },
+      { "name": "Bhairab", "unions": [] },
+      { "name": "Hossainpur", "unions": [] },
+      { "name": "Itna", "unions": [] },
+      { "name": "Karimganj", "unions": [] },
+      { "name": "Katiadi", "unions": [] },
+      { "name": "Kishoreganj Sadar", "unions": [] },
+      { "name": "Kuliarchar", "unions": [] },
+      { "name": "Mithamain", "unions": [] },
+      { "name": "Nikli", "unions": [] },
+      { "name": "Pakundia", "unions": [] },
+      { "name": "Tarail", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Madaripur District",
+    "upazilas": [
+      { "name": "Rajoir", "unions": [] },
+      { "name": "Madaripur Sadar", "unions": [] },
+      { "name": "Kalkini", "unions": [] },
+      { "name": "Shibchar", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Manikganj District",
+    "upazilas": [
+      { "name": "Daulatpur", "unions": [] },
+      { "name": "Ghior", "unions": [] },
+      { "name": "Harirampur", "unions": [] },
+      { "name": "Manikgonj Sadar", "unions": [] },
+      { "name": "Saturia", "unions": [] },
+      { "name": "Shivalaya", "unions": [] },
+      { "name": "Singair", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Munshiganj District",
+    "upazilas": [
+      { "name": "Gazaria", "unions": [] },
+      { "name": "Lohajang", "unions": [] },
+      { "name": "Munshiganj Sadar", "unions": [] },
+      { "name": "Sirajdikhan", "unions": [] },
+      { "name": "Sreenagar", "unions": [] },
+      { "name": "Tongibari", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Rajbari District",
+    "upazilas": [
+      { "name": "Baliakandi", "unions": [] },
+      { "name": "Goalandaghat", "unions": [] },
+      { "name": "Pangsha", "unions": [] },
+      { "name": "Rajbari Sadar", "unions": [] },
+      { "name": "Kalukhali", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Shariatpur District",
+    "upazilas": [
+      { "name": "Bhedarganj", "unions": [] },
+      { "name": "Damudya", "unions": [] },
+      { "name": "Gosairhat", "unions": [] },
+      { "name": "Naria", "unions": [] },
+      { "name": "Shariatpur Sadar", "unions": [] },
+      { "name": "Zanjira", "unions": [] },
+      { "name": "Shakhipur", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Tangail District",
+    "upazilas": [
+      { "name": "Gopalpur", "unions": [] },
+      { "name": "Basail", "unions": [] },
+      { "name": "Bhuapur", "unions": [] },
+      { "name": "Delduar", "unions": [] },
+      { "name": "Ghatail", "unions": [] },
+      { "name": "Kalihati", "unions": [] },
+      { "name": "Madhupur", "unions": [] },
+      { "name": "Mirzapur", "unions": [] },
+      { "name": "Nagarpur", "unions": [] },
+      { "name": "Sakhipur", "unions": [] },
+      { "name": "Dhanbari", "unions": [] },
+      { "name": "Tangail Sadar", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Narsingdi District",
+    "upazilas": [
+      { "name": "Narsingdi Sadar", "unions": [] },
+      { "name": "Belabo", "unions": [] },
+      { "name": "Monohardi", "unions": [] },
+      { "name": "Palash", "unions": [] },
+      { "name": "Raipura", "unions": [] },
+      { "name": "Shibpur", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Jamalpur District",
+    "upazilas": [
+      { "name": "Baksiganj", "unions": [] },
+      { "name": "Dewanganj", "unions": [] },
+      { "name": "Islampur", "unions": [] },
+      { "name": "Jamalpur Sadar", "unions": [] },
+      { "name": "Madarganj", "unions": [] },
+      { "name": "Melandaha", "unions": [] },
+      { "name": "Sarishabari", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Mymensingh District",
+    "upazilas": [
+      { "name": "Bhaluka", "unions": [] },
+      { "name": "Dhobaura", "unions": [] },
+      { "name": "Fulbaria", "unions": [] },
+      { "name": "Gaffargaon", "unions": [] },
+      { "name": "Gauripur", "unions": [] },
+      { "name": "Haluaghat", "unions": [] },
+      { "name": "Ishwarganj", "unions": [] },
+      { "name": "Mymensingh Sadar", "unions": [] },
+      { "name": "Muktagachha", "unions": [] },
+      { "name": "Nandail", "unions": [] },
+      { "name": "Phulpur", "unions": [] },
+      { "name": "Trishal", "unions": [] },
+      { "name": "Tara Khanda", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Netrokona District",
+    "upazilas": [
+      { "name": "Atpara", "unions": [] },
+      { "name": "Barhatta", "unions": [] },
+      { "name": "Durgapur", "unions": [] },
+      { "name": "Khaliajuri", "unions": [] },
+      { "name": "Kalmakanda", "unions": [] },
+      { "name": "Kendua", "unions": [] },
+      { "name": "Madan", "unions": [] },
+      { "name": "Mohanganj", "unions": [] },
+      { "name": "Netrokona Sadar", "unions": [] },
+      { "name": "Purbadhala", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Sherpur District",
+    "upazilas": [
+      { "name": "Jhenaigati", "unions": [] },
+      { "name": "Nakla", "unions": [] },
+      { "name": "Nalitabari", "unions": [] },
+      { "name": "Sherpur Sadar", "unions": [] },
+      { "name": "Sreebardi", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Bagerhat District",
+    "upazilas": [
+      { 
+        "name": "Bagerhat Sadar", 
+        "unions": [
+          { "name": "Sait Gambuz", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Chitalmari", 
+        "unions": [
+          { "name": "Barabaria", "areas": [] },
+          { "name": "Charbaniari", "areas": [] },
+          { "name": "Chitolmari", "areas": [] },
+          { "name": "Hizla", "areas": [] },
+          { "name": "Kalatala", "areas": [] },
+          { "name": "Santoshpur", "areas": [] },
+          { "name": "Shibpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Fakirhat", 
+        "unions": [
+          { "name": "Bahirdia Mansa", "areas": [] },
+          { "name": "Betaga", "areas": [] },
+          { "name": "Fakirhat", "areas": [] },
+          { "name": "Lockpur", "areas": [] },
+          { "name": "Mulghar", "areas": [] },
+          { "name": "Naltha Mouvog", "areas": [] },
+          { "name": "Piljunga", "areas": [] },
+          { "name": "Shuvodia", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kachua", 
+        "unions": [
+          { "name": "Badhal", "areas": [] },
+          { "name": "Dhopakhali", "areas": [] },
+          { "name": "Gazalia", "areas": [] },
+          { "name": "Gopalpur", "areas": [] },
+          { "name": "Kachua", "areas": [] },
+          { "name": "Moghia", "areas": [] },
+          { "name": "Raripara", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Mollahat", 
+        "unions": [
+          { "name": "Atjuri", "areas": [] },
+          { "name": "Chunkhola", "areas": [] },
+          { "name": "Gangni", "areas": [] },
+          { "name": "Gowla", "areas": [] },
+          { "name": "Kodalia", "areas": [] },
+          { "name": "Kulia", "areas": [] },
+          { "name": "Udaypur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Mongla", 
+        "unions": [
+          { "name": "Burirdanga", "areas": [] },
+          { "name": "Chandpai", "areas": [] },
+          { "name": "Chila", "areas": [] },
+          { "name": "Mithakhali", "areas": [] },
+          { "name": "Sonailtala", "areas": [] },
+          { "name": "Sundarban", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Morrelganj", 
+        "unions": [
+          { "name": "Hoglabunia", "areas": [] },
+          { "name": "Nishanbaria", "areas": [] },
+          { "name": "Panchokaron", "areas": [] },
+          { "name": "Putikhali", "areas": [] },
+          { "name": "Ramchandrapur", "areas": [] },
+          { "name": "Teligati", "areas": [] },
+          { "name": "Bahar Bunia", "areas": [] },
+          { "name": "Baliabunia", "areas": [] },
+          { "name": "Banagram", "areas": [] },
+          { "name": "Baraikhali", "areas": [] },
+          { "name": "Chingra Khali", "areas": [] },
+          { "name": "Daibajnahati", "areas": [] },
+          { "name": "Hoglapasha", "areas": [] },
+          { "name": "Jedhara", "areas": [] },
+          { "name": "Khawlia", "areas": [] },
+          { "name": "Morlgonj", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Rampal", 
+        "unions": [
+          { "name": "Baintola", "areas": [] },
+          { "name": "Bastali", "areas": [] },
+          { "name": "Gaurashta", "areas": [] },
+          { "name": "Hurka", "areas": [] },
+          { "name": "Mollikerber", "areas": [] },
+          { "name": "Rajnagar", "areas": [] },
+          { "name": "Rampal", "areas": [] },
+          { "name": "Ugalkur", "areas": [] },
+          { "name": "Vaspatia", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Sarankhola", 
+        "unions": [
+          { "name": "Dhansagor", "areas": [] },
+          { "name": "Khontakata", "areas": [] },
+          { "name": "Rayenda", "areas": [] },
+          { "name": "Soudkhali", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Chuadanga District",
+    "upazilas": [
+      { 
+        "name": "Alamdanga", 
+        "unions": [
+          { "name": "Alamdanga", "areas": [] },
+          { "name": "Baradi", "areas": [] },
+          { "name": "Belgachi", "areas": [] },
+          { "name": "Bhaduarganj", "areas": [] },
+          { "name": "Chitla", "areas": [] },
+          { "name": "Dauki", "areas": [] },
+          { "name": "Ghangni", "areas": [] },
+          { "name": "Hardi", "areas": [] },
+          { "name": "Jamjami", "areas": [] },
+          { "name": "Jegarghari", "areas": [] },
+          { "name": "Khaskara", "areas": [] },
+          { "name": "Kumkumari", "areas": [] },
+          { "name": "Nagdah", "areas": [] },
+          { "name": "Paikpara", "areas": [] },
+          { "name": "Shankarchandra", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Chuadanga Sadar", 
+        "unions": [
+          { "name": "Alokdia", "areas": [] },
+          { "name": "Begumpur", "areas": [] },
+          { "name": "Kutubpur", "areas": [] },
+          { "name": "Mominpur", "areas": [] },
+          { "name": "Padma Beel", "areas": [] },
+          { "name": "Shankarchandra", "areas": [] },
+          { "name": "Taitulbaria", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Damurhuda", 
+        "unions": [
+          { "name": "Damurhuda", "areas": [] },
+          { "name": "Howli", "areas": [] },
+          { "name": "Karpasdanga", "areas": [] },
+          { "name": "Kurulgachi", "areas": [] },
+          { "name": "Nataipota", "areas": [] },
+          { "name": "Perakrishnapur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Jibannagar", 
+        "unions": [
+          { "name": "Andulbaria", "areas": [] },
+          { "name": "Bankashish", "areas": [] },
+          { "name": "Hasadah", "areas": [] },
+          { "name": "Jibon Nagar", "areas": [] },
+          { "name": "Monoharpur", "areas": [] },
+          { "name": "Raypur", "areas": [] },
+          { "name": "Sehala", "areas": [] },
+          { "name": "Uthali", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Jashore District",
+    "upazilas": [
+      { 
+        "name": "Abhaynagar", 
+        "unions": [
+          { "name": "Bagutia", "areas": [] },
+          { "name": "Chalishia", "areas": [] },
+          { "name": "Payra", "areas": [] },
+          { "name": "Prembagh", "areas": [] },
+          { "name": "Siddipasha", "areas": [] },
+          { "name": "Sreedharpur", "areas": [] },
+          { "name": "Subhorara", "areas": [] },
+          { "name": "Sundoli", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Bagherpara", 
+        "unions": [
+          { "name": "Basuarie", "areas": [] },
+          { "name": "Bondobil", "areas": [] },
+          { "name": "Dhopakhola", "areas": [] },
+          { "name": "Dorajhat", "areas": [] },
+          { "name": "Jamdia", "areas": [] },
+          { "name": "Joharpur", "areas": [] },
+          { "name": "Narikelbaria", "areas": [] },
+          { "name": "Roypur", "areas": [] },
+          { "name": "Zidarpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Chaugachha", 
+        "unions": [
+          { "name": "Chaugachhal", "areas": [] },
+          { "name": "Dhulsuri", "areas": [] },
+          { "name": "Hakimpure", "areas": [] },
+          { "name": "Jagadishpure", "areas": [] },
+          { "name": "Laksmanpure", "areas": [] },
+          { "name": "Narayanpure", "areas": [] },
+          { "name": "Pashapole", "areas": [] },
+          { "name": "Patibila", "areas": [] },
+          { "name": "Phulsara", "areas": [] },
+          { "name": "Singhujhuli", "areas": [] },
+          { "name": "Swarupdaha", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Jhikargachha", 
+        "unions": [
+          { "name": "Bankra", "areas": [] },
+          { "name": "Chapa Baria", "areas": [] },
+          { "name": "Ganganandapur", "areas": [] },
+          { "name": "Hazirbagh", "areas": [] },
+          { "name": "Jhikargachha", "areas": [] },
+          { "name": "Magura", "areas": [] },
+          { "name": "Nabharan", "areas": [] },
+          { "name": "Nirbashkhola", "areas": [] },
+          { "name": "Panisara", "areas": [] },
+          { "name": "Shimulia", "areas": [] },
+          { "name": "Shankarpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Keshabpur", 
+        "unions": [
+          { "name": "Bidyanandakati", "areas": [] },
+          { "name": "Gaurighona", "areas": [] },
+          { "name": "Hassanpur", "areas": [] },
+          { "name": "Keshabpur", "areas": [] },
+          { "name": "Majidpur", "areas": [] },
+          { "name": "Mangalkot", "areas": [] },
+          { "name": "Panjia", "areas": [] },
+          { "name": "Pata", "areas": [] },
+          { "name": "Sagor Dari", "areas": [] },
+          { "name": "Sufalakati", "areas": [] },
+          { "name": "Trimohini", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Jessore Sadar", 
+        "unions": [
+          { "name": "Arunpur", "areas": [] },
+          { "name": "Basundia", "areas": [] },
+          { "name": "Chanchra", "areas": [] },
+          { "name": "Churamankati", "areas": [] },
+          { "name": "Dearah", "areas": [] },
+          { "name": "Fatepur", "areas": [] },
+          { "name": "Haibatpur", "areas": [] },
+          { "name": "Ichapur", "areas": [] },
+          { "name": "Kachua", "areas": [] },
+          { "name": "Kashimpur", "areas": [] },
+          { "name": "Lebutola", "areas": [] },
+          { "name": "Narendrapur", "areas": [] },
+          { "name": "Nowapara", "areas": [] },
+          { "name": "Upashahar", "areas": [] },
+          { "name": "Ramnagar", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Manirampur", 
+        "unions": [
+          { "name": "Bhojogati", "areas": [] },
+          { "name": "Chaluati", "areas": [] },
+          { "name": "Dhokulkol", "areas": [] },
+          { "name": "Durbadanga", "areas": [] },
+          { "name": "Ghariphuna", "areas": [] },
+          { "name": "Hariharnagar", "areas": [] },
+          { "name": "Harinaskhi", "areas": [] },
+          { "name": "Jhanaipa", "areas": [] },
+          { "name": "Kashimpur", "areas": [] },
+          { "name": "Khedapara", "areas": [] },
+          { "name": "Kultia", "areas": [] },
+          { "name": "Manirampur", "areas": [] },
+          { "name": "Monoharpur", "areas": [] },
+          { "name": "Moslempara", "areas": [] },
+          { "name": "Noapara", "areas": [] },
+          { "name": "Rohita", "areas": [] },
+          { "name": "Shampur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Sharsha", 
+        "unions": [
+          { "name": "Bagachara", "areas": [] },
+          { "name": "Bahadurpur", "areas": [] },
+          { "name": "Dihi", "areas": [] },
+          { "name": "Goga", "areas": [] },
+          { "name": "Kayba", "areas": [] },
+          { "name": "Lakshmanpur", "areas": [] },
+          { "name": "Nizampur", "areas": [] },
+          { "name": "Putkhali", "areas": [] },
+          { "name": "Sharsha", "areas": [] },
+          { "name": "Ulshi", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Jhenaidah District",
+    "upazilas": [
+      { 
+        "name": "Harinakunda", 
+        "unions": [
+          { "name": "Chandpur", "areas": [] },
+          { "name": "Doulatpur", "areas": [] },
+          { "name": "Falsi", "areas": [] },
+          { "name": "Roghunathpur", "areas": [] },
+          { "name": "Bharna", "areas": [] },
+          { "name": "Joradah", "areas": [] },
+          { "name": "Kapashatia", "areas": [] },
+          { "name": "Taherhuda", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Jhenaidah Sadar", 
+        "unions": [
+          { "name": "Dogachi", "areas": [] },
+          { "name": "Furshundi", "areas": [] },
+          { "name": "Ganna", "areas": [] },
+          { "name": "Ghorshal", "areas": [] },
+          { "name": "Holidhani", "areas": [] },
+          { "name": "Horishongkarpur", "areas": [] },
+          { "name": "Kali Charonpur", "areas": [] },
+          { "name": "Kumrabaria", "areas": [] },
+          { "name": "Modhuhati", "areas": [] },
+          { "name": "Moharajpur", "areas": [] },
+          { "name": "Naldanga", "areas": [] },
+          { "name": "Padmakar", "areas": [] },
+          { "name": "Pagla Kanai", "areas": [] },
+          { "name": "Porahati", "areas": [] },
+          { "name": "Shadhuhati", "areas": [] },
+          { "name": "Shaganna", "areas": [] },
+          { "name": "Surat", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kaliganj", 
+        "unions": [
+          { "name": "Barobazar", "areas": [] },
+          { "name": "Jamal", "areas": [] },
+          { "name": "Kastovanga", "areas": [] },
+          { "name": "Raigram", "areas": [] },
+          { "name": "Rakhalgachi", "areas": [] },
+          { "name": "Shimla Rokonpur", "areas": [] },
+          { "name": "Shundarpur Durgapur", "areas": [] },
+          { "name": "Trilochandpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kotchandpur", 
+        "unions": [
+          { "name": "Baluher", "areas": [] },
+          { "name": "Dora", "areas": [] },
+          { "name": "Elangi", "areas": [] },
+          { "name": "Kushna", "areas": [] },
+          { "name": "Sabdalpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Maheshpur", 
+        "unions": [
+          { "name": "Azampur", "areas": [] },
+          { "name": "Bashbaria", "areas": [] },
+          { "name": "Fatepur", "areas": [] },
+          { "name": "Jadabpur", "areas": [] },
+          { "name": "Kazirber", "areas": [] },
+          { "name": "Manderbaria", "areas": [] },
+          { "name": "Natima", "areas": [] },
+          { "name": "Nepa", "areas": [] },
+          { "name": "Pantapara", "areas": [] },
+          { "name": "S.B.K", "areas": [] },
+          { "name": "Shyamkur", "areas": [] },
+          { "name": "Swarufpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Shailkupa", 
+        "unions": [
+          { "name": "Abaipur", "areas": [] },
+          { "name": "Bagura", "areas": [] },
+          { "name": "Dholohora Chondro", "areas": [] },
+          { "name": "Dudsur", "areas": [] },
+          { "name": "Fulhori", "areas": [] },
+          { "name": "Hakimpur", "areas": [] },
+          { "name": "Kacherekole", "areas": [] },
+          { "name": "Mirjapur", "areas": [] },
+          { "name": "Monohorpur", "areas": [] },
+          { "name": "Nittanandapur", "areas": [] },
+          { "name": "Saruria", "areas": [] },
+          { "name": "Tribini", "areas": [] },
+          { "name": "Umadpur", "areas": [] },
+          { "name": "Dignagar", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Khulna District",
+    "upazilas": [
+      { 
+        "name": "Batiaghata", 
+        "unions": [
+          { "name": "Amirpur", "areas": [] },
+          { "name": "Baliadanga", "areas": [] },
+          { "name": "Batiaghata", "areas": [] },
+          { "name": "Bhander Kote", "areas": [] },
+          { "name": "Gangarampur", "areas": [] },
+          { "name": "Jalma", "areas": [] },
+          { "name": "Shurkhali", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Dacope", 
+        "unions": [
+          { "name": "Badishanta", "areas": [] },
+          { "name": "Bajura", "areas": [] },
+          { "name": "Dacope", "areas": [] },
+          { "name": "Daudab", "areas": [] },
+          { "name": "Kailashganj", "areas": [] },
+          { "name": "Kamarkhola", "areas": [] },
+          { "name": "Surutkhali", "areas": [] },
+          { "name": "Vildanga", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Dumuria", 
+        "unions": [
+          { "name": "Atlia", "areas": [] },
+          { "name": "Bhanderpara", "areas": [] },
+          { "name": "Dhamalia", "areas": [] },
+          { "name": "Dumuria", "areas": [] },
+          { "name": "Gutudia", "areas": [] },
+          { "name": "Khornia", "areas": [] },
+          { "name": "Magriaghona", "areas": [] },
+          { "name": "Magurkhali", "areas": [] },
+          { "name": "Ragunathpur", "areas": [] },
+          { "name": "Rangpur", "areas": [] },
+          { "name": "Rudaghara", "areas": [] },
+          { "name": "Sharafpur", "areas": [] },
+          { "name": "Shas", "areas": [] },
+          { "name": "Shovna", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Dighalia", 
+        "unions": [
+          { "name": "Arangghata", "areas": [] },
+          { "name": "Barrakpur", "areas": [] },
+          { "name": "Digholia", "areas": [] },
+          { "name": "Gazirhat", "areas": [] },
+          { "name": "Jogipole", "areas": [] },
+          { "name": "Senhati", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Koyra", 
+        "unions": [
+          { "name": "Amadi", "areas": [] },
+          { "name": "Bagali", "areas": [] },
+          { "name": "Dokhin Bedkashi", "areas": [] },
+          { "name": "Koyra", "areas": [] },
+          { "name": "Maheswaripur", "areas": [] },
+          { "name": "Moharajpur", "areas": [] },
+          { "name": "Uttar Bedkashi", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Paikgachha", 
+        "unions": [
+          { "name": "Chandkhali", "areas": [] },
+          { "name": "Deluti", "areas": [] },
+          { "name": "Garaikhali", "areas": [] },
+          { "name": "Godaipur", "areas": [] },
+          { "name": "Haridhali", "areas": [] },
+          { "name": "Kapilmuni", "areas": [] },
+          { "name": "Lashkar", "areas": [] },
+          { "name": "Lata", "areas": [] },
+          { "name": "Raruli", "areas": [] },
+          { "name": "Soladana", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Phultala", 
+        "unions": [
+          { "name": "Atra Gilatala", "areas": [] },
+          { "name": "Damodar", "areas": [] },
+          { "name": "Jamira", "areas": [] },
+          { "name": "Phultala", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Rupsha", 
+        "unions": [
+          { "name": "Aichgati", "areas": [] },
+          { "name": "Ghatbahoge", "areas": [] },
+          { "name": "Naihati", "areas": [] },
+          { "name": "Sreefaltola", "areas": [] },
+          { "name": "T.S. Bahirdia", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Terokhada", 
+        "unions": [
+          { "name": "Ajagara", "areas": [] },
+          { "name": "Barasat", "areas": [] },
+          { "name": "Chagladaha", "areas": [] },
+          { "name": "Madhupur", "areas": [] },
+          { "name": "Sachiadaha", "areas": [] },
+          { "name": "Terokhada", "areas": [] }
+        ]
+      },
+      { "name": "Daulatpur Thana", "unions": [] },
+      { "name": "Khalishpur Thana", "unions": [] },
+      { "name": "Khan Jahan Ali Thana", "unions": [] },
+      { "name": "Kotwali Thana", "unions": [] },
+      { "name": "Sonadanga Thana", "unions": [] },
+      { "name": "Harintana Thana", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Kushtia District",
+    "upazilas": [
+      { 
+        "name": "Bheramara", 
+        "unions": [
+          { "name": "Bahadurpur", "areas": [] },
+          { "name": "Bahirchar", "areas": [] },
+          { "name": "Chandgram", "areas": [] },
+          { "name": "Dharampur", "areas": [] },
+          { "name": "Juniadah", "areas": [] },
+          { "name": "Mokurimpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Daulatpur", 
+        "unions": [
+          { "name": "Adabaria", "areas": [] },
+          { "name": "Aria", "areas": [] },
+          { "name": "Boalia", "areas": [] },
+          { "name": "Chilmari", "areas": [] },
+          { "name": "Doulatpur", "areas": [] },
+          { "name": "Fhilipnagar", "areas": [] },
+          { "name": "Hogalbaria", "areas": [] },
+          { "name": "Khalishakundu", "areas": [] },
+          { "name": "Maricha", "areas": [] },
+          { "name": "Mothurapur", "areas": [] },
+          { "name": "Pragpur", "areas": [] },
+          { "name": "Pyarpur", "areas": [] },
+          { "name": "Ramkrishnapur", "areas": [] },
+          { "name": "Refayetpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Khoksa", 
+        "unions": [
+          { "name": "Betbaria", "areas": [] },
+          { "name": "Gopgram", "areas": [] },
+          { "name": "Janipur", "areas": [] },
+          { "name": "Jayantihazra", "areas": [] },
+          { "name": "Khoksa", "areas": [] },
+          { "name": "Osmanpur", "areas": [] },
+          { "name": "Shomoshpur", "areas": [] },
+          { "name": "Simulia", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kumarkhali", 
+        "unions": [
+          { "name": "Bagulat", "areas": [] },
+          { "name": "Chandpur", "areas": [] },
+          { "name": "Chapra", "areas": [] },
+          { "name": "Charshadipur", "areas": [] },
+          { "name": "Jadubaira", "areas": [] },
+          { "name": "Jagannathpur", "areas": [] },
+          { "name": "Kaya", "areas": [] },
+          { "name": "Nandolalpur", "areas": [] },
+          { "name": "Panti", "areas": [] },
+          { "name": "Shelaidah", "areas": [] },
+          { "name": "Shodoki", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kushtia Sadar", 
+        "unions": [
+          { "name": "Abdalpur", "areas": [] },
+          { "name": "Ailchara", "areas": [] },
+          { "name": "Alampur", "areas": [] },
+          { "name": "Barkhada", "areas": [] },
+          { "name": "Gossain Durgapur", "areas": [] },
+          { "name": "Harinarayanpur", "areas": [] },
+          { "name": "Jagati", "areas": [] },
+          { "name": "Jhaudia", "areas": [] },
+          { "name": "Jiarokhi", "areas": [] },
+          { "name": "Monohordia", "areas": [] },
+          { "name": "Patikabari", "areas": [] },
+          { "name": "Uzangram", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Mirpur", 
+        "unions": [
+          { "name": "Ambaria", "areas": [] },
+          { "name": "Amla", "areas": [] },
+          { "name": "Bahalbaria", "areas": [] },
+          { "name": "Baruipara", "areas": [] },
+          { "name": "Chhatian", "areas": [] },
+          { "name": "Chithulia", "areas": [] },
+          { "name": "Fulbaria", "areas": [] },
+          { "name": "Kursha", "areas": [] },
+          { "name": "Malidah", "areas": [] },
+          { "name": "Poradaha", "areas": [] },
+          { "name": "Sadarpur", "areas": [] },
+          { "name": "Talbaria", "areas": [] }
+        ]
+      },
+      { "name": "Shekhpara", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Magura District",
+    "upazilas": [
+      { 
+        "name": "Magura Sadar", 
+        "unions": [
+          { "name": "Atharokhada", "areas": [] },
+          { "name": "Beroil Palita", "areas": [] },
+          { "name": "Bogia", "areas": [] },
+          { "name": "Choulia", "areas": [] },
+          { "name": "Gopalgram", "areas": [] },
+          { "name": "Hazipur", "areas": [] },
+          { "name": "Hazrapur", "areas": [] },
+          { "name": "Jogdal", "areas": [] },
+          { "name": "Kosundi", "areas": [] },
+          { "name": "Kuchiamora", "areas": [] },
+          { "name": "Moghi", "areas": [] },
+          { "name": "Raghabdair", "areas": [] },
+          { "name": "Satrujitpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Mohammadpur", 
+        "unions": [
+          { "name": "Babukhali", "areas": [] },
+          { "name": "Balidea", "areas": [] },
+          { "name": "Binodpur", "areas": [] },
+          { "name": "Degha", "areas": [] },
+          { "name": "Mohammadpur", "areas": [] },
+          { "name": "Nahata", "areas": [] },
+          { "name": "Palashbaria", "areas": [] },
+          { "name": "Razapur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Shalikha", 
+        "unions": [
+          { "name": "Arpara", "areas": [] },
+          { "name": "Bunagati", "areas": [] },
+          { "name": "Daneswargati", "areas": [] },
+          { "name": "Gangarampur", "areas": [] },
+          { "name": "Satakhali", "areas": [] },
+          { "name": "Shalikha", "areas": [] },
+          { "name": "Talkhari", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Sreepur", 
+        "unions": [
+          { "name": "Amalsar", "areas": [] },
+          { "name": "Dariapur", "areas": [] },
+          { "name": "Goyeshpur", "areas": [] },
+          { "name": "Kadirpara", "areas": [] },
+          { "name": "Nakol", "areas": [] },
+          { "name": "Sabdalpur", "areas": [] },
+          { "name": "Srikhol", "areas": [] },
+          { "name": "Sripur", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Meherpur District",
+    "upazilas": [
+      { 
+        "name": "Gangni", 
+        "unions": [
+          { "name": "Bamondi", "areas": [] },
+          { "name": "Dhankhula", "areas": [] },
+          { "name": "Gangni", "areas": [] },
+          { "name": "Kathuli", "areas": [] },
+          { "name": "Kazipur", "areas": [] },
+          { "name": "Motmura", "areas": [] },
+          { "name": "Shaharbati", "areas": [] },
+          { "name": "Sholotaka", "areas": [] },
+          { "name": "Tentulbaria", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Meherpur Sadar", 
+        "unions": [
+          { "name": "Amdah", "areas": [] },
+          { "name": "Amjhupi", "areas": [] },
+          { "name": "Buripota", "areas": [] },
+          { "name": "Kutubpur", "areas": [] },
+          { "name": "Pirojpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Mujibnagar", 
+        "unions": [
+          { "name": "Bagoun", "areas": [] },
+          { "name": "Dariapur", "areas": [] },
+          { "name": "Mohajonpur", "areas": [] },
+          { "name": "Monakhali", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Narail District",
+    "upazilas": [
+      { 
+        "name": "Kalia", 
+        "unions": [
+          { "name": "Babrahachla", "areas": [] },
+          { "name": "Bawishona", "areas": [] },
+          { "name": "Chanchuri", "areas": [] },
+          { "name": "Hamidpur", "areas": [] },
+          { "name": "Ilisabad", "areas": [] },
+          { "name": "Joynagar", "areas": [] },
+          { "name": "Kalabaria", "areas": [] },
+          { "name": "Khasial", "areas": [] },
+          { "name": "Mauli", "areas": [] },
+          { "name": "Paroly", "areas": [] },
+          { "name": "Pohardanga", "areas": [] },
+          { "name": "Purulia", "areas": [] },
+          { "name": "Salmabad", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Lohagara", 
+        "unions": [
+          { "name": "Dighalia", "areas": [] },
+          { "name": "Itna", "areas": [] },
+          { "name": "Joypur", "areas": [] },
+          { "name": "Kashipur", "areas": [] },
+          { "name": "Kotkool", "areas": [] },
+          { "name": "Lahuria", "areas": [] },
+          { "name": "Lakshmipasha", "areas": [] },
+          { "name": "Lohagora", "areas": [] },
+          { "name": "Mallikpur", "areas": [] },
+          { "name": "Naldi", "areas": [] },
+          { "name": "Nowagram", "areas": [] },
+          { "name": "Shalnogar", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Narail Sadar", 
+        "unions": [
+          { "name": "Auria", "areas": [] },
+          { "name": "Bashgram", "areas": [] },
+          { "name": "Bhadrobilla", "areas": [] },
+          { "name": "Bichali", "areas": [] },
+          { "name": "Calora", "areas": [] },
+          { "name": "Chandiborpur", "areas": [] },
+          { "name": "Habokhali", "areas": [] },
+          { "name": "Maijpara", "areas": [] },
+          { "name": "Mulia", "areas": [] },
+          { "name": "Shahabad", "areas": [] },
+          { "name": "Shekhati", "areas": [] },
+          { "name": "Singia Sholepur", "areas": [] },
+          { "name": "Tularampur", "areas": [] }
+        ]
+      },
+      { "name": "Naragati Thana", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Satkhira District",
+    "upazilas": [
+      { 
+        "name": "Assasuni", 
+        "unions": [
+          { "name": "Anulia", "areas": [] },
+          { "name": "Assasuni", "areas": [] },
+          { "name": "Bardal", "areas": [] },
+          { "name": "Budhata", "areas": [] },
+          { "name": "Dharghapur", "areas": [] },
+          { "name": "Kada Kati", "areas": [] },
+          { "name": "Khazra", "areas": [] },
+          { "name": "Kulla", "areas": [] },
+          { "name": "Protapnager", "areas": [] },
+          { "name": "Sovenali", "areas": [] },
+          { "name": "Sriula", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Debhata", 
+        "unions": [
+          { "name": "Debhata", "areas": [] },
+          { "name": "Kulia", "areas": [] },
+          { "name": "Nowapara", "areas": [] },
+          { "name": "Parulia", "areas": [] },
+          { "name": "Sakhipur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kalaroa", 
+        "unions": [
+          { "name": "Chandanpur", "areas": [] },
+          { "name": "Derra", "areas": [] },
+          { "name": "Helatola", "areas": [] },
+          { "name": "Jalalabad", "areas": [] },
+          { "name": "Joynagar", "areas": [] },
+          { "name": "Karalkata", "areas": [] },
+          { "name": "Keragachi", "areas": [] },
+          { "name": "Koyla", "areas": [] },
+          { "name": "Kushodang", "areas": [] },
+          { "name": "Langoljhara", "areas": [] },
+          { "name": "Sonabaria", "areas": [] },
+          { "name": "Yugikhali", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Kaliganj", 
+        "unions": [
+          { "name": "Bishnupur", "areas": [] },
+          { "name": "Varashimla", "areas": [] },
+          { "name": "Champaphul", "areas": [] },
+          { "name": "Dakshin Sreepur", "areas": [] },
+          { "name": "Dhalia", "areas": [] },
+          { "name": "Kushlia", "areas": [] },
+          { "name": "Krishnanagar", "areas": [] },
+          { "name": "Mathureshpur", "areas": [] },
+          { "name": "Moutala", "areas": [] },
+          { "name": "Naliata", "areas": [] },
+          { "name": "Ratanpur", "areas": [] },
+          { "name": "Tarali", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Satkhira Sadar", 
+        "unions": [
+          { "name": "Agordari", "areas": [] },
+          { "name": "Alipur", "areas": [] },
+          { "name": "Balli", "areas": [] },
+          { "name": "Bansdasha", "areas": [] },
+          { "name": "Baykari", "areas": [] },
+          { "name": "Bhomra", "areas": [] },
+          { "name": "Brahmarazpur", "areas": [] },
+          { "name": "Dhulihor", "areas": [] },
+          { "name": "Fingri", "areas": [] },
+          { "name": "Kushkhali", "areas": [] },
+          { "name": "Labsha", "areas": [] },
+          { "name": "Shibpur", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Shyamnagar", 
+        "unions": [
+          { "name": "Shyamnagar", "areas": [] },
+          { "name": "Atulia", "areas": [] },
+          { "name": "Bhurulia", "areas": [] },
+          { "name": "Burigoalini", "areas": [] },
+          { "name": "Gabura", "areas": [] },
+          { "name": "Iswaripur", "areas": [] },
+          { "name": "Kashimari", "areas": [] },
+          { "name": "Khykali", "areas": [] },
+          { "name": "Munshigonj", "areas": [] },
+          { "name": "Nurnagar", "areas": [] },
+          { "name": "Padmapukur", "areas": [] },
+          { "name": "Ramzannagar", "areas": [] }
+        ]
+      },
+      { 
+        "name": "Tala", 
+        "unions": [
+          { "name": "Dhandia", "areas": [] },
+          { "name": "Islamkati", "areas": [] },
+          { "name": "Khalilnagor", "areas": [] },
+          { "name": "Khalishkhali", "areas": [] },
+          { "name": "Khesra", "areas": [] },
+          { "name": "Kumira", "areas": [] },
+          { "name": "Magura", "areas": [] },
+          { "name": "Nagorghata", "areas": [] },
+          { "name": "Sarulia", "areas": [] },
+          { "name": "Tala", "areas": [] },
+          { "name": "Talalpur", "areas": [] },
+          { "name": "Tentulia", "areas": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "district_name": "Habiganj District",
+    "upazilas": [
+      { "name": "Ajmiriganj", "unions": ["Ajmirigonj", "Badalpur", "Galsuka", "Kakailsao", "Shibpasha"] },
+      { "name": "Bahubal", "unions": ["Lamatashi", "Bahubal", "Bhadeswar", "Mirpur", "Putijury", "Satkapon", "Snanghat"] },
+      { "name": "Baniyachong", "unions": ["Baniachong South-West", "Baniyachong", "Baniyachong North-West", "Baniyachong South-East", "Boraiuri", "Daulatpur", "Kagapasha", "Khagaura", "Makrampur", "Mondury", "Muradpur", "Pailerkandi", "Pukra", "Subidpur", "Sujatpur"] },
+      { "name": "Chunarughat", "unions": ["Ahammadabad", "Chunarughat", "Deorghach", "Gazipur", "Mirashi", "Paikpara", "Ranigaon", "Shankhola", "Shatiajuri", "Ubahata"] },
+      { "name": "Habiganj Sadar", "unions": ["Gupaya", "Laskarpur", "Lukhra", "Nizampur", "Noorpur", "Pail", "Raziura", "Richi", "Shayestagonj", "Teghoria"] },
+      { "name": "Lakhai", "unions": ["Bamoi", "Bulla", "Karab", "Lakhai", "Murakari", "Muriauk"] },
+      { "name": "Madhabpur", "unions": ["Adaoir", "Andiura", "Baghasura", "Bohora", "Bullah", "Chhatiain", "Chowmohani", "Dharmaghar", "Kagadishpur", "Noyapara", "Sjajkajamir"] },
+      { "name": "Nabiganj", "unions": ["Paniumda", "Barabhakair (East)", "Bausha", "Borovakhair", "Debpara", "Dighal Bak", "Inatganj", "Kaliarbhanga", "Nobigonj", "shatihal", "Aush Kandi", "Kargaon", "Kurshi"] }
+    ]
+  },
+  {
+    "district_name": "Moulvibazar District",
+    "upazilas": [
+      { "name": "Barlekha", "unions": [] },
+      { "name": "Kamalganj", "unions": ["Adampur", "Ali Nagar", "Islampur", "Kamalganj", "Madhabpur", "Munshi Bazar", "Pattanushar", "Rahimpur", "Shamsher Nagar"] },
+      { "name": "Kulaura", "unions": [] },
+      { "name": "Moulvibazar Sadar", "unions": ["Akhailkura", "Amtail", "Chadnighat", "Ekatuna", "Giasnagar", "Kamalpur", "Kanakpur", "Khalilpur", "Monu Mukh", "Mostofapur", "Nazirabad", "Upper Kagabala"] },
+      { "name": "Rajnagar", "unions": ["Fotepur", "Kamarchak", "Monsornagar", "Munshibazar", "Panchgaon", "Rajnagar", "Tengra", "Uttarbag"] },
+      { "name": "Sreemangal", "unions": ["Ashidron", "Bhunobir", "Kalapur", "Kalighat", "Mirjapore", "Rajghat", "Satgaon", "Shindurkhan", "Sreemangal"] },
+      { "name": "Juri", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Sunamganj District",
+    "upazilas": [
+      { "name": "Bishwamvarpur", "unions": ["Badaghat (South)", "Dhonpur", "Fatepur", "Polash", "Salukabad"] },
+      { "name": "Chhatak", "unions": [] },
+      { "name": "Derai", "unions": ["Bhatipara", "Charnar Char", "Derai Surmangul", "Jogdal", "Karimpur", "Kulanj", "Rafinagar", "Rajanagar", "Taral"] },
+      { "name": "Dharampasha", "unions": ["Shukhair Rajapur (South)", "Maddhanagar", "Chmar Dani", "Bongsikunda (South)", "Bonshikunda (North)", "Dharmapasha", "Joysree", "Paikarity", "Selborosh", "Sukir Razapur(North)"] },
+      { "name": "Dowarabazar", "unions": ["Banglabazar", "Duarabazar", "Duhalia", "Laxmipur", "Mannargoan", "Norshingpur", "Pandergaon"] },
+      { "name": "Jagannathpur", "unions": ["Chilaura-holdipur", "Kolkolia", "Mirpur", "Pailgaon", "Patly", "Ranigonjbazar", "Sayedpur Shaharpara", "Asharkandi"] },
+      { "name": "Jamalganj", "unions": ["Bahale", "Bhimkahli", "Fenarbak", "Jamalgonj Proper", "Sachnabazar"] },
+      { "name": "Sullah", "unions": ["Atgoan", "Bahara", "Habibpur", "Sulla"] },
+      { "name": "Sunamganj Sadar", "unions": ["Aftabnagar", "Dargapasha", "East Birgoan", "East Pagla", "Gouramong", "Jahangirnagar", "Joykalash", "Lakshmansree", "Mohanpur", "Mulla Para", "Patharia", "Rangarchar", "Shimulbak", "Surma", "West Birgaon", "West Pagla"] },
+      { "name": "Tahirpur", "unions": ["Badaghat", "Baliguri", "Bardal North", "Bradal South", "Sreepur North", "Sreepur South", "Tahirpur"] },
+      { "name": "South Sunamganj", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Sylhet District",
+    "upazilas": [
+      { "name": "Balaganj", "unions": ["Balagonj", "Boaljur", "Burunga Bazar", "Dayamir", "Dewan Bazar", "East Gouripur", "East Pailanpur", "Goalabazar", "Sadipur", "Tajpur", "Umorpur", "Usmanpur", "West Gouripur", "West Pollonpur"] },
+      { "name": "Beanibazar", "unions": ["Ali Nagar", "Charkhai", "Dubag", "Mathiura", "Mullapur", "Muria", "Sheola", "Tilpara"] },
+      { "name": "Bishwanath", "unions": ["Alangkari", "Biswanath", "Daulatpur", "Dewkalash", "Doshghor", "Khazanci", "Lamakazi", "Rampasha"] },
+      { "name": "Companigonj", "unions": ["Uttar Ranikhai", "Telikhal", "Dakshin Ronikhai", "Ichakalash", "Islampur Purba", "Islampur West"] },
+      { "name": "Fenchuganj", "unions": [] },
+      { "name": "Golapganj", "unions": ["Bagh", "Bhadeswar", "Budhbari Bazar", "Dhakadakshin", "Fulbari", "Golapgonj", "Lakshanabond", "Lakshmi Passa", "North Badepasha", "Sharifgonj", "West Amura"] },
+      { "name": "Gowainghat", "unions": ["Nondirgow", "Alirgow", "East Jafflong", "Fotherpur", "Lengura", "Rustompur", "Towakil", "West Jufflong"] },
+      { "name": "Jaintiapur", "unions": ["Charikata", "Chiknagool", "Dorbosth", "Fatepur", "Nizpat", "Taintiapur"] },
+      { "name": "Kanaighat", "unions": ["Borchatul", "Dakshin Banigram", "Dighirpara East", "Jhinaga Bari", "KKanaighat", "Lakmiparashad East", "Laksmiproshad West", "Rajagonj", "Shatbak"] },
+      { "name": "Sylhet Sadar", "unions": ["Baraikandi", "Daudpur", "Hatkhula", "Jalalabad", "Jalalpur", "Khadim Nagar", "Khadimpara", "Khandigaon", "Kuchai", "Lalabazar", "Mogla Bazar", "Mugolgaon", "Mullar Gaon", "Silam", "Tetli", "Tuker Bazar", "Tultiker"] },
+      { "name": "Zakiganj", "unions": ["Barohal"] },
+      { "name": "South Shurma", "unions": [] }
+    ]
+  },
+  {
+    "district_name": "Dinajpur District",
+    "upazilas": [
+      { "name": "Biral", "unions": ["Azimpur", "Bhandara", "Bijora", "Biral", "Dhamoir", "Dharmapur", "Forakkabad", "Mangalpur", "Ranipukur", "Shahargram"] },
+      { "name": "Birampur", "unions": ["Binail", "Dior", "Jhotbani", "Katla", "Khanpur", "Mukundpur", "Poli Proagpur"] },
+      { "name": "Birgonj", "unions": ["Bhognagar", "Maricha", "Mohammadpur", "Mohonpur", "Nijpara", "Palashbari", "Paltapur", "Satagram", "Satore", "Shibrampur", "Sujalpur"] },
+      { "name": "Bochaganj", "unions": ["Atgaon", "Chatoil", "Ishania", "Mushidhat", "Rangaon"] },
+      { "name": "Chirrierbandar", "unions": ["Abdulpur", "Alokdihi", "Amarpur", "Auliapukur", "Bheail", "Fatejongpur", "Isabpur", "Nasaratpur", "Punatty", "Sailasa", "Satnala", "Tatulya"] },
+      { "name": "Ghoraghat", "unions": ["Bulakipur", "Ghoraghat", "Palsha", "Shingra"] },
+      { "name": "Hakimpur", "unions": ["Alihat", "Boaldor", "Khotta Madhab Para"] },
+      { "name": "Kaharol", "unions": ["Dabore", "Mukundpur", "Ramchandrapur", "Sundarpur", "Targaon", "Rasulpur"] },
+      { "name": "Khansama", "unions": ["Alokjhari", "Angerpara", "Bhabki", "Goaldihi", "Khamarpara", "Vheravhere"] },
+      { "name": "Nawabganj", "unions": ["Bhaduria", "Binodnagar", "Daudpur", "Golapganj", "Joypur", "Kushdah", "Mahmudpur", "Putimara", "Shalkhuria"] },
+      { "name": "Parbatipur", "unions": ["Belaichandi", "Chandipur", "Hamidpur", "Harirumpur", "Manmathpur", "Mominpur", "Mostofapur", "Palashbari", "Rampur", "Shabra"] },
+      { "name": "Phulbari", "unions": ["Aladipur", "Bathadhigia", "Daulatpur", "Eluary", "Kajial", "Khaerbari", "Shibnagar"] }
+    ]
+  },
+  {
+    "district_name": "Gaibandha District",
+    "upazilas": [
+      { "name": "Fulchari", "unions": ["Chancipara", "Erenda Bari", "Fazlupur", "Fulchari", "Gazaria", "Uddakhali", "Uria"] },
+      { "name": "Gaibandha Sadar", "unions": ["Badiakhali", "Boali", "Bollamjhar", "Gapua", "Gidary", "Kamarjani", "Kholahati", "Kuptula", "Lakhipur", "Malibari", "Mollarchar", "Ranchandrapur", "Sahapara"] },
+      { "name": "Gobindagonj", "unions": ["Darbosta", "Gumaniganj", "Horirampur", "Kamardaha", "Kamdia", "Katabari", "Kochashahar", "mOHIMAGONJ", "Nakai", "Pulbary", "Rakhal Buruze", "Razaher", "Salmara", "Sapmara", "Shakhahar", "Shibpur", "Taluk Kanupur"] },
+      { "name": "Palashbari", "unions": ["Barishal", "Betkapa", "Harinathpur", "Hossainpur", "Kishoregari", "Mohadipur", "Monohorpur", "Pabnapur", "Palashbari"] },
+      { "name": "Sadullahpur", "unions": ["Banagram", "Bhatgram", "Damodarpur", "Dhaperhat", "Edilpur", "Faridpur", "Jamalpur", "Kamarpara", "Khorddakomarpur", "Noldanga", "Rasulpur"] },
+      { "name": "Shaghata", "unions": ["Bharatkhali", "Bonarpara", "Ghuridaha", "Haldia", "Jumerbari", "Kachua", "Kamalerpara", "Muktinagar", "Padumshahar", "Shaghata"] },
+      { "name": "Sundargonj", "unions": ["Bamondanga", "Belka", "Chandipur", "Dahabandha", "Dhopadanga", "Haripur", "Kanchibari", "Kapashia", "Ramjebon", "Santiram", "Saparhati", "Sarbananda", "Sonaray", "Sreapur", "Tarapur"] }
+    ]
+  },
+  {
+    "district_name": "Kurigram District",
+    "upazilas": [
+      { "name": "Bhurungamari", "unions": ["Andharijhar", "Bhurungamari", "Boldia", "Bonga Sonahat", "Char Bhurungamari", "Joymonirhat", "Paiker Chhara", "Pathar Dubi", "Shilkhuri", "Telai"] },
+      { "name": "Chilmari", "unions": ["Austomir Char", "Chilmari", "Nayerhat", "Ramna Model", "Raniganj", "Thanahat"] },
+      { "name": "Fulbari", "unions": ["Baravita", "Bhangamore", "Fulbari", "Kashipur", "Nowdanga", "Shimulbari"] },
+      { "name": "Kurigram Sadar", "unions": ["Belgacha", "Bhogdanga", "Ghogadaha", "Hollakhana", "Jatrapur", "Khanthalbari", "Mogolbasha", "Punchgachi"] },
+      { "name": "Nageswari", "unions": ["Ballover Khash", "Bamandanga", "Berubari", "Bhitorband", "Hasnabad", "Kachakata", "Kaliganj", "Kedar", "Narayanpur", "Newashi", "Noonkhawa", "Raigong", "Ramkhana", "Sontospur"] },
+      { "name": "Rajarhat", "unions": ["Biddyananda", "Chakir Pashar", "Chinai", "GharialDanga", "Najimkhan", "Rajarhat", "Umar Majid"] },
+      { "name": "Rajibpur", "unions": ["Kodalkate", "Mohanganj", "Rajibpur"] },
+      { "name": "Rowmari", "unions": ["Bandabera", "Dant Bhanga", "Jadurchar", "Rowmari", "Soulmari"] },
+      { "name": "Ulipur", "unions": ["Bazra", "Begumganj", "Buraburi", "Daldalia", "Dhamsreny", "Dharanibari", "Durgapur", "Gunaigach", "Hatia", "Pandul", "Shaheber Alga", "Tabakpur", "Thetrai"] }
+    ]
+  },
+  {
+    "district_name": "Lalmonirhat District",
+    "upazilas": [
+      { "name": "Aditmari", "unions": ["Bhadai", "Bhelabari", "Durgapur", "Kumlabari", "Mohishkhacha", "Polashi", "Saptibari", "Sharpukur"] },
+      { "name": "Hatibandha", "unions": ["Barakhata", "Bhelaguri", "Dawabari", "Goddimari", "Gotamari", "Noadabash", "Patikapara", "Shindurna", "Singimari", "Tongbhanga"] },
+      { "name": "Kaligonj", "unions": ["Bhotmari", "Chalbala", "Chandrapur", "Dalgram", "Gorul", "Kakina", "Modati", "Tusvander"] },
+      { "name": "Lalmonirhat Sadar", "unions": ["Barobari", "Gokunda", "Harati", "Khuniagash", "Kulaghat", "Mogolat", "Mohandranagar", "Panchagram", "Rajapur"] },
+      { "name": "Patgram", "unions": ["Baura", "Dhagram", "Jagotber", "Jongra", "Kuchlibari", "Patgram", "Sree Rampur"] }
+    ]
+  },
+  {
+    "district_name": "Nilphamari District",
+    "upazilas": [
+      { "name": "Domar", "unions": ["Bhogdaburi", "Domar", "Horin Chara", "Sonarai", "Bamunia", "Boragari", "Gomnathi", "Gorabari", "Ketkibari", "Pangamotukpur"] },
+      { "name": "Jaldhaka", "unions": ["Bhalagram", "Dharmapal", "Dowabari", "Golmunda", "Golna", "Kathali", "Khotamara", "Koimari", "Mirganj", "Shimulbari", "Shoulmari"] },
+      { "name": "Kishoregonj", "unions": ["Bahagili", "Barabhita", "Chadkhana", "Gragram", "Magura", "Nitai", "Putimari", "Ranochandi"] },
+      { "name": "Nilphamari Sadar", "unions": ["Chapra Saramjani", "Charaikhola", "Chowra Bara Gachha", "Gorgram", "Itakhola", "Kachukata", "Khakshbari", "Kundapukur", "Laxmipchap", "Panchapukur", "Polashbari", "Ramnagar", "Sangalshi", "Sonaray", "Tupamari"] },
+      { "name": "Saidpur", "unions": ["Bangalipur", "Botlagari", "Kamarpukur", "Katamadupur"] }
+    ]
+  },
+  {
+    "district_name": "Panchagarh District",
+    "upazilas": [
+      { "name": "Atwary", "unions": ["Aloakhoa", "Balarampur", "Dhamore", "Mirzapur", "Radhanagar", "Toria"] },
+      { "name": "Boda", "unions": ["Bahanghari Banogram", "Barashashi", "Boda", "Chandabari", "Jhalaishal Shiri", "Kazal Dighi Kaliaganj", "Mareya Bamon Hati", "Moidandighi", "Panchpir", "Sakoga"] },
+      { "name": "Panchagar Sadar", "unions": ["Amar Khana", "Chaklahat", "Dhakkamara", "Garinabari", "Hafizabad", "Haribhasa", "Magura", "Panchagar Sadar", "Satmera"] },
+      { "name": "Debiganj", "unions": ["Chengthi Hazradanga", "Debidoba", "Dondapal", "Tepriganj", "Chillahati", "Debigonj", "Pamuli", "Saldanga", "Sonahar", "Sundar Dighi"] },
+      { "name": "Tetulia", "unions": ["Banglabandha", "Bhajonpur"] }
+    ]
+  },
+  {
+    "district_name": "Rangpur District",
+    "upazilas": [
+      { "name": "Badargonj", "unions": ["Bishnupur", "Damodarpur", "Gopalpur", "Gopinathpur", "Kalupara", "Kutubpur", "Lohanipara", "Madhupur", "Radhanagar", "Ramnathpur"] },
+      { "name": "Kaunia", "unions": ["Haragas", "Kaunia", "Kaunia Balapara", "Kursha", "Sarai", "Tephamudhupur"] },
+      { "name": "Mithapukur", "unions": ["Balar Hat", "Balua Mashimpur", "Bara Hazratpur", "Barobala", "Bhangni", "Changmari", "Durgapur", "Emdadpur", "Gopalpur", "Kafrikhal", "Khoragach", "Latibpur", "Milonpur", "Mirzapur", "Moyenpur", "Payrabanda", "Ranipukur"] },
+      { "name": "Peergacha", "unions": ["Annadanagar", "Chawla", "Itakamils", "Kaikuri", "Kalyani", "Kandhi", "Parul", "Peergacha", "Tambalpur"] },
+      { "name": "Pirganj", "unions": ["Barodarga", "Bhondabari", "Boroalampur", "Chatra", "Choitrokol", "Kabilpur", "Kunmedpur", "Mitepur", "Modonkahli", "Panchgachi", "Pirganj", "Raipur", "Ramnathpur", "Shanerhat", "Tukuria"] },
+      { "name": "Rangpur Sadar", "unions": ["Chandanpat", "Darshana", "Haridebpur", "Mominpur", "Parshuram", "Rajendrapur", "Sadgara", "Sadyapuskarani", "Tampat", "Tapodhan", "Uttam"] },
+      { "name": "Taraganj", "unions": ["Alampur", "Ekurdhali", "Nambir Hariquty", "Sauar"] }
+    ]
+  },
+  {
+    "district_name": "Thakurgaon District",
+    "upazilas": [
+      { "name": "Haripur", "unions": ["Amgaon", "Bhaturia", "Bokua", "Dangipara", "Gedura", "Haripur"] },
+      { "name": "Pirganj", "unions": ["Bairchuna", "Bhomradaha", "Daulatpur", "Hazipur", "Jabarhat", "Khangaon", "Kosaraniganj", "Pirganj", "Saidpur", "Sengaon"] },
+      { "name": "Ranisonkail", "unions": ["Bachore", "Dharmaghar", "Hosengaon", "Kashipur", "Lehanga", "Nandura", "Neckmorod", "Rator"] },
+      { "name": "Thakurgaon Sadar", "unions": ["Akanagar", "Akcha", "Auliapur", "Balia", "Baragaon", "Begumbari", "Chilarong", "Debipur", "Gorea", "Jagannathpur", "Jamalpur", "Mohammadpur", "Nargun", "Rahimanpur", "Rajagaon", "Raypur", "Ruhia", "Salandar", "Shukhan Pukhri"] }
+    ]
+  }
+]

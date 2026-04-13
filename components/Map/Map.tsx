@@ -21,6 +21,10 @@ interface MapProps {
   }) => void;
   userLocation: Coordinates | null;
   onUserLocationFound: (coords: Coordinates) => void;
+  focusView?: {
+    center: [number, number];
+    zoom: number;
+  } | null;
 }
 
 // CartoDB Dark Matter — dark mode tiles
@@ -35,6 +39,7 @@ export default function MapView({
   onMapMove,
   userLocation,
   onUserLocationFound,
+  focusView,
 }: MapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -224,6 +229,16 @@ export default function MapView({
       { icon, zIndexOffset: 1000 }
     ).addTo(mapRef.current);
   }, [userLocation, mapReady]);
+
+  // Handle external focus view changes
+  useEffect(() => {
+    if (!mapRef.current || !focusView || !mapReady) return;
+
+    mapRef.current.flyTo(focusView.center, focusView.zoom, {
+      duration: 1.5,
+      easeLinearity: 0.25
+    });
+  }, [focusView, mapReady]);
 
   const handleLocate = useCallback(() => {
     if (!mapRef.current || !userLocation) return;

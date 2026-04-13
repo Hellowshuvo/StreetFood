@@ -6,14 +6,12 @@
   height: calc(64px + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
   z-index: var(--z-bottom-nav);
-  background: var(--surface-glass);
-  backdrop-filter: blur(24px) saturate(1.5);
-  -webkit-backdrop-filter: blur(24px) saturate(1.5);
-  border-top: 1px solid var(--glass-border);
+  background: var(--black);
+  border-top: 1px solid var(--gray-900);
   display: flex;
   align-items: center;
   justify-content: space-around;
-  box-shadow: 0 -8px 32px rgba(var(--shadow-rgb), 0.2);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .tab {
@@ -24,7 +22,7 @@
   justify-content: center;
   height: 100%;
   gap: 4px;
-  color: var(--text-tertiary);
+  color: var(--gray-500);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: color var(--duration-fast) var(--ease-out),
@@ -39,7 +37,7 @@
 }
 
 .tabActive {
-  color: var(--white);
+  color: #ffffff;
 }
 
 .tab svg {

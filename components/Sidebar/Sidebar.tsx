@@ -2,6 +2,7 @@
 
 import styles from './Sidebar.module.css';
 import CategoryFilter from '@/components/CategoryFilter/CategoryFilter';
+import LocationSearch from '@/components/LocationSearch/LocationSearch';
 import type { Category } from '@/lib/types';
 
 interface SidebarProps {
@@ -18,6 +19,7 @@ interface SidebarProps {
   onSignOut: () => void;
   isOpen: boolean;
   onClose: () => void;
+  onLocationChange: (location: any) => void;
 }
 
 export default function Sidebar({
@@ -34,6 +36,7 @@ export default function Sidebar({
   onSignOut,
   isOpen,
   onClose,
+  onLocationChange,
 }: SidebarProps) {
   return (
     <>
@@ -81,6 +84,13 @@ export default function Sidebar({
           <span>Feed</span>
         </button>
       </nav>
+
+      <div className={styles.divider} />
+
+      {/* Location Search */}
+      <div className={styles.section}>
+        <LocationSearch onLocationChange={onLocationChange} />
+      </div>
 
       <div className={styles.divider} />
 
