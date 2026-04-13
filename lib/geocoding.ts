@@ -24,17 +24,23 @@ export async function resolveLocationCoordinates(params: {
   district?: string;
   upazilaName?: string;
   unionName?: string;
+  areaName?: string;
   upazilaId?: string;
   unionId?: string;
+  areaId?: string;
 }): Promise<GeoLocation | null> {
-  const { division, district, upazilaName, unionName, upazilaId, unionId } = params;
+  const { division, district, upazilaName, unionName, areaName, upazilaId, unionId, areaId } = params;
 
   // 1. Determine the deepest level specified
   let level = '';
   let localId = '';
   let localTable = '';
 
-  if (unionId) {
+  if (areaId) {
+    level = 'area';
+    localId = areaId;
+    localTable = 'areas';
+  } else if (unionId) {
     level = 'union';
     localId = unionId;
     localTable = 'unions';

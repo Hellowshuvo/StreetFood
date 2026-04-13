@@ -71,6 +71,10 @@ export default function HomePage() {
     district?: string;
     upazilaId?: string;
     unionId?: string;
+    areaId?: string;
+    upazilaName?: string;
+    unionName?: string;
+    areaName?: string;
   }>({});
 
   const [mapView, setMapView] = useState<{
@@ -235,8 +239,10 @@ export default function HomePage() {
       district: location.district,
       upazilaId: location.upazilaId,
       unionId: location.unionId,
+      areaId: location.areaId,
       upazilaName: location.upazilaName,
-      unionName: location.unionName
+      unionName: location.unionName,
+      areaName: location.areaName
     });
 
     if (geo) {
