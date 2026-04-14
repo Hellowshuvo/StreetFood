@@ -22,7 +22,12 @@ export default function UnifiedSearchBar({
   placeholder = "Search stalls..."
 }: UnifiedSearchBarProps) {
   const [isLocationOpen, setIsLocationOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Notify parent of modal state
   useEffect(() => {
@@ -44,7 +49,7 @@ export default function UnifiedSearchBar({
 
   // Format current location text
   const getLocationText = () => {
-    const isSmallScreen = typeof window !== 'undefined' && window.innerWidth < 480;
+    const isSmallScreen = isMounted && window.innerWidth < 480;
     
     if (!locationFilter.district) {
       return isSmallScreen ? "Location" : "Explore Location";

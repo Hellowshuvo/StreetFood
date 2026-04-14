@@ -162,23 +162,26 @@ export default function MapView({
         return;
       }
 
+      const isNew = !stall.avg_rating || stall.total_ratings === 0;
+      const ratingValue = isNew ? '5.0' : Number(stall.avg_rating).toFixed(1);
+      
       let cls = styles.markerPin;
       if (isSelected) cls += ` ${styles['marker-selected']}`;
       if (selectedStallId && !isSelected) cls += ` ${styles['marker-dim']}`;
-
-      const ratingText = stall.avg_rating && stall.total_ratings > 0 
-        ? Number(stall.avg_rating).toFixed(1) 
-        : 'New';
+      if (isNew || stall.avg_rating >= 4.5) cls += ` ${styles['marker-gold']}`;
 
       const icon = L.divIcon({
         className: styles.markerWrapper,
         html: `
           <div class="${cls}">
-            <div class="${styles.markerContent}">${ratingText}</div>
+            <div class="${styles.markerContent}">
+              <span class="${styles.star}">★</span>
+              <span>${ratingValue}</span>
+            </div>
             <div class="${styles.markerPointer}"></div>
           </div>
         `,
-        iconSize: [0, 0], // Let CSS handle natural responsive sizing
+        iconSize: [0, 0],
       });
 
       const marker = L.marker([stall.lat, stall.lng], { icon }).addTo(map);

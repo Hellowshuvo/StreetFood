@@ -5,8 +5,7 @@ import Image from 'next/image';
 import styles from './AddModal.module.css';
 import RatingStars from '@/components/RatingStars/RatingStars';
 import { CATEGORIES, type Category } from '@/lib/types';
-import type { Coordinates } from '@/lib/geo';
-import { DEFAULT_LOCATION } from '@/lib/geo';
+import { DEFAULT_LOCATION, getCurrentPosition, type Coordinates } from '@/lib/geo';
 import { supabase } from '@/lib/supabase';
 import imageCompression from 'browser-image-compression';
 
@@ -26,8 +25,8 @@ export default function AddModal({
   onSuccess,
 }: AddModalProps) {
   const [step, setStep] = useState<Step>(1);
-  const [photo, setPhoto] = useState<File | null>(null);
-  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const [photos, setPhotos] = useState<File[]>([]);
+  const [photoPreviews, setPhotoPreviews] = useState<string[]>([]);
   const [location, setLocation] = useState<Coordinates>(
     userLocation || DEFAULT_LOCATION
   );
@@ -45,27 +44,42 @@ export default function AddModal({
 
   // Handle photo selection
   const handlePhotoSelect = useCallback(
-    async (file: File) => {
-      try {
-        const compressed = await imageCompression(file, {
-          maxSizeMB: 0.5,
-          maxWidthOrHeight: 1200,
-          useWebWorker: true,
-        });
-        setPhoto(compressed);
-        setPhotoPreview(URL.createObjectURL(compressed));
-      } catch {
-        setPhoto(file);
-        setPhotoPreview(URL.createObjectURL(file));
+    async (newFiles: FileList | File[]) => {
+      const remainingSlots = 3 - photos.length;
+      if (remainingSlots <= 0) {
+        setError('Maximum 3 images allowed');
+        return;
       }
+
+      const filesToAdd = Array.from(newFiles).slice(0, remainingSlots);
+      const newPhotos = [...photos];
+      const newPreviews = [...photoPreviews];
+
+      for (const file of filesToAdd) {
+        try {
+          const compressed = await imageCompression(file, {
+            maxSizeMB: 0.5,
+            maxWidthOrHeight: 1200,
+            useWebWorker: true,
+          });
+          newPhotos.push(compressed);
+          newPreviews.push(URL.createObjectURL(compressed));
+        } catch {
+          newPhotos.push(file);
+          newPreviews.push(URL.createObjectURL(file));
+        }
+      }
+
+      setPhotos(newPhotos);
+      setPhotoPreviews(newPreviews);
+      setError(null);
     },
-    []
+    [photos, photoPreviews]
   );
 
   const handleFileChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const file = e.target.files?.[0];
-      if (file) handlePhotoSelect(file);
+      if (e.target.files) handlePhotoSelect(e.target.files);
     },
     [handlePhotoSelect]
   );
@@ -73,16 +87,30 @@ export default function AddModal({
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
       e.preventDefault();
-      const file = e.dataTransfer.files?.[0];
-      if (file && file.type.startsWith('image/')) {
-        handlePhotoSelect(file);
+      if (e.dataTransfer.files) {
+        handlePhotoSelect(e.dataTransfer.files);
       }
     },
     [handlePhotoSelect]
   );
 
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
+  const removePhoto = (index: number) => {
+    setPhotos(photos.filter((_, i) => i !== index));
+    setPhotoPreviews(photoPreviews.filter((_, i) => i !== index));
+  };
+
+  // Handle "Use My Location"
+  const handleUseMyLocation = useCallback(async () => {
+    try {
+      const coords = await getCurrentPosition();
+      setLocation(coords);
+      if (mapInstanceRef.current && markerRef.current) {
+        mapInstanceRef.current.flyTo([coords.lat, coords.lng], 17);
+        markerRef.current.setLatLng([coords.lat, coords.lng]);
+      }
+    } catch (err) {
+      setError('Could not get your location');
+    }
   }, []);
 
   // Initialize mini map for step 2
@@ -130,7 +158,7 @@ export default function AddModal({
         markerRef.current = null;
       }
     };
-  }, [step, location.lat, location.lng]);
+  }, [step]);
 
   // Submit
   const handleSubmit = useCallback(async () => {
@@ -147,12 +175,12 @@ export default function AddModal({
     setError(null);
 
     try {
-      let photoUrl: string | null = null;
+      let photoUrls: string[] = [];
 
-      // Upload photo
-      if (photo) {
+      // Upload photos
+      for (const photo of photos) {
         const ext = photo.name.split('.').pop() || 'jpg';
-        const filePath = `stalls/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`;
+        const filePath = `posts/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`;
 
         const { error: uploadError } = await supabase.storage
           .from('photos')
@@ -163,8 +191,10 @@ export default function AddModal({
         const {
           data: { publicUrl },
         } = supabase.storage.from('photos').getPublicUrl(filePath);
-        photoUrl = publicUrl;
+        photoUrls.push(publicUrl);
       }
+      
+      const primaryPhotoUrl = photoUrls[0] || null;
 
       // Create stall
       const { data: stallData, error: stallError } = await supabase
@@ -175,7 +205,7 @@ export default function AddModal({
           lat: location.lat,
           long: location.lng,
           created_by: userId,
-          photo_url: photoUrl,
+          photo_url: primaryPhotoUrl,
         })
         .select()
         .single();
@@ -191,13 +221,16 @@ export default function AddModal({
       });
 
       // Create post
-      await supabase.from('posts').insert({
-        stall_id: stallData.id,
-        user_id: userId,
-        photo_url: photoUrl,
-        caption: note.trim() || `Added ${name.trim()}`,
-        rating,
-      });
+      await supabase.from('posts')
+        .insert({
+          stall_id: stallData.id,
+          user_id: userId,
+          photo_url: primaryPhotoUrl,
+          caption: note.trim() || `Added ${name.trim()}`,
+          rating,
+          // Support multiple photos in the future if we add a column, 
+          // but for now let's just use the first/main photo for the post
+        });
 
       onSuccess();
       onClose();
@@ -207,7 +240,7 @@ export default function AddModal({
     }
 
     setSubmitting(false);
-  }, [name, category, location, rating, note, photo, userId, onSuccess, onClose]);
+  }, [name, category, location, rating, note, photos, userId, onSuccess, onClose]);
 
   return (
     <div className={styles.overlay} onClick={onClose}>
@@ -240,40 +273,51 @@ export default function AddModal({
         {/* Step 1: Photo */}
         {step === 1 && (
           <div className={styles.body}>
-            <h3 className={styles.stepTitle}>Upload a Photo</h3>
-            <div
-              className={styles.dropzone}
-              onDrop={handleDrop}
-              onDragOver={handleDragOver}
-              onClick={() => fileInputRef.current?.click()}
-            >
-              {photoPreview ? (
-                <img src={photoPreview} alt="Preview" className={styles.preview} />
-              ) : (
-                <div className={styles.dropzoneContent}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                    <circle cx="8.5" cy="8.5" r="1.5" />
-                    <polyline points="21 15 16 10 5 21" />
-                  </svg>
-                  <span>Click or drag to upload</span>
-                  <span className={styles.dropzoneHint}>JPG, PNG up to 5MB</span>
+            <h3 className={styles.stepTitle}>Upload Photos (Max 3)</h3>
+            
+            <div className={styles.photoGrid}>
+              {photoPreviews.map((url, i) => (
+                <div key={url} className={styles.previewItem}>
+                  <img src={url} alt="Preview" className={styles.preview} />
+                  <button className={styles.removePhoto} onClick={() => removePhoto(i)}>×</button>
+                </div>
+              ))}
+              
+              {photos.length < 3 && (
+                <div
+                  className={styles.dropzone}
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  <div className={styles.dropzoneContent}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                    <span>Add Photo</span>
+                  </div>
                 </div>
               )}
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-                hidden
-              />
             </div>
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleFileChange}
+              hidden
+            />
+
+            {error && <p className={styles.error}>{error}</p>}
+            
             <div className={styles.footer}>
               <button
                 className="btn btn-primary"
                 onClick={() => setStep(2)}
+                disabled={photos.length === 0}
               >
-                {photo ? 'Next' : 'Skip Photo'}
+                Next
               </button>
             </div>
           </div>
@@ -282,7 +326,15 @@ export default function AddModal({
         {/* Step 2: Location */}
         {step === 2 && (
           <div className={styles.body}>
-            <h3 className={styles.stepTitle}>Pick Location</h3>
+            <div className={styles.stepHeaderRow}>
+              <h3 className={styles.stepTitle}>Pick Location</h3>
+              <button 
+                className={`${styles.locateBtn} glass`}
+                onClick={handleUseMyLocation}
+              >
+                📍 Use My Location
+              </button>
+            </div>
             <p className={styles.stepDesc}>
               Click the map or drag the marker to set the stall location.
             </p>
@@ -292,6 +344,7 @@ export default function AddModal({
                 {location.lat.toFixed(5)}, {location.lng.toFixed(5)}
               </span>
             </div>
+            {error && <p className={styles.error}>{error}</p>}
             <div className={styles.footer}>
               <button className="btn btn-ghost" onClick={() => setStep(1)}>
                 Back

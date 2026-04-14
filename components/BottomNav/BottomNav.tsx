@@ -1,5 +1,6 @@
 'use client';
 
+import React, { memo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import styles from './BottomNav.module.css';
 
@@ -8,7 +9,7 @@ interface BottomNavProps {
   onProfileClick: () => void;
 }
 
-export default function BottomNav({ onAddClick, onProfileClick }: BottomNavProps) {
+const BottomNav = memo(function BottomNav({ onAddClick, onProfileClick }: BottomNavProps) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -22,6 +23,7 @@ export default function BottomNav({ onAddClick, onProfileClick }: BottomNavProps
       <button 
         className={`${styles.tab} ${isMapActive ? styles.tabActive : ''}`}
         onClick={() => router.push('/')}
+        onTouchStart={() => router.push('/')}
         aria-label="Home map view"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -35,6 +37,7 @@ export default function BottomNav({ onAddClick, onProfileClick }: BottomNavProps
       <button 
         className={`${styles.tab} ${isFeedActive ? styles.tabActive : ''}`}
         onClick={() => router.push('/feed')}
+        onTouchStart={() => router.push('/feed')}
         aria-label="Feed stream"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -48,6 +51,7 @@ export default function BottomNav({ onAddClick, onProfileClick }: BottomNavProps
       <button 
         className={styles.tab}
         onClick={onAddClick}
+        onTouchStart={onAddClick}
         aria-label="Add new stall"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -62,6 +66,7 @@ export default function BottomNav({ onAddClick, onProfileClick }: BottomNavProps
       <button 
         className={styles.tab}
         onClick={onProfileClick}
+        onTouchStart={onProfileClick}
         aria-label="User profile"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -72,4 +77,6 @@ export default function BottomNav({ onAddClick, onProfileClick }: BottomNavProps
       </button>
     </nav>
   );
-}
+});
+
+export default BottomNav;

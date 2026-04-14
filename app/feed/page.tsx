@@ -6,11 +6,17 @@ import PostCard from '@/components/PostCard/PostCard';
 import type { Post } from '@/lib/types';
 import { supabase } from '@/lib/supabase';
 
+import { DEFAULT_LOCATION, type Coordinates, getCurrentPosition } from '@/lib/geo';
+
+type FeedTab = 'local' | 'bangladesh';
+
 export default function FeedPage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
+  const [currentTab, setCurrentTab] = useState<FeedTab>('local');
+  const [userLocation, setUserLocation] = useState<Coordinates | null>(null);
   const loadingRef = useRef(false);
   const pageRef = useRef(0);
   const PAGE_SIZE = 10;
@@ -31,7 +37,8 @@ export default function FeedPage() {
   }, []);
 
   // Load posts
-  const loadPosts = useCallback(async (page: number) => {
+  const loadPosts = useCallback(async (page: number, tabOverride?: FeedTab) => {
+    const tab = tabOverride || currentTab;
     if (loadingRef.current) return;
     loadingRef.current = true;
     setLoading(true);
@@ -40,19 +47,55 @@ export default function FeedPage() {
       const from = page * PAGE_SIZE;
       const to = from + PAGE_SIZE - 1;
 
-      const { data, error } = await supabase
-        .from('posts')
-        .select(
-          '*, profiles(username, avatar_url), stalls(name, category, avg_rating)'
-        )
-        .order('created_at', { ascending: false })
-        .range(from, to);
+      let data, error;
+
+      if (tab === 'local') {
+        let loc = userLocation;
+        if (!loc) {
+          try {
+            loc = await getCurrentPosition();
+            setUserLocation(loc);
+          } catch (e) {
+            console.warn('Geolocation failed, falling back to all posts');
+          }
+        }
+
+        if (loc) {
+          const { data: rpcData, error: rpcError } = await supabase.rpc('get_nearby_posts', {
+            user_lat: loc.lat,
+            user_lng: loc.lng,
+            radius_km: 20.0
+          }).range(from, to);
+          data = rpcData;
+          error = rpcError;
+        } else {
+          // Fallback to all posts if location is unavailable
+          const { data: allData, error: allError } = await supabase
+            .from('posts')
+            .select('*, profiles(username, avatar_url), stalls(name, category, avg_rating)')
+            .order('created_at', { ascending: false })
+            .range(from, to);
+          data = allData;
+          error = allError;
+        }
+      } else {
+        // Bangladesh Tab: All posts
+        const { data: allData, error: allError } = await supabase
+          .from('posts')
+          .select('*, profiles(username, avatar_url), stalls(name, category, avg_rating)')
+          .order('created_at', { ascending: false })
+          .range(from, to);
+        data = allData;
+        error = allError;
+      }
 
       if (data && !error) {
         if (data.length < PAGE_SIZE) {
           setHasMore(false);
         }
         setPosts((prev) => (page === 0 ? data : [...prev, ...data]) as Post[]);
+      } else if (error) {
+        console.error('Query error:', error);
       }
     } catch (e) {
       console.error('Failed to load posts:', e);
@@ -60,7 +103,17 @@ export default function FeedPage() {
 
     setLoading(false);
     loadingRef.current = false;
-  }, []);
+  }, [currentTab, userLocation]);
+
+  // Handle Tab Change
+  const handleTabChange = useCallback((newTab: FeedTab) => {
+    if (newTab === currentTab) return;
+    setCurrentTab(newTab);
+    setPosts([]);
+    setHasMore(true);
+    pageRef.current = 0;
+    loadPosts(0, newTab);
+  }, [currentTab, loadPosts]);
 
   // Initial load
   useEffect(() => {
@@ -99,7 +152,20 @@ export default function FeedPage() {
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
-        <h1 className={styles.title}>Feed</h1>
+        <div className={styles.tabs}>
+          <button 
+            className={`${styles.tab} ${currentTab === 'local' ? styles.tabActive : ''}`}
+            onClick={() => handleTabChange('local')}
+          >
+            Explore Local
+          </button>
+          <button 
+            className={`${styles.tab} ${currentTab === 'bangladesh' ? styles.tabActive : ''}`}
+            onClick={() => handleTabChange('bangladesh')}
+          >
+            Bangladesh
+          </button>
+        </div>
         <div className={styles.headerSpacer} />
       </header>
 
