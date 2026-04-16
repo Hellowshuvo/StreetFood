@@ -53,7 +53,7 @@ export interface Like {
   created_at: string;
 }
 
-export type Category = 'fuchka' | 'chotpoti' | 'tea' | 'grill' | 'snacks';
+export type Category = 'fuchka' | 'chotpoti' | 'tea' | 'grill' | 'snacks' | 'fast-food' | 'drinks';
 
 export const CATEGORIES: { value: Category; label: string; icon: string }[] = [
   { value: 'fuchka', label: 'Fuchka', icon: '/icons/fuchka.png' },
@@ -61,4 +61,6 @@ export const CATEGORIES: { value: Category; label: string; icon: string }[] = [
   { value: 'tea', label: 'Tea', icon: '/icons/tea.png' },
   { value: 'grill', label: 'Grill', icon: '/icons/grill.png' },
   { value: 'snacks', label: 'Snacks', icon: '/icons/snacks.png' },
+  { value: 'fast-food', label: 'Fast Food', icon: '/icons/snacks.png' },
+  { value: 'drinks', label: 'Drinks', icon: '/icons/tea.png' },
 ];

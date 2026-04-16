@@ -19,36 +19,32 @@
 .markerPin {
   position: absolute;
   bottom: 0;
-  left: -28px; /* Anchor horizontally (half of 56px width) */
-  width: 56px;
-  height: 56px;
+  left: 0;
+  width: max-content;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 .markerContent {
   background: var(--gray-900);
   color: var(--white);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  padding: 6px 14px;
-  border-radius: 16px;
-  border: 1px solid rgba(var(--glass-rgb), 0.12);
-  box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(var(--glass-rgb), 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(var(--glass-rgb), 0.15);
   display: flex;
   align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  gap: 8px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 2;
-  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
 
 .markerPointer {
@@ -64,7 +60,7 @@
 }
 
 .markerPin:hover {
-  transform: scale(1.05) translateY(-4px);
+  transform: translateX(-50%) translateY(-6px) scale(1.05);
   z-index: 100 !important;
 }
 
@@ -77,7 +73,7 @@
 }
 
 .marker-selected {
-  transform: scale(1.05) translateY(-4px);
+  transform: translateX(-50%) translateY(-6px) scale(1.05);
   z-index: 100 !important;
 }
 
@@ -96,7 +92,7 @@
 
 .marker-dim {
   opacity: 0.35;
-  transform: scale(0.9);
+  transform: translateX(-50%) scale(0.9);
 }
 
 @keyframes markerRipple {
@@ -145,12 +141,38 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+.markerRating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+}
+
+.markerDish {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.01em;
+}
+
 .star {
   color: #fbbf24;
-  font-size: 14px;
-  margin-right: 2px;
+  font-size: 12px;
   filter: drop-shadow(0 0 2px rgba(251, 191, 36, 0.5));
 }
+
+/* Zoomed out state: hide dish name to reduce clutter */
+.zoomedOut .markerDish {
+  display: none;
+}
+
+.zoomedOut .markerContent {
+  padding: 4px 8px;
+  gap: 4px;
+}
+
 
 /* — User Location Dot — */
 .user-dot {
@@ -263,15 +285,23 @@
 
 
   .markerPin {
-    width: 64px;
-    height: 64px;
-    left: -32px;
+    width: max-content;
+    left: 0;
+    transform: translateX(-50%);
   }
 
   .markerContent {
+    padding: 8px 14px;
+    border-radius: 24px;
+    gap: 10px;
+  }
+
+  .markerRating {
     font-size: 16px;
-    padding: 8px 18px;
-    border-radius: 18px;
+  }
+
+  .markerDish {
+    font-size: 14px;
   }
 
   .markerPointer {

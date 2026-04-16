@@ -7,6 +7,7 @@ import { useTheme } from 'next-themes';
 import styles from './Map.module.css';
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
 import type { Stall } from '@/lib/types';
+import { CATEGORIES } from '@/lib/types';
 import { DEFAULT_LOCATION, getCurrentPosition, type Coordinates } from '@/lib/geo';
 
 interface MapProps {
@@ -52,6 +53,7 @@ export default function MapView({
   const [mapReady, setMapReady] = useState(false);
   const [hoveredStall, setHoveredStall] = useState<Stall | null>(null);
   const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
+  const [zoomLevel, setZoomLevel] = useState(15);
 
   // Initialize map
   useEffect(() => {
@@ -82,6 +84,7 @@ export default function MapView({
         maxLat: bounds.getNorth(),
         maxLng: bounds.getEast(),
       });
+      setZoomLevel(map.getZoom());
     });
 
     mapRef.current = map;
@@ -170,13 +173,19 @@ export default function MapView({
       if (selectedStallId && !isSelected) cls += ` ${styles['marker-dim']}`;
       if (isNew || stall.avg_rating >= 4.5) cls += ` ${styles['marker-gold']}`;
 
+      const categoryInfo = CATEGORIES.find(c => c.value === stall.category);
+      const categoryLabel = categoryInfo?.label || stall.category;
+
       const icon = L.divIcon({
         className: styles.markerWrapper,
         html: `
           <div class="${cls}">
             <div class="${styles.markerContent}">
-              <span class="${styles.star}">★</span>
-              <span>${ratingValue}</span>
+              <div class="${styles.markerRating}">
+                <span class="${styles.star}">★</span>
+                <span>${ratingValue}</span>
+              </div>
+              <span class="${styles.markerDish}">${categoryLabel}</span>
             </div>
             <div class="${styles.markerPointer}"></div>
           </div>
@@ -253,7 +262,7 @@ export default function MapView({
   }, [userLocation]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${zoomLevel < 15 ? styles.zoomedOut : ''}`}>
       <div ref={containerRef} className={styles.map} />
       <div className="map-overlay-gradient" />
 
