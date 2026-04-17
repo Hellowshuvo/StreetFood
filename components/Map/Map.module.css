@@ -278,8 +278,8 @@
   }
 
   .controls {
-    /* Move up further: 120px base */
-    bottom: calc(120px + env(safe-area-inset-bottom) + 48px + 12px);
+    /* Balance the gap: FAB base (~96) + FAB height (~50) + moderate gap (20) = ~166px */
+    bottom: calc(112px + env(safe-area-inset-bottom) + 56px);
     right: 16px;
   }
 

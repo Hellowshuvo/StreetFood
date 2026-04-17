@@ -1,0 +1,79 @@
+.nav {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    height: 100%;
+  }
+
+  .navItem {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+    background: transparent;
+  }
+
+  .navItem:hover {
+    color: var(--text-primary);
+    background: rgba(var(--glass-rgb), 0.08); /* Subtle hover circle */
+    transform: scale(1.05); /* Slight pop */
+  }
+
+  .navItem.active {
+    color: var(--text-primary);
+    background: rgba(var(--glass-rgb), 0.05);
+  }
+
+  .navItem svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .navItem.active svg {
+    stroke-width: 2.2; /* slightly thicker active icon */
+  }
+
+  .divider {
+    width: 1px;
+    height: 24px;
+    background: var(--glass-border);
+    margin: 0 var(--space-2);
+  }
+
+  .addBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 38px;
+    padding: 0 var(--space-4);
+    border-radius: var(--radius-full);
+    background: var(--text-primary);
+    color: var(--surface-primary);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .addBtn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .addBtn svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5;
+  }
+}

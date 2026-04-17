@@ -41,6 +41,49 @@
   color: var(--text-primary);
 }
 
+/* — Header Controls (Save & Close) — */
+.headerControls {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  z-index: 10;
+}
+
+.headerControls .close {
+  position: static;
+}
+
+.saveBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-glass);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  border: 1px solid var(--glass-border);
+  transition: all var(--duration-fast) var(--ease-out);
+  color: var(--text-primary);
+}
+
+.saveBtn:hover {
+  background: var(--surface-card);
+}
+
+.saveBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.saveBtnActive {
+  color: var(--rating-gold);
+}
+
 /* — Hero Image — */
 .hero {
   position: relative;

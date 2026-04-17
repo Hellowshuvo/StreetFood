@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import styles from './BottomNav.module.css';
 
 interface BottomNavProps {
-  activeTab: 'feed' | 'map' | 'account';
+  activeTab: 'feed' | 'map' | 'account' | 'saved';
   userId: string | null;
   onAddClick: () => void;
   onSignInRequired: () => void;
@@ -61,17 +61,19 @@ const BottomNav = memo(function BottomNav({
       </button>
 
       {/* Add — centre hero button */}
-      <button
-        id="nav-add"
-        className={styles.addBtn}
-        onClick={onAddClick}
-        aria-label="Add a new stall"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-          <line x1="12" y1="5" x2="12" y2="19" />
-          <line x1="5" y1="12" x2="19" y2="12" />
-        </svg>
-      </button>
+      <div className={styles.addWrapper}>
+        <button
+          id="nav-add"
+          className={styles.addBtn}
+          onClick={onAddClick}
+          aria-label="Add a new stall"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </button>
+      </div>
 
       {/* Account */}
       <button
@@ -85,6 +87,19 @@ const BottomNav = memo(function BottomNav({
           <circle cx="12" cy="7" r="4" />
         </svg>
         <span className={styles.label}>Account</span>
+      </button>
+
+      {/* Saved */}
+      <button
+        id="nav-saved"
+        className={`${styles.tab} ${activeTab === 'saved' ? styles.tabActive : ''}`}
+        onClick={() => router.push('/saved')}
+        aria-label="Saved stalls"
+      >
+        <svg viewBox="0 0 24 24" fill={activeTab === 'saved' ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+        </svg>
+        <span className={styles.label}>Saved</span>
       </button>
     </nav>
   );

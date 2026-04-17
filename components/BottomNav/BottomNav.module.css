@@ -4,14 +4,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: calc(64px + env(safe-area-inset-bottom));
+  height: calc(56px + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
   z-index: var(--z-bottom-nav);
   background: var(--surface-primary);
   border-top: 1px solid var(--glass-border);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  padding: 0;
   box-shadow: 0 -1px 0 var(--glass-border), 0 -8px 32px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -20,11 +21,13 @@
 /* ── Regular tabs ── */
 .tab {
   flex: 1;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 4px;
-  padding: var(--space-1);
+  padding: 0;
   color: var(--text-tertiary);
   cursor: pointer;
   transition: color var(--duration-fast) var(--ease-out);
@@ -62,9 +65,16 @@
 }
 
 /* ── Add (centre hero) button ── */
+.addWrapper {
+  flex: 1;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .addBtn {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-xl);
   background: var(--text-primary);
   color: var(--surface-primary);
@@ -78,7 +88,6 @@
   box-shadow:
     0 4px 20px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(var(--glass-rgb), 0.12);
-  margin-bottom: 4px; /* lifts it slightly above baseline */
 }
 
 .addBtn:hover {

@@ -1,91 +1,45 @@
-/* Identical to the original page.module.css — map-specific layout styles */
+/* ================================================
+   MAP PAGE LAYOUT — Desktop Sidebar + Full-screen Map
+   Mobile: Floating header over map + Drawer
+================================================ */
 
+/* ── Root layout ── */
 .layout {
   width: 100%;
   height: 100dvh;
   display: flex;
   position: relative;
   overflow: hidden;
-  background: var(--surface-primary);
+  background: var(--gray-950);
 }
 
-/* — Map Area — */
+/* ── Map area (right of sidebar on desktop) ── */
 .mapArea {
   flex: 1;
   position: relative;
   height: 100%;
   margin-left: var(--sidebar-width);
+  transition: margin-left var(--duration-normal) var(--ease-out);
 }
 
-/* — Desktop Search — */
+/* ── Desktop: Floating search bar (top-left of map) ── */
 .desktopSearch {
   position: absolute;
-  top: var(--space-4);
-  left: var(--space-4);
+  top: var(--space-5);
+  left: var(--space-5);
   z-index: var(--z-controls);
-  width: 440px;
+  width: 420px;
 }
 
+/* ── Desktop: Theme toggle (top-right of map) ── */
 .desktopThemeToggle {
   position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
+  top: var(--space-5);
+  right: var(--space-5);
   z-index: var(--z-controls);
 }
 
-@media (max-width: 768px) {
-  .desktopThemeToggle {
-    display: none;
-  }
-}
-
-/* — Search Bar — */
-.searchBar {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  min-height: 44px;
-  background: var(--surface-glass);
-  backdrop-filter: blur(16px) saturate(1.8);
-  -webkit-backdrop-filter: blur(16px) saturate(1.8);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(var(--shadow-rgb), 0.15);
-  transition: all var(--duration-fast) var(--ease-out);
-}
-
-.searchBar:focus-within {
-  border-color: var(--text-primary);
-  background: var(--surface-primary);
-}
-
-.searchBar svg {
-  width: 18px;
-  height: 18px;
-  color: var(--text-tertiary);
-  flex-shrink: 0;
-}
-
-.searchBar input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--text-primary);
-  font-size: var(--text-sm);
-}
-
-.searchBar input::placeholder {
-  color: var(--text-tertiary);
-}
-
-/* — Mobile Header — */
-.mobileHeader {
-  display: none;
-}
-
-/* — FAB — */
+/* ── FAB: Add Stall ── */
 .fab {
   position: absolute;
   bottom: var(--space-6);
@@ -93,27 +47,44 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #fff;
-  color: #000;
+  background: var(--white);
+  color: var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: var(--z-controls);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(var(--glass-rgb), 0.6);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-out);
 }
 
 .fab:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fab:active {
+  transform: translateY(0) scale(0.95);
 }
 
 .fab svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
-/* — Responsive — */
+/* ── Mobile Header (floating over map) ── */
+.mobileHeader {
+  display: none;
+}
+
+/* ══════════════════════════════════════
+   TABLET + MOBILE responsive
+══════════════════════════════════════ */
 @media (max-width: 1024px) {
   .mapArea {
     margin-left: 0;
@@ -123,10 +94,15 @@
     display: none;
   }
 
+  .desktopThemeToggle {
+    display: none;
+  }
+
+  /* Floating mobile header */
   .mobileHeader {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-3);
     position: absolute;
     top: calc(env(safe-area-inset-top) + var(--space-4));
     left: var(--space-4);
@@ -139,13 +115,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding-right: 2px;
-  }
-
-  .mobileHeaderRight {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
   }
 
   .mobileHeaderLeft {
@@ -154,56 +123,69 @@
     gap: var(--space-3);
   }
 
+  .mobileHeaderRight {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  /* Hamburger menu button */
   .mobileMenuBtn {
     width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     background: var(--surface-glass);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(16px) saturate(1.8);
+    -webkit-backdrop-filter: blur(16px) saturate(1.8);
     color: var(--text-primary);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    transition: all var(--duration-fast) var(--ease-out);
   }
 
+  .mobileMenuBtn:hover {
+    background: rgba(var(--glass-rgb), 0.12);
+  }
+
+  /* Logo pill */
   .mobileLogo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background: var(--surface-glass);
-    padding: 8px 16px;
-    border-radius: 12px;
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(16px) saturate(1.8);
+    -webkit-backdrop-filter: blur(16px) saturate(1.8);
+    box-shadow: var(--shadow-md);
   }
 
   .mobileLogoIcon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     color: var(--text-primary);
   }
 
   .mobileBrandText {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
   }
-}
 
-/* Mobile: Adjust FAB above BottomNav */
-@media (max-width: 768px) {
+  /* FAB floats above BottomNav on mobile */
   .fab {
-    bottom: calc(80px + env(safe-area-inset-bottom));
+    bottom: calc(76px + env(safe-area-inset-bottom) + var(--space-4));
     right: var(--space-4);
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     background: var(--text-primary);
     color: var(--surface-primary);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   }
 
   .fab svg {

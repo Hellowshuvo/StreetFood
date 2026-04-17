@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import styles from './Sidebar.module.css';
 import CategoryFilter from '@/components/CategoryFilter/CategoryFilter';
+import UserAvatar from '@/components/UserAvatar/UserAvatar';
 import type { Category } from '@/lib/types';
 
 interface SidebarProps {
@@ -163,14 +164,11 @@ export default function Sidebar({
         {userId ? (
           <div className={styles['user-info']}>
             <div className={styles.avatar}>
-              {userAvatar ? (
-                <img src={userAvatar} alt="Profile" />
-              ) : (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              )}
+              <UserAvatar 
+                name={userId ? 'User' : 'Sign In'} 
+                src={userAvatar} 
+                size={36} 
+              />
             </div>
             <button className={styles['sign-out']} onClick={onSignOut}>
               Sign Out

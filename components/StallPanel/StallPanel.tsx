@@ -7,6 +7,7 @@ import RatingStars from '@/components/RatingStars/RatingStars';
 import type { Stall, Post, Rating } from '@/lib/types';
 import { formatDistance, openGoogleMaps, getRelativeTime } from '@/lib/geo';
 import { supabase } from '@/lib/supabase';
+import { useSavedStalls } from '@/lib/useSavedStalls';
 
 interface StallPanelProps {
   stall: Stall;
@@ -32,6 +33,15 @@ export default function StallPanel({
   const [sheetState, setSheetState] = useState<'closed' | 'peek' | 'full'>('peek');
   const [isMobile, setIsMobile] = useState(false);
   const dragControls = useDragControls();
+
+  const { isSaved, toggleSave } = useSavedStalls();
+  const saved = isSaved(stall.id);
+
+  const handleToggleSave = () => {
+    toggleSave(stall.id);
+    setToast(saved ? 'Removed from saved' : 'Saved to your list!');
+    setTimeout(() => setToast(null), 2000);
+  };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -154,12 +164,23 @@ export default function StallPanel({
       )}
 
       {/* Close button */}
-      <button className={styles.close} onClick={() => { setSheetState('closed'); setTimeout(onClose, 200); }} aria-label="Close panel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </button>
+      <div className={styles.headerControls}>
+        <button 
+          className={`${styles.saveBtn} ${saved ? styles.saveBtnActive : ''}`} 
+          onClick={handleToggleSave} 
+          aria-label={saved ? "Unsave stall" : "Save stall"}
+        >
+          <svg viewBox="0 0 24 24" fill={saved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+        </button>
+        <button className={styles.close} onClick={() => { setSheetState('closed'); setTimeout(onClose, 200); }} aria-label="Close panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
 
       {/* Hero Image */}
       <div className={styles.hero}>

@@ -196,9 +196,7 @@ export default function MapPage() {
                 <span className={styles.mobileBrandText}>Street Food</span>
               </div>
             </div>
-            <div className={styles.mobileHeaderRight}>
-              <ThemeToggle />
-            </div>
+            <div className={styles.mobileHeaderRight} />
           </div>
           <UnifiedSearchBar
             searchQuery={searchQuery}

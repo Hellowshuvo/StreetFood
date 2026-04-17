@@ -1,7 +1,7 @@
 /* ======================================
    STREET FOOD FEED — Instagram × Pinterest
-   Mobile: Single column, Instagram-style
-   Desktop: Masonry/columns, Pinterest-style
+   Mobile: Single column, full-bleed (Instagram)
+   Desktop: Wide masonry grid (Pinterest)
 ====================================== */
 
 /* ── Page Shell ── */
@@ -21,81 +21,97 @@
   z-index: var(--z-controls);
   display: flex;
   align-items: center;
-  padding: 0 var(--space-5);
-  height: 56px;
+  padding: 0 var(--space-4);
+  height: 52px;
   background: var(--surface-primary);
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid transparent;
   flex-shrink: 0;
-  gap: var(--space-4);
+  gap: var(--space-3);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
 }
 
+.headerScrolled {
+  border-bottom-color: var(--glass-border);
+  box-shadow: 0 1px 0 var(--glass-border);
+}
+
+/* Logo */
 .headerLogo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  flex-shrink: 0;
+  flex: 1;
+  display: none;
 }
 
 .headerLogoIcon {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   color: var(--text-primary);
 }
 
 .headerLogoText {
-  font-size: var(--text-base);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
   white-space: nowrap;
 }
 
+/* Tabs — Premium Minimalist (Notion-style) */
 .headerTabs {
   flex: 1;
   display: flex;
-  justify-content: center;
-  gap: var(--space-1);
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  gap: var(--space-6); /* Breathing room between tabs */
+  height: 100%;
 }
 
 .headerTab {
   position: relative;
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--text-tertiary);
-  border-radius: var(--radius-full);
-  transition: all var(--duration-fast) var(--ease-out);
+  padding: 0 4px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 15px; /* Consistent clean size */
+  font-weight: 500;
+  color: var(--text-secondary);
+  opacity: 0.6; /* Faded inactive state */
+  transition: opacity var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
   cursor: pointer;
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .headerTab:hover {
-  color: var(--text-secondary);
-  background: var(--glass-border);
+  opacity: 0.8;
+  color: var(--text-primary);
 }
 
+/* ── Active State ── */
 .headerTabActive {
   color: var(--text-primary) !important;
-  background: rgba(var(--glass-rgb), 0.1) !important;
+  font-weight: 600; /* Bolder active text */
+  opacity: 1;
 }
 
+/* Thin underline smoothly snapping to text width */
 .headerTabActive::after {
   content: '';
   position: absolute;
-  bottom: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
+  bottom: -1px; /* Align with border bottom */
+  left: 0;
+  width: 100%;
   height: 2px;
   background: var(--text-primary);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-full) var(--radius-full) 0 0;
 }
 
 .headerRight {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   gap: var(--space-2);
-  flex-shrink: 0;
 }
 
 /* ── Feed Main (scrollable) ── */
@@ -104,26 +120,26 @@
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
 }
 
 /* ── Posts Container ──
-   Mobile: single column (Instagram)
-   ≥ 900px: 2 columns
-   ≥ 1280px: 3 columns (Pinterest masonry feel)
+   Mobile: single column, no side padding (Instagram)
+   ≥ 768px: 2 columns (Pinterest)
+   ≥ 1280px: 3 columns
+   ≥ 1600px: 4 columns
 */
 .posts {
+  width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0; /* Cards separated by their own border-bottom */
 }
 
-/* ── Skeleton Loading ── */
+/* ── Skeleton ── */
 .skeleton {
-  padding: var(--space-4);
+  padding: 0;
   border-bottom: 1px solid var(--glass-border);
 }
 
@@ -131,12 +147,12 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-3);
+  padding: 12px var(--space-4);
 }
 
 .skeletonAvatar {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -145,25 +161,28 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 6px;
 }
 
 .skeletonLine {
-  height: 12px;
+  height: 11px;
   border-radius: var(--radius-sm);
-  width: 60%;
+  width: 55%;
 }
 
 .skeletonLineShort {
-  height: 10px;
+  height: 9px;
   border-radius: var(--radius-sm);
-  width: 40%;
+  width: 35%;
 }
 
 .skeletonImage {
   width: 100%;
   aspect-ratio: 1;
-  border-radius: 0;
+}
+
+.skeletonFooter {
+  padding: 10px var(--space-4);
 }
 
 /* ── Loader ── */
@@ -174,12 +193,12 @@
 }
 
 .spinner {
-  width: 22px;
-  height: 22px;
-  border: 2px solid var(--glass-border);
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--glass-border);
   border-top-color: var(--text-primary);
   border-radius: 50%;
-  animation: spin 0.6s linear infinite;
+  animation: spin 0.7s linear infinite;
 }
 
 @keyframes spin {
@@ -199,9 +218,14 @@
 }
 
 .emptyIcon {
-  font-size: 52px;
+  font-size: 56px;
   line-height: 1;
-  filter: grayscale(0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 .emptyTitle {
@@ -214,7 +238,7 @@
 .emptyHint {
   font-size: var(--text-sm);
   color: var(--text-tertiary);
-  max-width: 260px;
+  max-width: 240px;
   line-height: 1.6;
 }
 
@@ -228,12 +252,12 @@
   font-size: var(--text-xs);
   color: var(--text-tertiary);
   padding: var(--space-8) 0;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-/* ── Bottom spacer (for BottomNav) ── */
+/* ── Bottom spacer ── */
 .bottomSpacer {
   height: calc(72px + env(safe-area-inset-bottom));
   flex-shrink: 0;
@@ -241,49 +265,49 @@
 
 /* ════════════════════════════════════
    DESKTOP — Pinterest masonry layout
-   ≥ 900px: 2 columns
-   ≥ 1280px: 3 columns
 ════════════════════════════════════ */
-@media (min-width: 900px) {
-  .page {
-    /* No bottom nav on desktop */
-  }
-
+@media (min-width: 769px) {
   .header {
     padding: 0 var(--space-8);
-    height: 64px;
+    height: 60px;
+  }
+
+  .headerTabActive::after {
+    bottom: -1px;
+  }
+
+  .headerLogo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
   }
 
   .headerLogoText {
-    font-size: var(--text-md);
+    font-size: 17px;
   }
 
   .feed {
-    padding: var(--space-6) var(--space-8);
+    padding: var(--space-6) var(--space-6);
   }
 
-  /* Pinterest masonry: 2 col at 900, 3 col at 1280 */
+  /* Pinterest 2-col */
   .posts {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-5);
+    gap: var(--space-4);
     align-items: start;
   }
 
   .skeleton {
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     border: 1px solid var(--glass-border);
-    border-bottom: 1px solid var(--glass-border);
-    padding: 0;
     overflow: hidden;
   }
 
   .skeletonImage {
     aspect-ratio: 4/5;
-    border-radius: 0;
   }
 
   .bottomSpacer {
@@ -291,15 +315,22 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1100px) {
+  .feed {
+    padding: var(--space-6) var(--space-8);
+  }
+
   .posts {
+    max-width: 1200px;
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1500px) {
   .posts {
-    grid-template-columns: repeat(4, 1fr);
     max-width: 1560px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
   }
 }

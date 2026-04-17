@@ -7,6 +7,7 @@ import styles from './page.module.css';
 import PostCard from '@/components/PostCard/PostCard';
 import AuthModal from '@/components/AuthModal/AuthModal';
 import BottomNav from '@/components/BottomNav/BottomNav';
+import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
 import type { Post } from '@/lib/types';
 import { supabase } from '@/lib/supabase';
@@ -25,6 +26,7 @@ export default function FeedPage() {
   const [currentTab, setCurrentTab] = useState<FeedTab>('local');
   const [showAuth, setShowAuth] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const router = useRouter();
   const loadingRef = useRef(false);
@@ -41,6 +43,15 @@ export default function FeedPage() {
       setUserId(session?.user?.id ?? null);
     });
     return () => subscription.unsubscribe();
+  }, []);
+
+  // Header scroll shadow
+  useEffect(() => {
+    const el = feedRef.current;
+    if (!el) return;
+    const onScroll = () => setScrolled(el.scrollTop > 2);
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
   }, []);
 
   // Load posts
@@ -63,7 +74,7 @@ export default function FeedPage() {
             loc = await getCurrentPosition();
             setUserLocation(loc);
           } catch {
-            console.warn('Geolocation failed, falling back to all posts');
+            // Geolocation declined — fall through to global feed
           }
         }
 
@@ -123,7 +134,7 @@ export default function FeedPage() {
     if (!el) return;
     const handleScroll = () => {
       if (!hasMore || loadingRef.current) return;
-      if (el.scrollTop + el.clientHeight >= el.scrollHeight - 300) {
+      if (el.scrollTop + el.clientHeight >= el.scrollHeight - 400) {
         pageRef.current += 1;
         loadPosts(pageRef.current);
       }
@@ -143,24 +154,25 @@ export default function FeedPage() {
 
   return (
     <div className={styles.page}>
-      {/* ── Header ── */}
-      <header className={styles.header}>
+      {/* ── Instagram-style Header ── */}
+      <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
+        {/* Logo — left on desktop, centered on mobile */}
         <div className={styles.headerLogo}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.headerLogoIcon}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={styles.headerLogoIcon}>
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
-          <span className={styles.headerLogoText}>Street Food</span>
+          <span className={styles.headerLogoText}>StreetFood</span>
         </div>
 
-        {/* Tabs — desktop lives here, mobile centered */}
+        {/* Feed tabs — Instagram style center indicator */}
         <div className={styles.headerTabs}>
           <button
             id="tab-local"
             className={`${styles.headerTab} ${currentTab === 'local' ? styles.headerTabActive : ''}`}
             onClick={() => handleTabChange('local')}
           >
-            For You
+            Local Food
           </button>
           <button
             id="tab-bangladesh"
@@ -172,16 +184,22 @@ export default function FeedPage() {
         </div>
 
         <div className={styles.headerRight}>
-          <ThemeToggle />
+          <DesktopNav
+            activeTab="feed"
+            userId={userId}
+            onAddClick={handleAddClick}
+            onSignInRequired={() => setShowAuth(true)}
+          />
         </div>
       </header>
 
       {/* ── Feed ── */}
-      <main className={styles.feed} ref={feedRef}>
-        {/* Skeleton loading on first load */}
+      <main className={styles.feed} ref={feedRef} id="feed-scroll-container">
+
+        {/* Skeleton loading */}
         {loading && posts.length === 0 && (
           <div className={styles.posts}>
-            {[...Array(4)].map((_, i) => (
+            {[...Array(3)].map((_, i) => (
               <div key={i} className={styles.skeleton}>
                 <div className={styles.skeletonHeader}>
                   <div className={`${styles.skeletonAvatar} skeleton`} />
@@ -191,20 +209,24 @@ export default function FeedPage() {
                   </div>
                 </div>
                 <div className={`${styles.skeletonImage} skeleton`} />
+                <div className={styles.skeletonFooter}>
+                  <div className={`${styles.skeletonLine} skeleton`} style={{ width: '40%' }} />
+                </div>
               </div>
             ))}
           </div>
         )}
 
-        {/* Posts grid */}
+        {/* Posts */}
         {posts.length > 0 && (
           <div className={styles.posts}>
-            {posts.map((post) => (
+            {posts.map((post, index) => (
               <PostCard
                 key={post.id}
                 post={post}
                 userId={userId}
                 onStallClick={handleStallClick}
+                index={index}
               />
             ))}
           </div>
@@ -221,11 +243,12 @@ export default function FeedPage() {
         {!loading && posts.length === 0 && (
           <div className={styles.empty}>
             <div className={styles.emptyIcon}>🍜</div>
-            <h3 className={styles.emptyTitle}>No posts here yet</h3>
+            <h2 className={styles.emptyTitle}>No posts near you</h2>
             <p className={styles.emptyHint}>
               Be the first to discover and share a street food stall!
             </p>
             <button
+              id="empty-add-btn"
               className={`${styles.emptyBtn} btn btn-primary`}
               onClick={handleAddClick}
             >
@@ -239,7 +262,6 @@ export default function FeedPage() {
           <p className={styles.end}>✦ You&apos;ve seen it all ✦</p>
         )}
 
-        {/* Spacer for bottom nav */}
         <div className={styles.bottomSpacer} />
       </main>
 

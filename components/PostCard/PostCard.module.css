@@ -1,16 +1,13 @@
 /* ======================================
-   PostCard — Instagram (mobile) × Pinterest (desktop)
+   PostCard — Pure Instagram (mobile)
+   Pinterest card (desktop)
 ====================================== */
 
-/* ── Custom properties ── */
 :root {
-  --heartRed: #ff3b5c;
+  --heartRed: #ed4956;
 }
 
-/* ── Card base ──
-   Mobile: flush, no border-radius, borderBottom divider (Instagram)
-   Desktop: contained card with rounding (Pinterest)
-*/
+/* ── Card base ── */
 .card {
   background: var(--surface-primary);
   border-bottom: 1px solid var(--glass-border);
@@ -22,19 +19,18 @@
 .header {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
+  gap: 10px;
+  padding: 10px var(--space-4);
 }
 
-/* ── Avatar ── */
+/* ── Avatar image ── */
 .avatar {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   overflow: hidden;
+  background: var(--surface-secondary); /* fallback background for transparent avatars */
   flex-shrink: 0;
-  /* Instagram ring */
-  box-shadow: 0 0 0 2px var(--surface-primary), 0 0 0 3.5px rgba(var(--glass-rgb), 0.3);
 }
 
 .avatarImg {
@@ -42,26 +38,6 @@
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-/* ── Animated Gradient Avatar ── */
-.animatedAvatar {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  border-radius: 50%;
-  animation: avatarSpin 6s linear infinite;
-  background-size: 200% 200%;
-}
-
-@keyframes avatarSpin {
-  0%   { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
 }
 
 /* ── User meta ── */
@@ -74,8 +50,8 @@
 }
 
 .username {
-  font-size: var(--text-sm);
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -87,15 +63,16 @@
 .stallTag {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  color: var(--text-tertiary);
+  gap: 3px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
   cursor: pointer;
   transition: color var(--duration-fast) var(--ease-out);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 160px;
+  max-width: 180px;
 }
 
 .stallTag:hover {
@@ -103,7 +80,7 @@
 }
 
 .time {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-tertiary);
   white-space: nowrap;
   flex-shrink: 0;
@@ -116,6 +93,7 @@
   background: var(--gray-900);
   aspect-ratio: 1 / 1; /* Square on mobile like Instagram */
   overflow: hidden;
+  cursor: pointer;
 }
 
 .imagePlaceholder {
@@ -130,7 +108,7 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity var(--duration-normal) var(--ease-out);
+  transition: opacity 0.3s var(--ease-out);
   display: block;
 }
 
@@ -138,24 +116,50 @@
   opacity: 1;
 }
 
-/* Double-tap to like animation zone */
+/* Double-tap highlight */
 .imageWrapper:active .image {
-  filter: brightness(0.85);
+  filter: brightness(0.88);
+}
+
+/* ── Heart burst animation (double-tap) ── */
+.heartBurst {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: heartBurstAnim 0.7s var(--ease-out) forwards;
+  z-index: 2;
+}
+
+@keyframes heartBurstAnim {
+  0%   { opacity: 0; transform: scale(0.3); }
+  30%  { opacity: 1; transform: scale(1.2); }
+  60%  { opacity: 1; transform: scale(1.0); }
+  100% { opacity: 0; transform: scale(1.1); }
 }
 
 /* ── Actions Row ── */
 .actions {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4) var(--space-2);
+  justify-content: space-between;
+  padding: var(--space-3) 0 var(--space-4); /* Increased bottom padding */
+}
+
+.actionItem {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .actionBtn {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: var(--space-1);
+  padding: 6px;
   border-radius: var(--radius-full);
   color: var(--text-primary);
   cursor: pointer;
@@ -164,67 +168,78 @@
 }
 
 .actionBtn:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
+}
+
+.actionBtn:active {
+  transform: scale(0.9);
 }
 
 .actionBtn:disabled {
   color: var(--text-tertiary);
+  opacity: 0.5;
   cursor: default;
-  opacity: 0.6;
+}
+
+.actionBtn:disabled:hover {
+  transform: none;
 }
 
 .actionBtn svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
 }
 
-.actionBtnLiked svg {
-  animation: none;
+.actionBtnSaved {
+  color: var(--rating-gold);
 }
 
-.actionCount {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1;
-}
-
-/* ── Heart icon ── */
-.heartIcon {
-  transition: transform 0.2s cubic-bezier(0.17, 0.67, 0.45, 1.4);
-}
-
-.heartPop {
-  animation: heartPop 0.35s cubic-bezier(0.17, 0.67, 0.45, 1.4);
-}
-
-@keyframes heartPop {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.4); }
-  100% { transform: scale(1); }
-}
-
-/* Rating badge pushed to far right */
-.ratingBadge {
-  margin-left: auto;
+/* Minimalist rating badge (no background) */
+.ratingMinimal {
   display: flex;
   align-items: center;
 }
 
 .stars {
   display: flex;
-  gap: 2px;
+  gap: 1.5px;
 }
 
 .star {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Heart icon pop ── */
+.heartIcon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s cubic-bezier(0.17, 0.67, 0.45, 1.4);
+}
+
+.heartPop {
+  animation: heartPop 0.4s cubic-bezier(0.17, 0.67, 0.45, 1.4);
+}
+
+@keyframes heartPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.45); }
+  100% { transform: scale(1); }
+}
+
+/* ── Likes count (Instagram style) ── */
+.likesRow {
+  padding: 0 var(--space-4) var(--space-2);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
 }
 
 /* ── Caption ── */
 .captionRow {
-  padding: 0 var(--space-4) var(--space-2);
-  font-size: var(--text-sm);
+  padding: 0 var(--space-4) var(--space-5); /* Added significant bottom room */
+  font-size: 14px;
   line-height: 1.5;
   color: var(--text-secondary);
   display: -webkit-box;
@@ -245,69 +260,54 @@
 
 /* ── Time footer ── */
 .timeFooter {
-  padding: 0 var(--space-4) var(--space-3);
-  font-size: 10px;
+  padding: 0 var(--space-4) var(--space-5);
+  font-size: 11px;
   color: var(--text-tertiary);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-/* ════════════════════════════════
+/* ════════════════════════════════════
    DESKTOP — Pinterest card style
-════════════════════════════════ */
-@media (min-width: 900px) {
+════════════════════════════════════ */
+@media (min-width: 769px) {
   .card {
     background: var(--surface-card);
     border: 1px solid var(--glass-border);
-    border-radius: var(--radius-xl);
     border-bottom: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
     overflow: hidden;
     transition:
-      transform var(--duration-fast) var(--ease-out),
-      border-color var(--duration-fast) var(--ease-out),
-      box-shadow var(--duration-fast) var(--ease-out);
-    cursor: pointer;
+      transform 0.22s var(--ease-out),
+      box-shadow 0.22s var(--ease-out),
+      border-color 0.22s var(--ease-out);
+    cursor: default;
   }
 
   .card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(var(--glass-rgb), 0.16);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(var(--glass-rgb), 0.14);
   }
 
-  /* Pinterest: variable height images (portrait preferred) */
+  /* Pinterest: portrait images */
   .imageWrapper {
     aspect-ratio: 4 / 5;
   }
 
   .header {
-    padding: var(--space-3) var(--space-4);
-  }
-
-  .avatar {
-    width: 32px;
-    height: 32px;
-  }
-
-  .actions {
-    padding: var(--space-2) var(--space-4);
-  }
-
-  .actionBtn svg {
-    width: 22px;
-    height: 22px;
+    padding: 12px var(--space-4) 10px;
   }
 
   .time {
-    display: none; /* shown in timeFooter */
-  }
-
-  .captionRow {
-    padding: var(--space-1) var(--space-4) var(--space-1);
-    -webkit-line-clamp: 2;
+    display: none;
   }
 
   .timeFooter {
-    padding: var(--space-1) var(--space-4) var(--space-3);
+    padding: 2px var(--space-4) var(--space-3);
+  }
+
+  .captionRow {
+    -webkit-line-clamp: 2;
   }
 }
