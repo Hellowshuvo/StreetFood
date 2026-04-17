@@ -1,222 +1,305 @@
-.layout {
+/* ======================================
+   STREET FOOD FEED — Instagram × Pinterest
+   Mobile: Single column, Instagram-style
+   Desktop: Masonry/columns, Pinterest-style
+====================================== */
+
+/* ── Page Shell ── */
+.page {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
-  position: relative;
+  flex-direction: column;
+  background: var(--surface-primary);
   overflow: hidden;
 }
 
-/* — Map Area — */
-.mapArea {
-  flex: 1;
-  position: relative;
-  height: 100%;
-  margin-left: var(--sidebar-width);
-}
-
-/* — Desktop Search — */
-.desktopSearch {
-  position: absolute;
-  top: var(--space-4);
-  left: var(--space-4);
+/* ── Header ── */
+.header {
+  position: sticky;
+  top: 0;
   z-index: var(--z-controls);
-  width: 440px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-5);
+  height: 56px;
+  background: var(--surface-primary);
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  gap: var(--space-4);
 }
 
-.desktopThemeToggle {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
-  z-index: var(--z-controls);
-}
-
-@media (max-width: 768px) {
-  .desktopThemeToggle {
-    display: none;
-  }
-}
-
-/* — Search Bar — */
-.searchBar {
+.headerLogo {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  min-height: 44px;
-  background: var(--surface-glass);
-  backdrop-filter: blur(16px) saturate(1.8);
-  -webkit-backdrop-filter: blur(16px) saturate(1.8);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(var(--shadow-rgb), 0.15);
-  transition: all var(--duration-fast) var(--ease-out);
-}
-
-.searchBar:focus-within {
-  border-color: var(--text-primary);
-  background: var(--surface-primary);
-}
-
-.searchBar svg {
-  width: 18px;
-  height: 18px;
-  color: var(--text-tertiary);
   flex-shrink: 0;
 }
 
-.searchBar input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
+.headerLogoIcon {
+  width: 22px;
+  height: 22px;
   color: var(--text-primary);
+}
+
+.headerLogoText {
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.headerTabs {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.headerTab {
+  position: relative;
+  padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
-}
-
-.searchBar input::placeholder {
+  font-weight: 600;
   color: var(--text-tertiary);
+  border-radius: var(--radius-full);
+  transition: all var(--duration-fast) var(--ease-out);
+  cursor: pointer;
+  letter-spacing: -0.01em;
 }
 
-/* — Mobile Header (hidden on desktop) — */
-.mobileHeader {
-  display: none;
+.headerTab:hover {
+  color: var(--text-secondary);
+  background: var(--glass-border);
 }
 
-/* — FAB — */
-.fab {
+.headerTabActive {
+  color: var(--text-primary) !important;
+  background: rgba(var(--glass-rgb), 0.1) !important;
+}
+
+.headerTabActive::after {
+  content: '';
   position: absolute;
-  bottom: var(--space-6);
-  right: var(--space-6);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #fff;
-  color: #000;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: var(--radius-full);
+}
+
+.headerRight {
   display: flex;
   align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* ── Feed Main (scrollable) ── */
+.feed {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* ── Posts Container ──
+   Mobile: single column (Instagram)
+   ≥ 900px: 2 columns
+   ≥ 1280px: 3 columns (Pinterest masonry feel)
+*/
+.posts {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Skeleton Loading ── */
+.skeleton {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.skeletonHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.skeletonAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skeletonLines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.skeletonLine {
+  height: 12px;
+  border-radius: var(--radius-sm);
+  width: 60%;
+}
+
+.skeletonLineShort {
+  height: 10px;
+  border-radius: var(--radius-sm);
+  width: 40%;
+}
+
+.skeletonImage {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 0;
+}
+
+/* ── Loader ── */
+.loader {
+  display: flex;
   justify-content: center;
-  z-index: var(--z-controls);
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(var(--glass-rgb), 0.6);
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-out);
+  padding: var(--space-8);
 }
 
-.fab:hover {
-  transform: translateY(-2px);
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--glass-border);
+  border-top-color: var(--text-primary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
 }
 
-.fab svg {
-  width: 24px;
-  height: 24px;
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-/* — Responsive — */
+/* ── Empty State ── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) var(--space-6);
+  gap: var(--space-4);
+  text-align: center;
+  min-height: 60vh;
+}
 
-/* Tablet: no sidebar, full map */
-@media (max-width: 1024px) {
-  .mapArea {
-    margin-left: 0;
+.emptyIcon {
+  font-size: 52px;
+  line-height: 1;
+  filter: grayscale(0.2);
+}
+
+.emptyTitle {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.emptyHint {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+.emptyBtn {
+  margin-top: var(--space-2);
+}
+
+/* ── End of feed ── */
+.end {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  padding: var(--space-8) 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ── Bottom spacer (for BottomNav) ── */
+.bottomSpacer {
+  height: calc(72px + env(safe-area-inset-bottom));
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════
+   DESKTOP — Pinterest masonry layout
+   ≥ 900px: 2 columns
+   ≥ 1280px: 3 columns
+════════════════════════════════════ */
+@media (min-width: 900px) {
+  .page {
+    /* No bottom nav on desktop */
   }
 
-  .desktopSearch {
-    display: none;
+  .header {
+    padding: 0 var(--space-8);
+    height: 64px;
   }
 
-  .mobileHeader {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    position: absolute;
-    top: calc(env(safe-area-inset-top) + var(--space-4));
-    left: var(--space-4);
-    right: var(--space-4);
-    z-index: var(--z-controls);
+  .headerLogoText {
+    font-size: var(--text-md);
   }
 
-  .mobileBrand {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding-right: 2px;
+  .feed {
+    padding: var(--space-6) var(--space-8);
   }
 
-  .mobileHeaderRight {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
+  /* Pinterest masonry: 2 col at 900, 3 col at 1280 */
+  .posts {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    align-items: start;
   }
 
-  .mobileHeaderLeft {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-  }
-
-  .mobileMenuBtn {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background: var(--surface-glass);
+  .skeleton {
+    border-radius: var(--radius-lg);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    color: var(--text-primary);
-    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0;
+    overflow: hidden;
   }
 
-  .mobileLogo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface-glass);
-    padding: 8px 16px;
-    border-radius: 12px;
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
+  .skeletonImage {
+    aspect-ratio: 4/5;
+    border-radius: 0;
   }
 
-  .mobileLogoIcon {
-    width: 20px;
-    height: 20px;
-    color: var(--text-primary);
-  }
-
-  .mobileBrandText {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-  }
-
-  .searchBar {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    background: var(--surface-glass);
-    border: 1px solid var(--glass-border);
+  .bottomSpacer {
+    height: var(--space-8);
   }
 }
 
-/* Mobile: Adjust FAB to sit above BottomNav */
-@media (max-width: 768px) {
-  .fab {
-    bottom: calc(120px + env(safe-area-inset-bottom));
-    right: var(--space-4);
-    width: 48px;
-    height: 48px;
-    background: var(--text-primary);
-    color: var(--surface-primary);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+@media (min-width: 1280px) {
+  .posts {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  .fab svg {
-    width: 20px;
-    height: 20px;
+}
+
+@media (min-width: 1600px) {
+  .posts {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1560px;
   }
 }

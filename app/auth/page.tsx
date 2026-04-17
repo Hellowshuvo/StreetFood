@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './auth.module.css';
 import { supabase } from '@/lib/supabase';
 
 export default function AuthPage() {
+  const router = useRouter();
   const [mode, setMode] = useState<'signin' | 'signup'>('signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,10 +18,10 @@ export default function AuthPage() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        window.location.href = '/';
+        router.push('/');
       }
     });
-  }, []);
+  }, [router]);
 
   const handleGoogleSignIn = useCallback(async () => {
     setLoading(true);
@@ -48,7 +50,7 @@ export default function AuthPage() {
           password,
         });
         if (error) throw error;
-        window.location.href = '/';
+        router.push('/');
       } else {
         const { error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;

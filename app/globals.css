@@ -158,10 +158,10 @@ html {
 }
 
 html, body {
-  height: 100vh;
-  height: 100dvh;
+  height: 100%;
   width: 100%;
-  overflow: hidden;
+  /* Pages manage their own overflow — map uses overflow:hidden,
+     feed/account use overflow:auto on their containers */
 }
 
 body {

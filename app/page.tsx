@@ -1,432 +1,264 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import styles from './page.module.css';
-import Sidebar from '@/components/Sidebar/Sidebar';
-import StallPanel from '@/components/StallPanel/StallPanel';
+import PostCard from '@/components/PostCard/PostCard';
 import AuthModal from '@/components/AuthModal/AuthModal';
 import BottomNav from '@/components/BottomNav/BottomNav';
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
-import UnifiedSearchBar from '@/components/UnifiedSearchBar/UnifiedSearchBar';
-import type { Stall, Category } from '@/lib/types';
-import type { Coordinates } from '@/lib/geo';
+import type { Post } from '@/lib/types';
 import { supabase } from '@/lib/supabase';
-import { resolveLocationCoordinates } from '@/lib/geocoding';
+import { getCurrentPosition, type Coordinates } from '@/lib/geo';
 
-// Dynamic imports (SSR-incompatible)
-const MapView = dynamic(() => import('@/components/Map/Map'), {
-  ssr: false,
-  loading: () => (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        background: 'var(--gray-950)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'var(--text-tertiary)',
-        fontSize: 'var(--text-sm)',
-      }}
-    >
-      Loading map…
-    </div>
-  ),
-});
+const AddModal = dynamic(() => import('@/components/AddModal/AddModal'), { ssr: false });
 
-const AddModal = dynamic(() => import('@/components/AddModal/AddModal'), {
-  ssr: false,
-});
+type FeedTab = 'local' | 'bangladesh';
 
-export default function HomePage() {
-  // Auth
-  const [userId, setUserId] = useState<string | null>(null);
-  const [userAvatar, setUserAvatar] = useState<string | null>(null);
-  const [showAuth, setShowAuth] = useState(false);
-
-  // Navigation
-  const [activePage, setActivePage] = useState<'map' | 'feed'>('map');
-
-  // Map data
-  const [stalls, setStalls] = useState<Stall[]>([]);
+export default function FeedPage() {
+  const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
+  const [userId, setUserId] = useState<string | null>(null);
   const [userLocation, setUserLocation] = useState<Coordinates | null>(null);
-  const [selectedStall, setSelectedStall] = useState<Stall | null>(null);
-  const [activeCategory, setActiveCategory] = useState<Category | null>(null);
-  const [sortMode, setSortMode] = useState<'nearby' | 'top-rated' | null>(null);
-
-  // Add flow
+  const [currentTab, setCurrentTab] = useState<FeedTab>('local');
+  const [showAuth, setShowAuth] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isLocationActive, setIsLocationActive] = useState(false);
 
-  // Search
-  // Search
-  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+  const loadingRef = useRef(false);
+  const pageRef = useRef(0);
+  const feedRef = useRef<HTMLDivElement>(null);
+  const PAGE_SIZE = 12;
 
-  // Location filter
-  const [locationFilter, setLocationFilter] = useState<{
-    division?: string;
-    district?: string;
-    upazilaId?: string;
-    unionId?: string;
-    areaId?: string;
-    upazilaName?: string;
-    unionName?: string;
-    areaName?: string;
-  }>({});
-
-  const [mapView, setMapView] = useState<{
-    center: [number, number];
-    zoom: number;
-  } | null>(null);
-
-  // Bounds ref
-  const boundsRef = useRef<{
-    minLat: number;
-    minLng: number;
-    maxLat: number;
-    maxLng: number;
-  } | null>(null);
-
-  // Init auth
+  // Auth
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUserId(session?.user?.id ?? null);
-      setUserAvatar(session?.user?.user_metadata?.avatar_url ?? null);
     });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
       setUserId(session?.user?.id ?? null);
-      setUserAvatar(session?.user?.user_metadata?.avatar_url ?? null);
     });
-
     return () => subscription.unsubscribe();
   }, []);
 
-  // Load stalls
-  const loadStalls = useCallback(
-    async (
-      bounds?: {
-        minLat: number;
-        minLng: number;
-        maxLat: number;
-        maxLng: number;
-      }
-    ) => {
-      setLoading(true);
+  // Load posts
+  const loadPosts = useCallback(async (page: number, tabOverride?: FeedTab) => {
+    const tab = tabOverride ?? currentTab;
+    if (loadingRef.current) return;
+    loadingRef.current = true;
+    setLoading(true);
 
-      try {
-        if (userLocation) {
-          const { data, error } = await supabase.rpc('nearby_stalls', {
-            p_lat: userLocation.lat,
-            p_long: userLocation.lng,
-            p_max_results: 100,
-          });
+    try {
+      const from = page * PAGE_SIZE;
+      const to = from + PAGE_SIZE - 1;
 
-          if (data && !error) {
-            const mapped: Stall[] = data.map((s: any) => ({
-              id: s.id,
-              name: s.name,
-              category: s.category,
-              lat: s.lat,
-              lng: s.long,
-              photo_url: s.photo_url,
-              avg_rating: s.avg_rating,
-              total_ratings: s.total_ratings,
-              created_by: s.created_by,
-              created_at: s.created_at,
-              distance_meters: s.dist_meters,
-              district_name: s.district_name,
-              upazila_id: s.upazila_id,
-              union_id: s.union_id,
-              area_id: s.area_id,
-            }));
-            setStalls(mapped);
-          }
-        } else if (bounds) {
-          const { data, error } = await supabase.rpc('stalls_in_view', {
-            p_min_lat: bounds.minLat,
-            p_min_long: bounds.minLng,
-            p_max_lat: bounds.maxLat,
-            p_max_long: bounds.maxLng,
-          });
+      let data: any, error: any;
 
-          if (data && !error) {
-            const mapped: Stall[] = data.map((s: any) => ({
-              id: s.id,
-              name: s.name,
-              category: s.category,
-              lat: s.lat,
-              lng: s.long,
-              photo_url: s.photo_url,
-              avg_rating: s.avg_rating,
-              total_ratings: s.total_ratings,
-              created_by: s.created_by,
-              created_at: s.created_at,
-              district_name: s.district_name,
-              upazila_id: s.upazila_id,
-              union_id: s.union_id,
-              area_id: s.area_id,
-            }));
-            setStalls(mapped);
+      if (tab === 'local') {
+        let loc = userLocation;
+        if (!loc) {
+          try {
+            loc = await getCurrentPosition();
+            setUserLocation(loc);
+          } catch {
+            console.warn('Geolocation failed, falling back to all posts');
           }
         }
-      } catch (e) {
-        console.error('Failed to load stalls:', e);
+
+        if (loc) {
+          const result = await supabase
+            .rpc('get_nearby_posts', { user_lat: loc.lat, user_lng: loc.lng, radius_km: 20.0 })
+            .range(from, to);
+          data = result.data;
+          error = result.error;
+        } else {
+          const result = await supabase
+            .from('posts')
+            .select('*, profiles(username, avatar_url), stalls(name, category, avg_rating)')
+            .order('created_at', { ascending: false })
+            .range(from, to);
+          data = result.data;
+          error = result.error;
+        }
+      } else {
+        const result = await supabase
+          .from('posts')
+          .select('*, profiles(username, avatar_url), stalls(name, category, avg_rating)')
+          .order('created_at', { ascending: false })
+          .range(from, to);
+        data = result.data;
+        error = result.error;
       }
 
-      setLoading(false);
-    },
-    [userLocation]
-  );
-
-  // Reload on user location change
-  useEffect(() => {
-    if (userLocation) {
-      loadStalls();
+      if (data && !error) {
+        if (data.length < PAGE_SIZE) setHasMore(false);
+        setPosts((prev) => (page === 0 ? (data as Post[]) : [...prev, ...(data as Post[])]));
+      } else if (error) {
+        console.error('Query error:', error);
+      }
+    } catch (e) {
+      console.error('Failed to load posts:', e);
     }
-  }, [userLocation]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const handleMapMove = useCallback(
-    (bounds: {
-      minLat: number;
-      minLng: number;
-      maxLat: number;
-      maxLng: number;
-    }) => {
-      boundsRef.current = bounds;
-      if (!userLocation) {
-        loadStalls(bounds);
+    setLoading(false);
+    loadingRef.current = false;
+  }, [currentTab, userLocation]);
+
+  const handleTabChange = useCallback((newTab: FeedTab) => {
+    if (newTab === currentTab) return;
+    setCurrentTab(newTab);
+    setPosts([]);
+    setHasMore(true);
+    pageRef.current = 0;
+    loadPosts(0, newTab);
+  }, [currentTab, loadPosts]);
+
+  useEffect(() => { loadPosts(0); }, [loadPosts]);
+
+  // Infinite scroll
+  useEffect(() => {
+    const el = feedRef.current;
+    if (!el) return;
+    const handleScroll = () => {
+      if (!hasMore || loadingRef.current) return;
+      if (el.scrollTop + el.clientHeight >= el.scrollHeight - 300) {
+        pageRef.current += 1;
+        loadPosts(pageRef.current);
       }
-    },
-    [userLocation, loadStalls]
-  );
-
-  const handleUserLocationFound = useCallback((coords: Coordinates) => {
-    setUserLocation(coords);
-  }, []);
-
-  const handleStallSelect = useCallback((stall: Stall) => {
-    setSelectedStall(stall);
-  }, []);
+    };
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, [hasMore, loadPosts]);
 
   const handleAddClick = useCallback(() => {
-    if (!userId) {
-      setShowAuth(true);
-      return;
-    }
+    if (!userId) { setShowAuth(true); return; }
     setShowAddModal(true);
   }, [userId]);
 
-  const handleAddSuccess = useCallback(() => {
-    loadStalls(boundsRef.current || undefined);
-  }, [loadStalls]);
-
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-  };
-
-  const handleLocationChange = useCallback(async (location: any) => {
-    setLocationFilter(location);
-
-    // Resolve coordinates and update map view
-    const geo = await resolveLocationCoordinates({
-      division: location.division,
-      district: location.district,
-      upazilaId: location.upazilaId,
-      unionId: location.unionId,
-      areaId: location.areaId,
-      upazilaName: location.upazilaName,
-      unionName: location.unionName,
-      areaName: location.areaName
-    });
-
-    if (geo) {
-      setMapView({
-        center: [geo.lat, geo.lng],
-        zoom: geo.zoom
-      });
-    }
-  }, []);
-
-  const handlePageChange = useCallback((page: 'map' | 'feed') => {
-    setActivePage(page);
-    if (page === 'feed') {
-      window.location.href = '/feed';
-    }
-  }, []);
-
-  // Filter + sort stalls
-  const filteredStalls = stalls
-    .filter((s) => {
-      const matchCategory = !activeCategory || s.category === activeCategory;
-      const matchSearch =
-        !searchQuery ||
-        s.name.toLowerCase().includes(searchQuery.toLowerCase());
-      
-      const matchLocation = !locationFilter.district || (
-        s.district_name === locationFilter.district &&
-        (!locationFilter.upazilaId || s.upazila_id === locationFilter.upazilaId) &&
-        (!locationFilter.unionId || s.union_id === locationFilter.unionId)
-      );
-
-      return matchCategory && matchSearch && matchLocation;
-    })
-    .sort((a, b) => {
-      if (sortMode === 'top-rated') {
-        return Number(b.avg_rating) - Number(a.avg_rating);
-      }
-      if (sortMode === 'nearby' && a.distance_meters && b.distance_meters) {
-        return a.distance_meters - b.distance_meters;
-      }
-      return 0;
-    });
+  const handleStallClick = useCallback((stallId: string) => {
+    router.push(`/map?stall=${stallId}`);
+  }, [router]);
 
   return (
-    <div className={styles.layout}>
-      {/* Map area */}
-      <main className={styles.mapArea}>
-        {/* Mobile Header */}
-        <div className={styles.mobileHeader}>
-          <div className={styles.mobileBrand}>
-            <div className={styles.mobileHeaderLeft}>
-              <button 
-                className={styles.mobileMenuBtn}
-                onClick={() => setIsSidebarOpen(true)}
-                aria-label="Open menu"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </svg>
-              </button>
-              
-              <div className={styles.mobileLogo}>
-                <svg className={styles.mobileLogoIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                <span className={styles.mobileBrandText}>Street Food</span>
-              </div>
-            </div>
-
-            <div className={styles.mobileHeaderRight}>
-              <ThemeToggle />
-            </div>
-          </div>
-
-          <UnifiedSearchBar 
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            locationFilter={locationFilter}
-            onLocationChange={handleLocationChange}
-            onModalToggle={setIsLocationActive}
-          />
+    <div className={styles.page}>
+      {/* ── Header ── */}
+      <header className={styles.header}>
+        <div className={styles.headerLogo}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={styles.headerLogoIcon}>
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span className={styles.headerLogoText}>Street Food</span>
         </div>
 
-        {/* Desktop search */}
-        <div className={styles.desktopSearch}>
-          <UnifiedSearchBar 
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            locationFilter={locationFilter}
-            onLocationChange={handleLocationChange}
-            onModalToggle={setIsLocationActive}
-          />
+        {/* Tabs — desktop lives here, mobile centered */}
+        <div className={styles.headerTabs}>
+          <button
+            id="tab-local"
+            className={`${styles.headerTab} ${currentTab === 'local' ? styles.headerTabActive : ''}`}
+            onClick={() => handleTabChange('local')}
+          >
+            For You
+          </button>
+          <button
+            id="tab-bangladesh"
+            className={`${styles.headerTab} ${currentTab === 'bangladesh' ? styles.headerTabActive : ''}`}
+            onClick={() => handleTabChange('bangladesh')}
+          >
+            Bangladesh
+          </button>
         </div>
 
-        <div className={styles.desktopThemeToggle}>
+        <div className={styles.headerRight}>
           <ThemeToggle />
         </div>
+      </header>
 
-        <MapView
-          stalls={filteredStalls}
-          selectedStallId={selectedStall?.id ?? null}
-          onStallSelect={handleStallSelect}
-          onMapMove={handleMapMove}
-          userLocation={userLocation}
-          onUserLocationFound={handleUserLocationFound}
-          focusView={mapView}
-          hideControls={isLocationActive}
-        />
-
-        {/* FAB — Add stall */}
-        {!isLocationActive && (
-          <button
-            className={styles.fab}
-            onClick={handleAddClick}
-            aria-label="Add stall"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-            >
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
-          </button>
+      {/* ── Feed ── */}
+      <main className={styles.feed} ref={feedRef}>
+        {/* Skeleton loading on first load */}
+        {loading && posts.length === 0 && (
+          <div className={styles.posts}>
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className={styles.skeleton}>
+                <div className={styles.skeletonHeader}>
+                  <div className={`${styles.skeletonAvatar} skeleton`} />
+                  <div className={styles.skeletonLines}>
+                    <div className={`${styles.skeletonLine} skeleton`} />
+                    <div className={`${styles.skeletonLineShort} skeleton`} />
+                  </div>
+                </div>
+                <div className={`${styles.skeletonImage} skeleton`} />
+              </div>
+            ))}
+          </div>
         )}
+
+        {/* Posts grid */}
+        {posts.length > 0 && (
+          <div className={styles.posts}>
+            {posts.map((post) => (
+              <PostCard
+                key={post.id}
+                post={post}
+                userId={userId}
+                onStallClick={handleStallClick}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Load more spinner */}
+        {loading && posts.length > 0 && (
+          <div className={styles.loader}>
+            <div className={styles.spinner} />
+          </div>
+        )}
+
+        {/* Empty state */}
+        {!loading && posts.length === 0 && (
+          <div className={styles.empty}>
+            <div className={styles.emptyIcon}>🍜</div>
+            <h3 className={styles.emptyTitle}>No posts here yet</h3>
+            <p className={styles.emptyHint}>
+              Be the first to discover and share a street food stall!
+            </p>
+            <button
+              className={`${styles.emptyBtn} btn btn-primary`}
+              onClick={handleAddClick}
+            >
+              Add a Stall
+            </button>
+          </div>
+        )}
+
+        {/* End of feed */}
+        {!hasMore && posts.length > 0 && (
+          <p className={styles.end}>✦ You&apos;ve seen it all ✦</p>
+        )}
+
+        {/* Spacer for bottom nav */}
+        <div className={styles.bottomSpacer} />
       </main>
 
-      {/* Stall Panel — conditionally rendered */}
-      {selectedStall && (
-        <StallPanel
-          stall={selectedStall}
-          onClose={() => setSelectedStall(null)}
-          userId={userId}
-          onSignIn={() => setShowAuth(true)}
-        />
-      )}
-
       {/* Modals */}
+      {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
       {showAddModal && userId && (
         <AddModal
           onClose={() => setShowAddModal(false)}
           userId={userId}
           userLocation={userLocation}
-          onSuccess={handleAddSuccess}
+          onSuccess={() => { setPosts([]); setHasMore(true); pageRef.current = 0; loadPosts(0); }}
         />
       )}
 
-      {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
-
-      {!isLocationActive && (
-        <BottomNav 
-          onAddClick={handleAddClick} 
-          onProfileClick={() => {
-            if (!userId) {
-              setShowAuth(true);
-            } else {
-              setIsSidebarOpen(true);
-            }
-          }} 
-        />
-      )}
-
-      {/* Sidebar moved to bottom for better z-index stacking */}
-      <Sidebar
-        activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
-        sortMode={sortMode}
-        onSortChange={setSortMode}
-        activePage={activePage}
-        onPageChange={handlePageChange}
-        stallCount={filteredStalls.length}
+      <BottomNav
+        activeTab="feed"
         userId={userId}
-        userAvatar={userAvatar}
-        onSignIn={() => setShowAuth(true)}
-        onSignOut={handleSignOut}
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-        onLocationChange={handleLocationChange}
+        onAddClick={handleAddClick}
+        onSignInRequired={() => setShowAuth(true)}
       />
     </div>
   );
