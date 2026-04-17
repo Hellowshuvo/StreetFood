@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import styles from './PostCard.module.css';
+import type { Post } from '@/lib/types';
 import { getRelativeTime } from '@/lib/geo';
 import { supabase } from '@/lib/supabase';
 import UserAvatar from '@/components/UserAvatar/UserAvatar';
