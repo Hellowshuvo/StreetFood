@@ -7,7 +7,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 // This is a known false positive which will be resolved in next-themes v1.0
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   const origError = console.error;
-  console.error = (...args: any[]) => {
+  console.error = (...args: unknown[]) => {
     if (typeof args[0] === 'string' && args[0].includes('Encountered a script tag')) {
       return;
     }

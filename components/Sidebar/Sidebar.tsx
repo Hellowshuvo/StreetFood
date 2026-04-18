@@ -20,7 +20,7 @@ interface SidebarProps {
   onSignOut: () => void;
   isOpen: boolean;
   onClose: () => void;
-  onLocationChange: (location: any) => void;
+  onLocationChange?: (location: unknown) => void;
 }
 
 export default function Sidebar({
@@ -37,7 +37,6 @@ export default function Sidebar({
   onSignOut,
   isOpen,
   onClose,
-  onLocationChange,
 }: SidebarProps) {
   const router = useRouter();
 

@@ -41,7 +41,7 @@ export default function MapPage() {
 
   // Map data
   const [stalls, setStalls] = useState<Stall[]>([]);
-  const [loading, setLoading] = useState(true);
+
   const [userLocation, setUserLocation] = useState<Coordinates | null>(null);
   const [selectedStall, setSelectedStall] = useState<Stall | null>(null);
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
@@ -82,7 +82,6 @@ export default function MapPage() {
   }, []);
 
   const loadStalls = useCallback(async (bounds?: { minLat: number; minLng: number; maxLat: number; maxLng: number }) => {
-    setLoading(true);
     try {
       if (userLocation) {
         const { data, error } = await supabase.rpc('nearby_stalls', {
@@ -91,6 +90,7 @@ export default function MapPage() {
           p_max_results: 100,
         });
         if (data && !error) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           setStalls(data.map((s: any) => ({
             id: s.id, name: s.name, category: s.category,
             lat: s.lat, lng: s.long, photo_url: s.photo_url,
@@ -106,6 +106,7 @@ export default function MapPage() {
           p_max_lat: bounds.maxLat, p_max_long: bounds.maxLng,
         });
         if (data && !error) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           setStalls(data.map((s: any) => ({
             id: s.id, name: s.name, category: s.category,
             lat: s.lat, lng: s.long, photo_url: s.photo_url,
@@ -119,10 +120,11 @@ export default function MapPage() {
     } catch (e) {
       console.error('Failed to load stalls:', e);
     }
-    setLoading(false);
+
   }, [userLocation]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (userLocation) loadStalls();
   }, [userLocation]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -146,7 +148,7 @@ export default function MapPage() {
 
   const handleSignOut = async () => { await supabase.auth.signOut(); };
 
-  const handleLocationChange = useCallback(async (location: any) => {
+  const handleLocationChange = useCallback(async (location: Record<string, string | undefined>) => {
     setLocationFilter(location);
     const geo = await resolveLocationCoordinates({
       division: location.division, district: location.district,

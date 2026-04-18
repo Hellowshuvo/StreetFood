@@ -5,7 +5,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useTheme } from 'next-themes';
 import styles from './Map.module.css';
-import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
+
 import type { Stall } from '@/lib/types';
 import { CATEGORIES } from '@/lib/types';
 import { DEFAULT_LOCATION, getCurrentPosition, type Coordinates } from '@/lib/geo';
@@ -148,7 +148,7 @@ export default function MapView({
     // Add or update markers
     stalls.forEach((stall) => {
       const isSelected = stall.id === selectedStallId;
-      const isHighRated = stall.avg_rating >= 4.0;
+
       const existingMarker = markersRef.current.get(stall.id);
 
       if (existingMarker) {

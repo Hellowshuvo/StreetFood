@@ -8,7 +8,7 @@ import PostCard from '@/components/PostCard/PostCard';
 import AuthModal from '@/components/AuthModal/AuthModal';
 import BottomNav from '@/components/BottomNav/BottomNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
-import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
+
 import type { Post } from '@/lib/types';
 import { supabase } from '@/lib/supabase';
 import { getCurrentPosition, type Coordinates } from '@/lib/geo';
@@ -65,7 +65,7 @@ export default function FeedPage() {
       const from = page * PAGE_SIZE;
       const to = from + PAGE_SIZE - 1;
 
-      let data: any, error: any;
+      let data: unknown, error: unknown;
 
       if (tab === 'local') {
         let loc = userLocation;
@@ -126,6 +126,7 @@ export default function FeedPage() {
     loadPosts(0, newTab);
   }, [currentTab, loadPosts]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { loadPosts(0); }, [loadPosts]);
 
   // Infinite scroll
@@ -179,7 +180,7 @@ export default function FeedPage() {
             className={`${styles.headerTab} ${currentTab === 'bangladesh' ? styles.headerTabActive : ''}`}
             onClick={() => handleTabChange('bangladesh')}
           >
-            Bangladesh
+            Explore Bangladesh
           </button>
         </div>
 

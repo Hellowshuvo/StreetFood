@@ -58,8 +58,12 @@ export default function AuthModal({ onClose }: AuthModalProps) {
         if (error) throw error;
         setMessage('Check your email for a confirmation link!');
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An unknown error occurred.');
+      }
     }
 
     setLoading(false);

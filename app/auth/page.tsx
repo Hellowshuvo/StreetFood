@@ -56,11 +56,15 @@ export default function AuthPage() {
         if (error) throw error;
         setMessage('Check your email for a confirmation link!');
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An unknown error occurred.');
+      }
     }
     setLoading(false);
-  }, [email, password, mode]);
+  }, [email, password, mode, router]);
 
   return (
     <div className={styles.page}>

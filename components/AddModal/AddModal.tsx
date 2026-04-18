@@ -84,15 +84,6 @@ export default function AddModal({
     [handlePhotoSelect]
   );
 
-  const handleDrop = useCallback(
-    (e: React.DragEvent) => {
-      e.preventDefault();
-      if (e.dataTransfer.files) {
-        handlePhotoSelect(e.dataTransfer.files);
-      }
-    },
-    [handlePhotoSelect]
-  );
 
   const removePhoto = (index: number) => {
     setPhotos(photos.filter((_, i) => i !== index));
@@ -108,7 +99,7 @@ export default function AddModal({
         mapInstanceRef.current.flyTo([coords.lat, coords.lng], 17);
         markerRef.current.setLatLng([coords.lat, coords.lng]);
       }
-    } catch (err) {
+    } catch {
       setError('Could not get your location');
     }
   }, []);
@@ -158,6 +149,7 @@ export default function AddModal({
         markerRef.current = null;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
   // Submit
@@ -175,7 +167,7 @@ export default function AddModal({
     setError(null);
 
     try {
-      let photoUrls: string[] = [];
+      const photoUrls: string[] = [];
 
       // Upload photos
       for (const photo of photos) {
@@ -234,9 +226,13 @@ export default function AddModal({
 
       onSuccess();
       onClose();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Failed to add stall:', err);
-      setError(err.message || 'Failed to add stall');
+      if (err instanceof Error) {
+        setError(err.message || 'Failed to add stall');
+      } else {
+        setError('Failed to add stall');
+      }
     }
 
     setSubmitting(false);

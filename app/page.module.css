@@ -19,14 +19,14 @@
   position: sticky;
   top: 0;
   z-index: var(--z-controls);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 var(--space-4);
   height: 52px;
   background: var(--surface-primary);
   border-bottom: 1px solid transparent;
   flex-shrink: 0;
-  gap: var(--space-3);
   transition: border-color var(--duration-fast) var(--ease-out),
               box-shadow var(--duration-fast) var(--ease-out);
 }
@@ -36,33 +36,31 @@
   box-shadow: 0 1px 0 var(--glass-border);
 }
 
-/* Logo */
+/* Logo — Visible as spacer on mobile, content hidden */
 .headerLogo {
-  flex: 1;
-  display: none;
+  display: flex;
+  align-items: center;
 }
 
 .headerLogoIcon {
   width: 20px;
   height: 20px;
   color: var(--text-primary);
+  display: none;
 }
 
 .headerLogoText {
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: var(--text-primary);
-  white-space: nowrap;
+  display: none;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 /* Tabs — Premium Minimalist (Notion-style) */
 .headerTabs {
-  flex: 1;
   display: flex;
-  justify-content: center; /* Center horizontally */
+  justify-content: center;
   align-items: center;
-  gap: var(--space-6); /* Breathing room between tabs */
+  gap: var(--space-8); /* Increased gap for better visual balance */
   height: 100%;
 }
 
@@ -107,7 +105,6 @@
 }
 
 .headerRight {
-  flex: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -268,12 +265,21 @@
 ════════════════════════════════════ */
 @media (min-width: 769px) {
   .header {
+    grid-template-columns: 1fr auto 1fr;
     padding: 0 var(--space-8);
     height: 60px;
+    background: var(--surface-primary);
+    border-bottom: 1px solid var(--glass-border);
   }
 
   .headerTabActive::after {
     bottom: -1px;
+  }
+
+  /* Desktop overrides */
+  .headerLogoIcon,
+  .headerLogoText {
+    display: inline-block;
   }
 
   .headerLogo {
@@ -284,6 +290,10 @@
 
   .headerLogoText {
     font-size: 17px;
+  }
+
+  .headerTabs {
+    gap: var(--space-10); /* Wider gaps on desktop */
   }
 
   .feed {

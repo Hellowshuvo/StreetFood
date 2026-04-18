@@ -4,11 +4,22 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './UnifiedSearchBar.module.css';
 import LocationSearch from '@/components/LocationSearch/LocationSearch';
 
+export interface LocationFilterState {
+  division?: string;
+  district?: string;
+  upazilaId?: string;
+  unionId?: string;
+  areaId?: string;
+  upazilaName?: string;
+  unionName?: string;
+  areaName?: string;
+}
+
 interface UnifiedSearchBarProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
-  locationFilter: any;
-  onLocationChange: (location: any) => void;
+  locationFilter: LocationFilterState;
+  onLocationChange: (location: LocationFilterState) => void;
   onModalToggle?: (isOpen: boolean) => void;
   placeholder?: string;
 }
@@ -26,6 +37,7 @@ export default function UnifiedSearchBar({
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
   }, []);
 

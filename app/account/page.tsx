@@ -20,7 +20,7 @@ interface UserStats {
 interface Review {
   id: string;
   rating: number;
-  comment: string | null;
+  note: string | null;
   created_at: string;
   stall_id: string;
   stalls: { name: string; category: string };
@@ -61,25 +61,6 @@ export default function AccountPage() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [activeSection, setActiveSection] = useState<'posts' | 'reviews'>('posts');
 
-  // Auth
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      const uid = session?.user?.id ?? null;
-      setUserId(uid);
-      if (uid) loadProfile(uid);
-      else setLoading(false);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
-      const uid = session?.user?.id ?? null;
-      setUserId(uid);
-      if (uid) loadProfile(uid);
-      else { setProfile(null); setPosts([]); setReviews([]); setLoading(false); }
-    });
-
-    return () => subscription.unsubscribe();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
   const loadProfile = useCallback(async (uid: string) => {
     setLoading(true);
     try {
@@ -105,7 +86,7 @@ export default function AccountPage() {
           .limit(30),
         supabase
           .from('ratings')
-          .select('id, rating, comment, created_at, stall_id, stalls(name, category)')
+          .select('id, rating, note, created_at, stall_id, stalls(name, category)')
           .eq('user_id', uid)
           .order('created_at', { ascending: false })
           .limit(20),
@@ -123,6 +104,26 @@ export default function AccountPage() {
     }
     setLoading(false);
   }, []);
+
+  // Auth
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      const uid = session?.user?.id ?? null;
+      setUserId(uid);
+      if (uid) loadProfile(uid);
+      else setLoading(false);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+      const uid = session?.user?.id ?? null;
+      setUserId(uid);
+      if (uid) loadProfile(uid);
+      else { setProfile(null); setPosts([]); setReviews([]); setLoading(false); }
+    });
+
+    return () => subscription.unsubscribe();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
@@ -223,7 +224,7 @@ export default function AccountPage() {
           {/* Name */}
           <div className={styles.profileInfo}>
             <h1 className={styles.displayName}>{displayName}</h1>
-            {(profile as any)?.bio && <p className={styles.bio}>{(profile as any).bio}</p>}
+            {Boolean((profile as Record<string, unknown>)?.bio) && <p className={styles.bio}>{String((profile as Record<string, unknown>).bio)}</p>}
           </div>
 
           {/* Stats row */}

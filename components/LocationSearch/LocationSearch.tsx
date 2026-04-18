@@ -40,15 +40,17 @@ export default function LocationSearch({ onLocationChange }: LocationSearchProps
   const [upazilaId, setUpazilaId] = useState('');
   const [unionId, setUnionId] = useState('');
 
-  const [upazilas, setUpazilas] = useState<any[]>([]);
-  const [unions, setUnions] = useState<any[]>([]);
+  const [upazilas, setUpazilas] = useState<Record<string, string>[]>([]);
+  const [unions, setUnions] = useState<Record<string, string>[]>([]);
 
   const [loading, setLoading] = useState(false);
 
   // Fetch Upazilas when District changes
   useEffect(() => {
     if (!district) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setUpazilas([]);
+       
       setUpazilaId('');
       return;
     }
@@ -71,7 +73,9 @@ export default function LocationSearch({ onLocationChange }: LocationSearchProps
   // Fetch Unions when Upazila changes
   useEffect(() => {
     if (!upazilaId) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setUnions([]);
+       
       setUnionId('');
       return;
     }

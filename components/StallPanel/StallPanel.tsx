@@ -1,10 +1,12 @@
+ 
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, useDragControls, PanInfo } from 'framer-motion';
 import styles from './StallPanel.module.css';
 import RatingStars from '@/components/RatingStars/RatingStars';
-import type { Stall, Post, Rating } from '@/lib/types';
+import type { Stall, Post } from '@/lib/types';
 import { formatDistance, openGoogleMaps, getRelativeTime } from '@/lib/geo';
 import { supabase } from '@/lib/supabase';
 import { useSavedStalls } from '@/lib/useSavedStalls';
@@ -60,7 +62,7 @@ export default function StallPanel({
     return () => { document.body.style.overflow = ''; };
   }, [isMobile, sheetState]);
 
-  const handleDragEnd = (_: any, info: PanInfo) => {
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
     // Velocity based snapping
     if (info.velocity.y > 500) {
       if (sheetState === 'full') setSheetState('peek');
@@ -135,8 +137,6 @@ export default function StallPanel({
 
     setSubmitting(false);
   }, [userId, myRating, ratingNote, stall.id]);
-
-  const photoUrl = stall.photo_url || '/placeholder-food.svg';
 
   return (
     <motion.div 

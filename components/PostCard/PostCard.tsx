@@ -1,3 +1,5 @@
+ 
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
@@ -36,13 +38,17 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
+import { useSavedStalls } from '@/lib/useSavedStalls';
+
 export default function PostCard({ post, userId, onStallClick, index = 0 }: PostCardProps) {
   const [liked, setLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(post.likes_count ?? 0);
   const [likeLoading, setLikeLoading] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [showHeartAnim, setShowHeartAnim] = useState(false);
-  const [saved, setSaved] = useState(false);
+  
+  const { isSaved, toggleSave } = useSavedStalls();
+  const saved = post.stall_id ? isSaved(post.stall_id) : false;
 
   // Check if current user liked this post on mount
   useEffect(() => {
@@ -202,7 +208,9 @@ export default function PostCard({ post, userId, onStallClick, index = 0 }: Post
         <div className={styles.actionItem}>
           <button
             className={`${styles.actionBtn} ${saved ? styles.actionBtnSaved : ''}`}
-            onClick={() => setSaved(!saved)}
+            onClick={() => {
+              if (post.stall_id) toggleSave(post.stall_id);
+            }}
             aria-label={saved ? 'Unsave post' : 'Save post'}
           >
             <svg viewBox="0 0 24 24" fill={saved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
