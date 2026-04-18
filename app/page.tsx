@@ -104,8 +104,9 @@ export default function FeedPage() {
       }
 
       if (data && !error) {
-        if (data.length < PAGE_SIZE) setHasMore(false);
-        setPosts((prev) => (page === 0 ? (data as Post[]) : [...prev, ...(data as Post[])]));
+        const resultData = data as any[];
+        if (resultData.length < PAGE_SIZE) setHasMore(false);
+        setPosts((prev) => (page === 0 ? (resultData as Post[]) : [...prev, ...(resultData as Post[])]));
       } else if (error) {
         console.error('Query error:', error);
       }

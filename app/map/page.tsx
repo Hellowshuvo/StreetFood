@@ -8,7 +8,7 @@ import StallPanel from '@/components/StallPanel/StallPanel';
 import AuthModal from '@/components/AuthModal/AuthModal';
 import BottomNav from '@/components/BottomNav/BottomNav';
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
-import UnifiedSearchBar from '@/components/UnifiedSearchBar/UnifiedSearchBar';
+import UnifiedSearchBar, { LocationFilterState } from '@/components/UnifiedSearchBar/UnifiedSearchBar';
 import Sidebar from '@/components/Sidebar/Sidebar';
 import type { Stall, Category } from '@/lib/types';
 import type { Coordinates } from '@/lib/geo';
@@ -54,16 +54,7 @@ export default function MapPage() {
 
   // Search / Location filter
   const [searchQuery, setSearchQuery] = useState('');
-  const [locationFilter, setLocationFilter] = useState<{
-    division?: string;
-    district?: string;
-    upazilaId?: string;
-    unionId?: string;
-    areaId?: string;
-    upazilaName?: string;
-    unionName?: string;
-    areaName?: string;
-  }>({});
+  const [locationFilter, setLocationFilter] = useState<LocationFilterState>({});
 
   const [mapView, setMapView] = useState<{ center: [number, number]; zoom: number } | null>(null);
   const boundsRef = useRef<{ minLat: number; minLng: number; maxLat: number; maxLng: number } | null>(null);
@@ -148,7 +139,7 @@ export default function MapPage() {
 
   const handleSignOut = async () => { await supabase.auth.signOut(); };
 
-  const handleLocationChange = useCallback(async (location: Record<string, string | undefined>) => {
+  const handleLocationChange = useCallback(async (location: LocationFilterState) => {
     setLocationFilter(location);
     const geo = await resolveLocationCoordinates({
       division: location.division, district: location.district,

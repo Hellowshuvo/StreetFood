@@ -224,7 +224,7 @@ export default function AccountPage() {
           {/* Name */}
           <div className={styles.profileInfo}>
             <h1 className={styles.displayName}>{displayName}</h1>
-            {Boolean((profile as Record<string, unknown>)?.bio) && <p className={styles.bio}>{String((profile as Record<string, unknown>).bio)}</p>}
+            {Boolean(profile?.bio) && <p className={styles.bio}>{profile?.bio}</p>}
           </div>
 
           {/* Stats row */}
@@ -340,8 +340,8 @@ export default function AccountPage() {
                         <span className={styles.reviewTime}>{getRelativeTime(review.created_at)}</span>
                       </div>
                     </div>
-                    {review.comment && (
-                      <p className={styles.reviewComment}>{review.comment}</p>
+                    {review.note && (
+                      <p className={styles.reviewComment}>{review.note}</p>
                     )}
                   </div>
                 ))}

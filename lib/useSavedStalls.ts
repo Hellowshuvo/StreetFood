@@ -11,7 +11,10 @@ export function useSavedStalls() {
     try {
       const data = localStorage.getItem(STORAGE_KEY);
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      if (data) setSavedStallIds(JSON.parse(data));
+      if (data) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setSavedStallIds(JSON.parse(data));
+      }
     } catch (e) {
       console.error('Failed to load initial saved stalls:', e);
     }

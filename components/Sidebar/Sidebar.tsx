@@ -5,6 +5,7 @@ import styles from './Sidebar.module.css';
 import CategoryFilter from '@/components/CategoryFilter/CategoryFilter';
 import UserAvatar from '@/components/UserAvatar/UserAvatar';
 import type { Category } from '@/lib/types';
+import type { LocationFilterState } from '@/components/UnifiedSearchBar/UnifiedSearchBar';
 
 interface SidebarProps {
   activeCategory: Category | null;
@@ -20,7 +21,7 @@ interface SidebarProps {
   onSignOut: () => void;
   isOpen: boolean;
   onClose: () => void;
-  onLocationChange?: (location: unknown) => void;
+  onLocationChange?: (location: LocationFilterState) => void;
 }
 
 export default function Sidebar({
